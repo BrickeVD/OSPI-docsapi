@@ -1,0 +1,3 @@
+# Netlify/Amplify-style redirects.
+# No legacy paths to redirect yet -- this site's structure (guides / api-reference / architecture)
+# is new. Add entries here if published URLs are renamed in the future.
