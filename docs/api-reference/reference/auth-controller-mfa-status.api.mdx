@@ -1,0 +1,69 @@
+---
+id: auth-controller-mfa-status
+title: "Get MFA status"
+description: "ADR-050 — whether MFA is enabled and how many backup codes remain, for a settings-page UI."
+sidebar_label: "Get MFA status"
+hide_title: true
+hide_table_of_contents: true
+api: eJztl81uGzcQx19lwJODUh+2lTbWTbWdwAWCuP7qwTCM0e7sLuNdck3OylaFBfoQfYe+Rx+lT1IMd/0RK0jqQ286iaLI4X9mfhxxViqlkHhTs3FWTdXs4GQwfjuGf/74E+4K4oI8fHw/AxOALM5LSgFtCoW7gwrtEuaY3DQ1JC6lAJ4qNFZD5jwgBGI2Ng+DGnOC86Oh0srV5FGOOkrlsIaLfWfZu7Ikf11leMrITVBa1eixIiYf1PTySitPoXY2UFDTldoZj+XjS+Wi8kFiVmIOP/R6jM17mQORCYlrLA9Vq9Xka3YusDRp1AgZmpJSDc4DFwSebhsKDAvjSmQKgDBvgrEUAvimJHEwcZbJspjFui5NEi2NPgexvVIhKahCGfGyJjVVbv6ZEhaHvcSGTechee/895eJP89WBfbG5koruseqLmXq59nB9cnhr+eHp2dKv/D0lCVaUGFSGEsDT5jGiXh4TGmMUkUhYP6dc9aiFiFwliR4lfMEmaEyDdFiH0hh4Fs20+3JznySJoOdbLwzmLz7cTyYv93dG+xlk2znp2yyPZ6/W3Nq33lPXXq4EGqjM3eGCwjkF+QHwaQEpctFSy/GeErV9LKL55PHz5VeacWGo65DMXlAjKY8YLdmpMvdy/UnPcDdjjbSt/0Vik0IxuYaKiwz56seP7qvxTwknlKybLAMG9o2tL2Ktt112qQAC04JsoA2bxiqDsDHghexq8nHeWdhy3kwLLU+uMYnBCFxNWmIfxw7u282WG6wfBWWk3Usz57+bCl9Ii11FMA6Bro3gWNdNN3EwgQjSWMXuU1Q3hMbEjckvorEvW+SCImzWWkSDp38CKFUysDIBFs0zIeAkDYdZgSNNbcNwQLLhjZlcQPjf4ex1SpQ0njDSzW9XKk5oScvjVArWzGXpkhhw4WYqogLJ+1UTpEC5EJN1QhrM1psj2TVqMpwFB5aq87Vvq96OOdU4OvAeTitJ1JU9lO6H7x3vkJWU/XLb2eSQxdqcw2z4yO4oaXSD2krmOsYAWMzF9PZO/3p9PgIjktkeeHKvrVMxRVbn2qycMpoU/QpHHuXNgnDUXwBZ/31eQOJEFT31obw8eK4e5PIq0U2ye2AfWcDG24ihX//Ndmd9nZ4qeGTz9Ga36O9oEFeRbo/jjzsS2+rIUrqx72UoOECvUEro31kyp038vuM2Zt5wzLeLzGER7kaDlzSVBS3zJrUsFQGyUfn+Hi4PRz3tQITqRUSwNoFrjBWCYsxIx+IY1/+mNUv4rd6qjX/d0ff55rpnkd1icbKJW58KSI6FC8V1kac3Fa6g1arKkMhsRN/pVXhAsvK1WqOgc592bYyfduQX3agLiTQc8Hn8qrVqiBM45VYKWFuqmZJQrXwH+utmq6X2Pb5XflwePag5qnOvMA8Wu9/Qrt8Znu16lacuRuybat0L4Llu2qv2rb9F9YL7vA=
+sidebar_class_name: "get api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get MFA status"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/auth/mfa/status"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-050 — whether MFA is enabled and how many backup codes remain, for a settings-page UI.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./auth-controller-mfa-status.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./auth-controller-mfa-status.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./auth-controller-mfa-status.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"decision":{"type":"string","enum":["APPROVE","REJECT"]},"comment":{"type":"string"}},"required":["decision"],"title":"VoteOnAttributeSchemaProposalDto"},"schemaType":"response"}

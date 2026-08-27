@@ -1,0 +1,69 @@
+---
+id: classification-controller-decide-attribute-schema-proposal
+title: "Decide an attribute-schema proposal"
+description: "The platform operator's final decision — same gate as ADR-020's category approve/reject, one level down. Independent of the vote tally, which is advisory only."
+sidebar_label: "Decide an attribute-schema proposal"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmF1uGzcQgK8y4EscgPqxrbbJFn1QZBdwgMKq7LgPhhGMlrNaJrvkhuTKVoUFeojeoffoUXqSYrgry45cpwH6UkBvEpecnZ9vhjuzFop86nQVtDUiEZc5QVVgyKwrwVbkMFj3wkOmDRagKNVeWwN//fY7eCwJFhgI0MP4ZNYbHg1feEgx0MK6FWBVObukgaMPlAYJ1hAUtKQClL01fTgziioyikwAm0HICZY2EAQsipWE21ynOWgPqJbas0BrilVfSNGqpa05UyIRkwK915lO49LEmuBsUZB7z8oqGofg9LwOdJHmVOLU2cp6LIQUFTosKZDzIrleC4MliURoJaRw9KnWjpRIgqtJCs2uqTDkQgof5YhkLcKq4hM+OG0Womlu2oPkwxurVrzjczmpNYFM4EdYVUWn8+CDZ9+vd0XbObuOdXVsdNDk+ekmDLtKSEGmLkVyLcbT6ez86lRIMTt9ezq5FDcNq8fytDUzQv/0+cc4zDoD4DYnsw3/D9AK7Yumeeit661qN1IEHQqWffJcIE6CFU3TivGVNb418Wh42Fr6UJvNGWhDq74HnUFnqJKRIFcXFKFh95ICXZakNAZidBopRsPhrtwrLLSKoYAMdUFKgnWtuDaesNS2wEAeEOa114a8j69iHP+joJJz1n15W2oVPRn3Oyyr6O4345P3s9Of351eXO7E8yLgvCAoMc21oZ4jVHEhvhxYdvRSSd7j4gvv2fEaZNbFLLcOSusIMk2F8lFi50jO2OdkqsPR0Xyk0t5RNjzqjV59O+zNvzl+3XudjbKj77LR4XD+aseoiXWO2vCEXPvOmFsdcvDkluR6XiuCwi78LrDRn1uLH2r6AOFTFnlCAXUH7GMhbew+3z/rgN4iPnqK6p+099osJJRYcNnt8KO7KmZe6ohLpMbC72nb0/ZVtB3v0jauQ8448TWtJMzrAGUL4H3Bi9hV5OK6NXBgHejgwZG3tUsJfGorkt2df/xyj+Uey6/CcrSL5eX2siW1JU1Z8mBsALrTPsS6qNuFpfaagxZs5DZF/ubbk7gn8atIfP0siZBakxU6Db5VP0LIldIHbnsOqL/oA4KqW8wIaqM/1QRLLGral8U9jP8exkYKT2ntdFjFbnRO6MiJ5PqG28qACx8VetTrstCSQm65Da6sj0Bwk5qIAVZ6sDwc4Kbp6lVd7+QHa62aQdtBcTsbvcDSb7YqxBatZWqjSAcrG9Atye7Hj9aVGEQi3v5yyeG1vtLvYTw9g4+0EnIT0TyEKjqH4Z9t++TTTYAf9rUP2tednvW+4ea+PLMRms615xfTM5huxhfj6dkOD3HHwXlFBi4CGoVOwdRZVacBzuJ39sa7LyFlTjfDkD78dDVtv3z424gPsV4wscYHHerI+p9/jI6TTk5YSTh3CzT61yjPS+BvL9m9jhxMrCIvIarU/e5U8RKu0Gk0/GvSDlQ0P79vonn9EQwSTmxalxSPjGulA9cfDm1r+LB/2B92FQlTrkgcC6amxFiLuvlH26wDGtiy05YpqLazk0dOXW/L3P9iftQBGeguDKoCtWGUalewJW3+XAusNLvvUEjxRA4JKZI4KOrS6EaKnPMvuRbr9Rw9vXNF0/Dyp5rcqk2uJUd0zpxer4XSnn8rkWRYeHrGowebGcxL+Cfdu0U0nG7x8hGJEFJw/sWJVsPDn5xQxZKy7h5M2nf0Lvn49uDORdXIzYlxmlIVnt37sCZNz+M1M++mYWW8noTDW05rvG2VtNHmWGvi2loUaBZ1vGJEK5NJxZoDc38/fFaDolVPumG9bndc2o9kmubeK4H/s2Oa5m/X1DvA
+sidebar_class_name: "post api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Decide an attribute-schema proposal"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/attribute-proposals/{id}/decide"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+The platform operator's final decision — same gate as ADR-020's category approve/reject, one level down. Independent of the vote tally, which is advisory only.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./classification-controller-decide-attribute-schema-proposal.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./classification-controller-decide-attribute-schema-proposal.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./classification-controller-decide-attribute-schema-proposal.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

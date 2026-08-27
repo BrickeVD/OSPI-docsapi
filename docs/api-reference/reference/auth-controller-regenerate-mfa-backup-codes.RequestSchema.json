@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"password":{"type":"string","description":"ADR-050 — re-entering the account password is required to disable MFA, so a hijacked access token alone cannot turn off the account's second factor."}},"required":["password"],"title":"DisableMfaDto"}}}}}

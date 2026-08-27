@@ -1,0 +1,69 @@
+---
+id: auth-controller-enroll-mfa
+title: "Start TOTP MFA enrollment"
+description: "ADR-050 — starts (or restarts, after disabling) TOTP enrollment; returns a secret + otpauth URL for an authenticator app. Rate limited so an authenticated caller cannot churn secrets freely."
+sidebar_label: "Start TOTP MFA enrollment"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmF1uGzcQgK8y4JODUj+2lTZRn1TbAVzUsGI76YNhBKPdWS0TLrkmZ12rwgI9RO/Qe/QoPUkx3E2sWmlSvxZ6EpfiDufnmyFn1yqnmAVTs/FOTdXs+GIwfj6Gv377HSJj4Ah7PkCg7kEDFkwBchNxYY1bPoOr86s5kAve2oocfw+BuAkuAkKkLBDDN+C5xoZLeHPxExQ+ADqQZ3JsMmSZqOshXCATWFMZphyif7SKcsjQWgqQoXOeISub4Po9IhSByK6GSitfU0Ax5zQXgxouj7xj0Y/Cu07RswKVVjUGrIgpRDW9vtEqUKy9ixTVdK0Oxvvy80/vJFv/1arXF4PM57ThjKFqtZqMx9uS3qI1edISCjSWcg0+AJcEgW4bigx3xltkEj8ummgcxQihsSQmZt4xORaxWNdW3GO8G72PInutYlZShTLiVU1qqvziPWUsJgfxDpvORgrBh68vE6M2VkUOxi2VVnSPVW1l6ofZ8buLk9dvTi6vlH5k6SXjwhJUmJXG0SAQ5mkibQ4iO3mpohhx+ZV9tryW/O4difMqHwgKQzaPSWLvSKHgSzLz/cnBYpJng4NifDCYvPh2PFg8P3w5eFlMioPvisn+ePFiy6gjHwJ14eHSxN6YXwyXECncURhEkxNYvxRdemVMoFxNrzt/Pli8qemNVmw46XUiIo+J0dhj9ltCutg9Xn/RI9y90Sb6PsPxmYnRuKWGCm3hQ9XjR/e1iIcsUC5ZhzbuaNvR9iTaDrdpm20WcQ2LhqHqAPxU8BJ2NYU07106cwxHOXd8EzKCmPmaNKTj6eDw2Q7LHZZPwnLymcP84bCl/IG03FMEuV/QvYmc6qLpJu5MNBI09onb7jayI3FH4pNIfPlFEiHzrrAm49ipnyCUShlZbsd7NFwOASFvOswIGmduG4I7tA3tyuIOxv8OY6tVpKwJhldqer1WC8JAQVqhVl7FpbRFSjocEVURl14aqtrHhAFyqaZqhLUZ3e2PZNmoKnDUNT9KZIutfWv1caNLoa8j5+N2PZKiZj+l+8ErHypkNVU//nwlQfSxNu9gNj+FD7RS+mPcSuY6ucC4wqd49lafX85PYW6R5Yor722FKq3YO6/JwSWjyzHkMA8+bzKG03QFLvr8eQaZIFT30oZw9nbeXUrk2iIvSXrAkXeRDTcJwz//mBxOezm80nAelujMr0le1CDXIt1vRwGOfE5RQ1KpH/eqRA1vMRh0MjpCpqUPRv6fMQezaFjGRxZj/KSuhmOfNdKCpo1yw1IaJB6d4ePh/nDcFwvMpFiIAyW0FaYy4TBF5FK6/q7FP3s12+hsH7ty/VB3/g/fEHq0mO55VFs0TopGE6wY2pF/rbA24tN9pbsk0apKnxX6DLjRqpRUmV6r9XqBkd4E27YyfdtQWHV5cSdxXQit1zetViVhnlJwrQTxqZplGdXi7FTf1XS7pLebuTk/T0U2qfNQ2B6lVRLf/4VutSF8ve5WXPkP5NpW6V4LlmfV3rRt+zermz8O
+sidebar_class_name: "post api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start TOTP MFA enrollment"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/auth/mfa/enroll"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-050 — starts (or restarts, after disabling) TOTP enrollment; returns a secret + otpauth URL for an authenticator app. Rate limited so an authenticated caller cannot churn secrets freely.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./auth-controller-enroll-mfa.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./auth-controller-enroll-mfa.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./auth-controller-enroll-mfa.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

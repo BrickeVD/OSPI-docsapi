@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"brandingProfileId":{"type":"object","nullable":true,"description":"One of the caller's own organization's BrandingProfile ids, or null to clear."}},"required":["brandingProfileId"],"title":"SetProductBrandingDto"},"schemaType":"response"}

@@ -1,0 +1,69 @@
+---
+id: identity-controller-get-public-unit-view
+title: "Public view of a serialized unit (DPP consumer view)"
+description: "ADR-075 — stays reachable without login, same trust model as GET /resolve/:code and GET /dpp/:accessToken: the code itself is the access boundary. Shows identity, registered owner (if any), and public-safe event history."
+sidebar_label: "Public view of a serialized unit (DPP consumer view)"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV11u3EYMvgoxTzag/bG9aRK9bW03cIEiG9txHwzDGGmo1STSjDKk1t4sBPQQvUPv0aP0JAVH8k+8bdK8Fn7aWYrk8Ocjh9wog5QH27D1TqVqfnQ6mr58AX/99jsQ6zVBQJ2XOqsQbiyXvmWo/NK6BEjXCBxaYqi9wQo0wZvjc5gEJF+tcJLm3iBoZ3qyaZpJqvMcic79R3QpcIkQeSwTVgVYiqSeBzLfOqPDegxnpb8hsAYdW14nEHBpiTGgAX/jMMCOLUC79W4Sb2varLL5iHSBgCt0DKUl9mE9VonyDQYtzp4YlaqTQeehdxx8VWG4XiIvooL3zvKFxRuVqEYHXSNjIJVebpTTNapUiekqUQE/tTagUSmHFhNlJY6N5lIlivISa63SjeJ1IzLEwbql6rorEaTGO0KS7/vTqfx8mY3eEGidZVhZvBmrLlGzf+K80JU10S8otK3QJOBDjKaYhyTyvtKMBBqylqyTEIe2QglK7h2jY1Grm6ayedQ0+UCie7Pthc8+YM4SmCDxZNv7gCH48G22GLetkCQKb3XdVEL6cX50fXr87v3x2blKnnh6xhGMtc5L63AUUJtIiJdHOMUo1Uikl9+4ZytqUPgA3qEEr/YBobBYGYoah0AKbr6m0+zN9rOZyUf7xXR/NHv1w3SUvTh4PXpdzIr9l8Vsb5q92nLq0IeAfXq4tDQ4IwUHhGGFYUTWoFSe2NI9Bt3lHQ7vPH5s6VWi2HK061hUHiFrWx2x31LS5+4p/+kA0V6ii+g72EbfvOVSCinXLMjLWobaElm3vIeg3AMNhkj3DnZ8kLIHaRZtyBEo9w0mEBvQ/sHuMyyfYfldsJxtw/L8of2heUCa8UjgPAPeWuLYKG1PWFmykjT2/duk5UV4RuIzEr8Lia+/ikTIvSsqmzP15kcQSqck1oywg+PlGDSYtocZyuv/qUVY6arF57b4DMb/DsYuUayXMrOqu+FZZGrk0sv0u8SYbhlVUzXRjZ2s9iaEwerKfkYzkrmTJhuxuJNhNvom6q7kT94Gy+szQVuPlAx1wHAPQTFrICXD4Scfas0qVT//ei5J89TYa5gvTuAjrlVyl6eSuYkuW1f4mL/By7dnixNYVJoLH2qR20pN5Nh526CDM9ayPxhYBG/anKEf9ouhXnYhF8g0g7Yx/HKx6IcQGVNESMoBDr0jttxG2P35x+wghZP7ReRtWGpnP0d9lICMQclwHQY49AYpgWjScB5MoQQudLDayelQMy59sPJ9zhxs1rKcDytNdG9uAkc+b2uMIvPWWJZWIPnoHZ+O98bToTnoXJqDBLDxxLWObWFYWoaVQrYJ8AVoeMh3v2fsHC0W0qOorTFEvt2nUd48tKD//8I4YJLxlidNpa2T7tKGSsLQl86l0o2VZOz1RfJF+ahERbek8EpPLOybTaYJ34eq64T8qcWw7qtqJajIBOuXG2UsydmotNAV4VeSsHM69IZd+DeLB6J2UmfxLVGpUomSwhtW2e6qS1SJ2kgRX26GT/M8x4YfCW29Od3jnvLm+Fx13d9N9Z2r
+sidebar_class_name: "get api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Public view of a serialized unit (DPP consumer view)"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/serialized-units/{code}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-075 — stays reachable without login, same trust model as GET /resolve/:code and GET /dpp/:accessToken: the code itself is the access boundary. Shows identity, registered owner (if any), and public-safe event history.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./identity-controller-get-public-unit-view.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./identity-controller-get-public-unit-view.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./identity-controller-get-public-unit-view.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

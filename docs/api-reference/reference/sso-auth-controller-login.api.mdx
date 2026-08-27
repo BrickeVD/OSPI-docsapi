@@ -1,0 +1,69 @@
+---
+id: sso-auth-controller-login
+title: "Start SSO login"
+description: "ADR-057/058 — redirects to the organization's configured IdP (OIDC authorization URL or SAML AuthnRequest)."
+sidebar_label: "Start SSO login"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV81uIzcMfhVClyaA/BPH6Sa+uXZauNhFXDtJD0EQyCPao+2MNJE4blJjgD5E36Hv0UfpkxTUTBJnvc12Lz35ZFkmKX4fP9HURmgMiTcFGWfFQAzHs1b35F2ne3IKf//+B3jUxmNCAcgBpQjOr5Q1vym2/yZA4uzSrEqPGiZ6CgcXk/EIVEmp840RXM3eg/MwH354D8OSUjvD+xIDHbaFFK5AH80mWgzEPDi2GDlL3mUZ+rvMrYwVUhTKqxwJfRCDm42wKkcxENvJTLSQwuN9aTxqMSBfohSGMRWKUiFFSFLMlRhsBD0W7B3IG7sSVXXLjqFwNmDg33vdLn+8ZuYyxQgxZhRBkXumB8i1RSVF/3Oe1yozuuZiqUyGWjIfTKavmYC1cZkiDKBgUQZjMQTwZYbMUOIsoSUOq4oiM0mM1PkYOPZmF5VbfMSEmDLP5JKpMaH3zn/ZLHEadymSAh9UXmS89d1wfDc7/+nqfH4p5CdI56QWGUKuktRYbHlUOm7Ew4FjR5ZyDEGtvnDODmuwdB6cZQlC7jzC0mCmQ4zYEMkieiumPur3Fn2dtHrLbq/VP/2221qcHJ+1zpb9Ze/dsn/UXZzugBo577EuD6UmNGB+NZRCQL9G3wpGI+uCc6m2RXhT8/mCeDvTWynIUMzrnEOOkZTJxuR2gtS1+9R+1ki29qii+o531ccXCi2xblh5i5IgNyEYu3qWIJ8DBfq47ywcOA+GAngMrvQJQkhcgRJic+gdH+5luZflV8my//l22hyK+kVp2mEA6wjwwQSKjdLUG2sTDBet+R9KFP8/7JW4V+JXKfHsTSXGcSYzPO7E9KMIuVMGUoRwgO1VGxTospYZQmnNfYmwVlmJ+7a4F+N/F2MlBakVT7MiBMfmOVLqeApeYaw0T60D0VGF6ayPOjxTd0Jwnc3robfqPI3INTyOeMtfktIbepyz4GqxLFB59M8q5MyaLdksvnc+VyQG4sefL7luLhTmDobTCfyCj0I+lSolKiJqY5culrABejGfTmCaKVo6n7PfTnWixcFFgRbmpKxWXsPUO10mBBPNY8qyuTKHkLBqiiZaGz5cT+s5hCcVduIbASNnAxkqo/L++rN/PGji0KOEiy2mgoyPD9kchx5GTmOQEFNq1k0qQcK18kZZXo0U4cp5w78PibxZlMTrUaZCeE5XwtglZY7RZVhqQ9wNuB418G77qN1t+oNKuD8wgYULlKvYGZoXzZyUJ5jPL+CprK8I3Lw0mP/9qdZUn/CBOkWmjOWrXPqMs6rFeiNUYRj2kZCCI7MqgxNSDHZeajW8WylSF4hdN5uFCnjls6ri7fsS/WOt5TXXYsEKu9kIbQKvtRgsVRbwDX4OZs2lPIR/y77ZVJbVHZu4GAghBct953VZ3VZSpKg0X6KbTWM0TBIsaMt9p+1X23f7h/NLUVX/AM4jSoo=
+sidebar_class_name: "get api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start SSO login"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/auth/sso/{organizationId}/login"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-057/058 — redirects to the organization's configured IdP (OIDC authorization URL or SAML AuthnRequest).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./sso-auth-controller-login.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./sso-auth-controller-login.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./sso-auth-controller-login.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

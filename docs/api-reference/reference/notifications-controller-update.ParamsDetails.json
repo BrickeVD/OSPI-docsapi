@@ -1,0 +1,1 @@
+{"parameters":[{"name":"category","required":true,"in":"path","schema":{"type":"string"}}]}

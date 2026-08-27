@@ -1,0 +1,69 @@
+---
+id: sso-auth-controller-oidc-callback
+title: "OIDC callback"
+description: "ADR-057 — the redirect-with-code binding the IdP sends the browser back to. Verifies the ID token signature/audience/nonce, then JIT-provisions/links the account via the org's VERIFIED domain."
+sidebar_label: "OIDC callback"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV11y3DYMvgqGL7VntD+2N02yb+6u09lMGru7tvvg8WQoEdIylkiZgJy4O5rpIXqH3qNH6Uk6oOSfZNukee34SRRJgMCHDyC4UQYpC7Zm652aqsP5cjB+9hz++u134DVCQGMDZjz4YHk9yLxBSK0z1hVxeWFOgNAZin9p8B8IA6Q6uwL2QzjHYHOL3epiDuyv0AHZwmluAo50Yyy6DEfOuwwT2ebg9eJ0UAd/Y8l6R6PSuqtOgc4y3ziGG6vjvw/FdwTnR8vFq8XRHIyvtHVDlShfY9Di0MKoqVqRP2x4PfOOgy9LDO+8NdlMl6XYqRJV66ArZAykphcb5XSFaqp8KLSzv97pSVTA68YGNGrKocFEWcGr1rxWiaJsjZVW043i21qkiYN1hWrbSxGk2jtCkvX98Vg+n6K+QhJnwRI1aGDn9er4bQI+gL4PAEgAOgAJrIsAnC3fQB50UaFjsDnUnviNL6xb9kJnoQRLkHmX26IJaHaHqk3U5J9sONelNdFbyLUt0UQDOg5cN0iCuy81I4GGtCHrkAhCU6JAnnnH6FjU6roubRY1jd6T6N5s4+PT95ixgB8kWmw7dDAEH76+TXi4DXai8KOu6lKmfjicv1se/Xx2tDpVyedos05LhEpna+twEFCbOBEPB9EdUaqQSBdfOWcLNch9AO+EnVD5gJBbLA1FjT2Qwsov6TR7k/10YrLBfj7eH0xefD8epM8OXg5e5pN8/3k+2RunL7acmvkQsAsPry31zkTSEIYbDAOyBqH0hdjSPqbzRYfng8ePLb1MFFuOdh2JyjmytuWc/ZaSLnaf71/25O8k2si+g232SYaiY+GNMC9tGCpLdFdn7s6BGkOc9w52fADLBAHJNyFDoMzXmEAsYfsHu0+0fKLlN9Fysk3L04fyh+aBacYjgfMM+NESx0Jpuwm5tSRo7CNvMy0XzhMTn5j4TUx8+UUmxvu8tBlTZ34koVRKYs0IOzgshqDBNB3NEBpnrxuEG102+FQWn8j438nYJop1IX2xIvKyvUJee2mrC4yRlv53qka6tqObvZFueD0i8qPNp+1zO8oe+u3OQ1F6KT9ZEyzfroRzHV9S1AHDPRHFuH4q6QevfKg0q6l6/cuphM5Tbd/B4ckCrvBWJXfRWjPX0XHrch+j2Pt6vDpZwEmpOfehErmtAMUdO8c1OlixdkYHAyfBmyZjWBjpVPI+a3YhE+LUvbYh/HR+0rUi0qyIkCQFzLwjttxE8v35x+Rg2uvh2wSOH4FFCUgzlPTHYYCZN0gJRJP6cW8KJXCug9VORjPNWPhgZf2QOdi0YRnPSk10b24Cc5818mKIBxnLUhAkHp3j4+HecNyXCJ1JiRAA5WVR6Vgc+ufR8WI+g0dB/QS+zUOF+X+8KHtCMX7kUV1q66RANKEUV7sUuFC6toLknkqUpIEQnbxK1HTrJXkP22Wi1p5YpDebVBOehbJtZfq6wXDbZciNRDgV3l5slLEkY6OmuS4Jv4D7zrLP9l34Nwf6Se0kZ+LtoKZKJUqSaOsB3F62iVqjNpKaF5t+02GWYc2PxLfuk/Zx0fjx6FS17d9SDaev
+sidebar_class_name: "get api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"OIDC callback"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/auth/sso/{organizationId}/callback"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-057 — the redirect-with-code binding the IdP sends the browser back to. Verifies the ID token signature/audience/nonce, then JIT-provisions/links the account via the org's VERIFIED domain.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./sso-auth-controller-oidc-callback.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./sso-auth-controller-oidc-callback.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./sso-auth-controller-oidc-callback.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

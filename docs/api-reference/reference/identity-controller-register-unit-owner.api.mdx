@@ -1,0 +1,69 @@
+---
+id: identity-controller-register-unit-owner
+title: "Register (or transfer) ownership of a serialized unit"
+description: "ADR-075 — DPP consumer ownership registration: contact info only, no consumer account. Re-registering an already-owned unit overwrites the previous owner and logs a CUSTODY_TRANSFER event (a resale/transfer)."
+sidebar_label: "Register (or transfer) ownership of a serialized unit"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWF1uGzcQvsqATzaw+rGtNMm+KZIDuEBrRbJTFIZhjJYjiekuuSFn5SiCgB6id+g9epSepBjuylKs1mmAPhX2i2nu/M83wxmvlaaQeVOycValqj8ct7ovX8Cfv/4Gw9EIMmdDVZAHd2/Jh4UpwdPcBPYoHKkQMGYMxs4cOJuvErBux4ZZ5irLbRhTq2Ykb+wc0ALmnlCvWiJZQ2UNg1uSv/eGKQAvCEpPS+OqUCsHtBpyNw+AMLieXF0Of767Gvd/nLw9HwMtyTIcIXgKmFOHPdowI3/cVolyJdXmXmiVqgtNlg2vBs6yd3lO/m5r2bU1fCm6VKJK9FgQkw8qvVkriwWpVGVOk0qUp4+V8aRVyr6iRBmJXYm8UIkK2YIKVOla8aoUnsDistpsbmtGCvzG6ZVQPJYj0STL8gnLMjdZNLvzIUhy1oei3fQDZSzWenGSDQX5Wht7YECiqECT/51p+y7d1Pxb6ttEseFcyMdNnGKMhuzUZlOzhtLZUOs+7Z7Iry9hdfkIPeRJt8WgXrd7SP0ec6Oj5zBDk5NOwPmIiCZ8sDQuR4EJwrQKxlII4KucJNv/UQzJe+e/ThYBcRDQRNEnLMoYtDf94d34/N31+eRKJY88nTBOc4ICs4WxUiGo40VUDiI7RqmgEHD+FT0HUYOZ8+AsSfAK5wlmhnIdosQmkFIQT8nUJ73TaU9nrdNZ97TVe/VdtzV9cfa69XrWm52+nPVOutNXB04NnPdUp4cXJjTO3BteQCC/JN8KRlMs5fYB9JoC23q8b+keEM9F5JAYTV7D8Eshde4e048bmO6A2+ueHaKvX/FCOkSGLMibVgyFCUG61haCogdK8vHeWThyHgwHaT6u8hlByFxJCcRuenp2/AzLZ1h+Eyx7h7C82rU/0jukaUcBrGOgTyZwbJSmvliaYCRp7CJuM5Sn7hmJz0j8JiS+fhKJMujNcpNxqM2PIJROGRiZ4Ija8zYg6KqGGcmY97EiWGJe0XNbfAbjvwfjJlGMcxnGlWkmeOEpiBdOxvrShZhvGcJT1cHSdJYnnUDeYG4+k27JhhE6azF503HNlF+7KFJv5Y+s8oZXEwFdDZgpoSf/gESxrrlKmsNb5wtklarvf7qS3LlQmjvojy7gF1qpZJuuBXMZPRdkj3dbwPk2ew8rxi6x9bC+N77LkhUh0ATqcjK6gFGOPHO+EJ0H2Y0UR5clWZgwWo1ew8g7XWUM9SI0a0ruGDJBXdlIa8MP70f1HCOTjjBJRcHA2cCGq4jcP37vnaWwXagSuPRztOZzlBcSkEkqadSRh4HTFBKIJjXnxpSQwHv0Bq2cBsg0d97I9z6zN9OK5TzIMYQHcxMYuqwqKLL0K21Yuonksna82z5pd5v+gpn0Fwm+gKRAuxft7UoTZ7iHrXFv3XUzQNjBKC6qj8O83rWx/+cG3YCY6RN3yhyNFTRWPq6SdcXdKCyNZOCkrqovqk4lKm1aRV14t4laSL2mN2q9nmKga59vNnL9sSK/qstxKZCYCtBv1kqbIGet0hnmgZ5IwNG46S3H8E+WN5dopUDjW6RSpRIlFdvs+JvbTaIWhFqq/2bdfBrUWlpXImDHevBybZItRz/LqOQnafe72OgyvjvT5v8DRXyvlMd76a14X5vpotexP8W7tcrRzqv45qhapvz8BawfKLM=
+sidebar_class_name: "post api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Register (or transfer) ownership of a serialized unit"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/serialized-units/{code}/owner"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-075 — DPP consumer ownership registration: contact info only, no consumer account. Re-registering an already-owned unit overwrites the previous owner and logs a CUSTODY_TRANSFER event (a resale/transfer).
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./identity-controller-register-unit-owner.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./identity-controller-register-unit-owner.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./identity-controller-register-unit-owner.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

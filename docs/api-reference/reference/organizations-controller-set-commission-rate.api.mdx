@@ -1,0 +1,69 @@
+---
+id: organizations-controller-set-commission-rate
+title: "Set (or clear) an organization's platform commission rate override"
+description: "ADR-065. Platform-operator only — an org can never set its own rate. Pass `commissionRatePercent: null` to clear the override and revert to the platform default."
+sidebar_label: "Set (or clear) an organization's platform commission rate override"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWF1uGzcQvsqAQFEbWP3YVtJEb4qsoC7iWJWU9MEwFGo5kpjskhtyVrYqLNBD9A69R4/SkxTDXVmWZKdJ0ZcCetKK5Axnvvk45MxKKPSx0xlpa0RbdM4HtebzZ3XoJ5Km1qU1m6GTZB1Ykyzhr99+B2nAuhnE0oDBBTrwSKDJg7014CRhHfrSe/gQ2zTV3mtrBpKwjy5GQ20weZJ8ALIQJygd0BzBLtA5rRCkUeBYKfECnsoqQ0DhVOYJ1UUkSpu0NRdKtMWVm0mjfw0DvmsNOZsk6MYeqbtlgYhEJp1MkdB50b5eCSNTFG2hlYiEw8+5dqhEm1yOkdCMRyZpLiLh4zmmUrRXgpYZS3hy2sxEUdyUgujplVVLXrGrJ7aG0BBPySxLdBwMbXz0DPhqX7WdfMSY2FbHfpJGz7OPgvmYGMMrJwmu998OcCUYAdZndWjWn8HUOv79rooai//r4MBR/01n9PpqcDk+773uvHszGnevLi8vhsOLq7fjQWfUG/d7g27v7ei4LoriIejXT3h4EwnSxO6I4W5Az8mKoij1+MwaX0J12mzyz7bjG8nA0Y1XeaYkoaqLIhKtxyTfy0SrEDSYSp2gisCWyFSRh4W2iST0IGGSe23Qe3B5gszV/yj86Jx1X8MShfs0jQTeyTQLIL7qnI8HvZ/f9YYjsUuOITFxIJXxXBusOZQqDITNgXUHlFL0Xs7+YZ891ALRrEEGL7UOYaoxUT5orIDk4/wlneqkdTppqbh2Om2e1lovnjdrk2dnL2svp63p6Q/T1klz8mLPqa51Dsvw0Fz7yplbTXPw6Bboap5pkNiZf4yTitPG2uOHlj4gZo9VniNJnZSU3FZSxm53/aCi7IbErebJPvsumbRmFkEqEz5qFf3wLmP1EDtUaEjLxB/YdmDbN7HtbJ9tnZzmTKeYU2IEk5wgLQl4n/AC7TJ062x6ZF24/R16m7sYwcc2wwjCU+L07PhAywMtv4mWrX1ajjaXLaoN05RFD8YS4J32FPKiLgcW2msOWvVOiSW/CA9MPDDxm5j48otMhNiaaaJj8qX5gYScKT3xA/MovLAlqLykGUJu9OccYSGTHA9p8UDGrydjEQmPce40LUPdOkHp0In29Q0XoCRnXM4K+7AQZp0p0tyqsoyN56H8pbloi4bMdGNx0tgSaKy0KhqbIqzmypK5BII3uNlYMWRqlrRa21LxlX2ohqLq47V1qSTRFj/9MuIIW5/pMXT6F/AJlyJaB3VOlAV8mP+DTVHdW8f46SKYpbSZ2kCRCsirYf/ivo3Bu+1FP6w4usrQwJCkUdIp6Dur8pjgIryqp9WRPIaYWbkud+tw+b5fvnP4JcRCfOKga40nTXlg9p9/tM7alR5aRrDVpoiAX1pRtR066FqFPoJgUvVdmeIjeC+dloa/upJwZp3m+Q6R05Oc+LubSO/vzY3g3MZ5ikGkkysduiYcxdLxZv2k3qzyj4zXAGbWUypD5qn6IkOk8LwLvYDjqvFz78T3flP/x09U17uYrzY573/Sa6rISXhHjSyR2nBOyl3CvpTH6VrITDO+J9ya2jqDkWiH3tLuqbqJxNx6YtnVaiI9vnNJUfDw5xzdsjxrC456aORcr4TSnr+VaE9l4nfbOg9hPRpU6eUYnjK/GpSGT1+4jkRbiEjwcQzdsOKmiMQcpQpJZlVNdMs9aiMW3wjuXV1FtJboxDFm9MW1D9NUvzPq/shpo2qlpeHGEk7ecnaVt6WVNivB5V4bj61EIs0sD7eOKJUynWXOwbm/MnZyUnDrURxWq3LFyH5CUxT3sBD/Z2SK4m93bVCE
+sidebar_class_name: "patch api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set (or clear) an organization's platform commission rate override"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/api/v1/organizations/{id}/commission-rate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-065. Platform-operator only — an org can never set its own rate. Pass `commissionRatePercent: null` to clear the override and revert to the platform default.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./organizations-controller-set-commission-rate.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./organizations-controller-set-commission-rate.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./organizations-controller-set-commission-rate.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

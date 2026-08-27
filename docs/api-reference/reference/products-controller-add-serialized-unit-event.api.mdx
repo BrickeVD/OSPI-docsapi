@@ -1,0 +1,69 @@
+---
+id: products-controller-add-serialized-unit-event
+title: "Add a serialized unit's event"
+description: "ADR-070 — append-only history: repairs, notes, custody/location moves, and status transitions (RECALLED/DECOMMISSIONED — the only way a unit leaves REGISTERED). ADR-076: a professional currently scanned in via POST /serialized-units/:code/scan may also call this, but only for NOTE/REPAIR events. NOTE: OSPI receives this data — the scan-and-log UI itself lives in each professional's own software; a client SDK for this flow is a planned follow-up, not yet built."
+sidebar_label: "Add a serialized unit's event"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Add a serialized unit's event"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/products/{id}/serialized-units/{unitId}/events"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-070 — append-only history: repairs, notes, custody/location moves, and status transitions (RECALLED/DECOMMISSIONED — the only way a unit leaves REGISTERED). ADR-076: a professional currently scanned in via POST /serialized-units/:code/scan may also call this, but only for NOTE/REPAIR events. NOTE: OSPI receives this data — the scan-and-log UI itself lives in each professional's own software; a client SDK for this flow is a planned follow-up, not yet built.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./products-controller-add-serialized-unit-event.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./products-controller-add-serialized-unit-event.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./products-controller-add-serialized-unit-event.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

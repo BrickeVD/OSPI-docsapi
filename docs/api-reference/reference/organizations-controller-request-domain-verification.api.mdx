@@ -1,0 +1,69 @@
+---
+id: organizations-controller-request-domain-verification
+title: "Request domain verification"
+description: "ADR-038 — starts real DNS TXT-record proof-of-ownership for a domain, used as the trust anchor for public discoverability and SSO JIT-provisioning."
+sidebar_label: "Request domain verification"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmFFuGzcQhq8y4JMDULJsq22iN0d2AQdI7VpKWsAwgtFyJDHZJTfkrGxXWKCH6B16jx6lJymGu7Jky3EaoA99EKAHiksOhz8/DjlcKkMxC7Zk650aqOOTy07v6CX8/fsfEBkDRwiEOZz8NILxr+NOoMwHA2XwftqR342jEOe2hKkPgGB8gdZpqCIZwAg8J+BQRQZ02dyH1KysJrnNwNiY+QUFnNjc8h2gMzAancObs3GnDH5ho/XOullXaeVLCig+nhk1UOdhhs7+liri0DsOPs8pfAj0uaLIJ8mJ9xTs1GapkdKqxIAFMYWoBldL5bAgNVDWKK2kmw1k1IBDRVpZUaJEniutYjanAtVgqfiulB6Rg3UzVdfXTUeK/NqbO2nx2E7mHZNj+YRlmbe+7H+MIvVy27SffKSMxdcg82VLUb42mm67oBXdYlHmUoVZQd3MF6quN+dztep8rRVbTk0vvyTSCXtV142BWHoXm+EPewfJiwecbPaDVgbIAiGTgRvLc8AVM9Aywx7QmK6qter3ek+YxNyaxuAUbU5Ggw8JoJX9hfU5MkVAmFTROooRQpWTAPIfaU0h+PD1Zpk39PyCvD4++XB5+vO709FY6UczHTFOcoICs7l11AmEJlWkwUFsJ5UKihFnXxlnS7W0w7wjEa/wgWBqKTcxWWyFlD30nE1z0D+c9E3WOZz2Djv9l9/3OpPvjl51Xk3708Mfpv2D3uTl1qSGPgRqlofnNraTSShECgsKnWgNQe5n4ssjSpOe6xlverpB7qmYPCFGmzesPjTSrN3j9pcty2u6+08B/dbGaN1MQ4H51IeixY9uSzEvaBtybDGPO9p2tH0TbUfbtB1XPBecMomXGiYVQ9EAeB/wEnYlhVTvHez5ADYdx9FXISOImS9JQzqxD49e7LDcYflNWPa3sRyvD1sya9KMpwjOM9CtjZziom0q5I4mi8Y+cZuhXMN2JO5I/CYSXz1LImTeTXObcWzcTxBKpIyMTLBH3VlXMo+qwYygcvZzRbDAvKJdWNzB+O9hrLWKlFXB8l1KEieEgYIaXF1Ltsc4k9xR+c3sU2wWxHMveWnpY+JBUseB2sfS7i8O9h+0319aU+83WVlnsZFFRUk2kxgyyPXak5Hg2aC18qdlVubRVum28KMPBbIaqDe/jGWVfSztBzi+OINPdKf0amHnzGXSSPbA5TqLPV2t8zrr3EgtJTOe+sRHq+L56OIMLnJkuTLLMFtLn1rsnZfkYMToDAYDF8GbKmM4S1fqlQAvIBMky9ZaF96+v2guOXINkk6y3WDoXWTLVcL6rz/7R4PWDt9pePAwoEGuWbodjgIMvaGoIbnUlltXoob3GCw6KQ2RaeaDle/HzMFOKpbyMMcY793VcOKzqqDU5bgyliXUyPI1E+91D7q9NvhgJsFH9BZCCkxhp32BaNVvX05g8fDV4oGYy3Uk+98+1LSAMd3yfpkLQbVWVcjF+2ZfXCksrUh1IO86D/aSVoP0IPPk9rjWai77a3CllssJRnoX8rqW6s8Vhbtm0yxkFSfC5tVSGRulbNRginmkZ9Tcu2xjxQv40hzaSnSyjdLZogZKaSX7Kr0j1de1VnNCkyLGsv0wbMbojKX7uuPWOVTrVY/jLKOSn227GXMuztMpMmnfoIp0+qiANxIp8aZx0peNhvJIJXVLlaObVekEUY1NoRMrWaD78P8otqRZPSnDctm0GPtP5Or6XhWW/yJMXf8DGSMHxg==
+sidebar_class_name: "post api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Request domain verification"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/organizations/{id}/domain-verifications"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-038 — starts real DNS TXT-record proof-of-ownership for a domain, used as the trust anchor for public discoverability and SSO JIT-provisioning.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./organizations-controller-request-domain-verification.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./organizations-controller-request-domain-verification.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./organizations-controller-request-domain-verification.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

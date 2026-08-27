@@ -1,0 +1,1 @@
+{"parameters":[{"name":"q","required":true,"in":"query","schema":{"type":"string"}}]}

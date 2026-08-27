@@ -1,0 +1,69 @@
+---
+id: products-controller-list-successors
+title: "List a product's successors/replacements"
+description: "ADR-059 — reuses SUPERSEDES/REPLACEMENT_FOR relationship types (ADR-033), surfacing the replacement's live status."
+sidebar_label: "List a product's successors/replacements"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmM1y2zYQx19lB5fYM9SHbaWNeVNlpeNOUquSkx48Hg9ELiUkJEBjl6pdDWf6EH2HvkcfpU/SWZCyVSt16lMvOgkCgcXuHz8ssVyrFCnxpmTjrIrV8Gza6b8+hb9++x08VoQEsw+T8XQ2PhvPetPx5N1wNH4//vHy5u3FFDzmWibS0pTA9yUSHAQLJyeHEVDlM50YuwBeIngsc51ggZZfEeRmhUCsuaKuipQr0QdL56mK1cS7tEqYRs6yd3mO/iY3xLMqSZDIeVKRKrXXBTJ6UvHVWlldoIqVSVWkPN5WxmOqYvYVRspIYKXmpYoUJUsstIrXStxVsSL2xi5UXV/LRCqdJSR5ftzvy88/5XlniMFlQBtXoGx97ao6UoMvzfmoc5OG4CDTJsc0AudbSW4rJIaVcblmJNAwr8hYJAJf5SjKJM4yWhazuixzkwRLvU8ktte78bj5J0xYBPIiKpsmGvTe+a8PS1yKu+JECu90UebS9d3w7GY6/unDeHapoieRzljPc4RCJ0tjseNRp6EjLA5iO6hUIJFefGWdHdUgcx6cRRGvcB4hM5inje6tkALPczbTo8HxfJAmneOsf9wZvPmm35m/PjntnGaD7PjbbHDUn7/ZCWrkfMAcCXhpqA3mF8NLIPQr9B0yKULuFuJLvY3fVaPnY8Tbnl5Hig0Hv8Zi8gxZm/yM3Y6RZu+ejp+2sDYz6kDf0S597w2RsYsICp1nzhctfnhXinlIPKZo2eic9rTtaXsRbSe7tA0rXgpOiWYBbV4xFA2ADwkvYFeiD/3OwoHzYJjAI7nKJwiUuBIjCO+R45PDPZZ7LF+E5WAXy8vHly2mj6SlDgmsY8A7Qxzyomk6VoaMbBq7wG2i5RKyJ3FP4otIPH2WREiczXKTMDXuBwglU8q1GOEAu4suaEirBjOEyprbCmGl8wr3aXEP43+HsY4UYVJ5w/ehWpqj9uhVfHUtZQ/rhRRRalPKiLkCeemkFltgIEGqp1j1dGl6q6PeZmRvbdK6R9t1WRO32Lt+XHQmJDYUbZZu8RSX266obbx1vtCsYvXDz5eyoY5KcwPDyTl8xnsVbfZwyVwGOYzNXNjbVoGL2eQcJrlmue7KvJ1tCyMOLkq0MGNtU+1TaGtOOA/X4aw9S4eQCE5la60L7z9OmguKXGFkkhwVGDlLbLgKSP75x+Akbu3wfQQXfqGt+bUplCOQK1LULoceRi5FiiC41LY35W8EH7U32kprpBkXzht5PmT2Zl6xtEe5JnpwN4Izl1RSYoeFUsOSJmQ/msD73aNuv00cOpHEIQKWjrjQIWW0ZXQoc/Wmtn1Fj/Uu9bbqeHqq7PoxJf1fXxJaOhjvuFfm2ljJAZXPxbmG4iulSyOyHDUprmE+UnH4eLAF83Wklo5YZqzXc034wed1Ld23Ffr7BvGVbNFcwLtaq9SQtFMVZzonfEadg2l7iA/h35xuO7UV6EPSV7FSkZJTEL501Nd1pJao03CU1+2DYZJgyVtTdl4N9fb5/n4suVpXosxDfnxyIoP1L7qzXjcjLt1ntHX94B3Lf3Gwrv8GR6VKyw==
+sidebar_class_name: "get api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List a product's successors/replacements"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/products/{id}/successors"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-059 — reuses SUPERSEDES/REPLACEMENT_FOR relationship types (ADR-033), surfacing the replacement's live status.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./products-controller-list-successors.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./products-controller-list-successors.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./products-controller-list-successors.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

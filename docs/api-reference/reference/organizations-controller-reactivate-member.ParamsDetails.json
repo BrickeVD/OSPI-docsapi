@@ -1,0 +1,1 @@
+{"parameters":[{"name":"membershipId","required":true,"in":"path","schema":{"type":"string"}}]}

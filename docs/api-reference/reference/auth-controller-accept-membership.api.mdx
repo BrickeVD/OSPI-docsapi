@@ -1,0 +1,69 @@
+---
+id: auth-controller-accept-membership
+title: "Accept a pending organization membership invitation"
+description: "Deel 9 §17 'Membership acceptance' — only the invited user themselves may accept."
+sidebar_label: "Accept a pending organization membership invitation"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmM1uGzcQgF9lwJMNUH+22sR7U20XcIHAru24B8cwqOVIy4RLrslZ1aqwQB+i75D3yKP0SYrhri3HSp360JtOombJ4fx8nOXsSmiMeTAVGe9EJo4QLRzAl8+jN/BBvMNyiiEWpgKV51iRcjl+EPD3n3+Bd3YJVCAYtzCEGuqIgQVlRLvACKVadqv6QgpfYVC8yYkWmZjUVBx6R8Fbi+G2nbbeTUhRqaBKJAxRZNcr4VSJIhNGCykC3tUmoBYZhRqlMGx4pagQUsS8wFKJbCVoWfGKSMG4uWiaG14YK+8iRn6+Nxzxz9fuf+UwmYUi1H3RSDEeDjdnXylrdHIKZspY1BJ8CgGwiRgJFsZbRRhBwbSOxmGMEGqLHJHcO0JHrFZVlTV50jT4GFn3atMTP/2IOXFoAgeTTOsHhuDD96flXuNmWKTAe1VWlkU/TY5uz49/fX98cSnkM08vSE0tQqnywjjsBVQ6CdLmwLpTlEqMUc2/s89G1GDmA3iHHLzSB4SZQatj0tgFkqF5SacejfemY5339mbDvd747Y/D3vSH/YPewWw823szG4+G07cbTh36ELBNDxUmds78bqiAiGGBoReNRrB+zrY0T8G7buO59vippTdSkKFk1zGrPEJSxh6R31DS5u75/PMO03ZFk+j7FqsmRuPmEkplZz6UHX54X7F6yANqdGSUjVvatrS9irb9Tdq4YjNOOZdECdOaoGwBfCx4CbsKQ5J7Bzs+gKEIAaOvQ44Qc1+hhMnReW+4t7+7xXKL5auwHG9iebl+2aJek6Y9RnCeAO9NpFQXTStYmGg4aeQTt7niC8iWxC2JryLx4EUSIfduZk1OsTU/QciVMpIihB3sz/ugQNctZgi1M3c1wkLZGrdlcQvjf4exkSJiXgdDy9QnTVEFDCK7vuGGh9Sc2yehaipYVYlUeO6/Kh8TBtw0ZWKgKjNYjAY8bVA+tkBxsDK6GbTNGfdWyXFWeLPe9YJRbDF62Lvjk23uRLIb/OxDqUhk4pffLjmjPlbmFiZnJ/AJl0I+JLEgqlI8jJv5lNwuBKcXZydwZhXxfZfXbeQtzdg5rdDBBSmnVdBwFryuc4KTdB+edYdpF3Lmqeq09eHd1Vl7Q+E7DC/iswKH3kUyVCcmv3we72edHlpKOA1z5cwfSV+UwHck2W2HAQ69xighmdSNO1OihCsVjHI8OlSEcx8MP58QBTOticeHVsX4aK6EI5/XJaYlk1qb1FVzPlrHh/1Rf9hVDpVz5eAAcp5LlWpG10FPUjZBQYVOc03yT3yAdfLbtj5Jnwd5tS5P/9/3gg4FwnsaVFYZxye+Dpa3b7G9FqoyHIORkC3hDPgjvEKKLH0u6Pi9kaJg6rNrsVpNVcT3wTYNi+9qDMuW6gVnZcqsXa+ENpHHWmQzZSO+EIWd8+7g7sK/md4JlWPOU6EXmRBSMPjpu0Zz00hRoNLp+K66B5OHw/ewZON10Dw912enqUCnaKyL4rNTmNR/057Vqp1x6T+ha5pH84j/s4VN8w8uLT6r
+sidebar_class_name: "post api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Accept a pending organization membership invitation"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/auth/memberships/{id}/accept"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deel 9 §17 "Membership acceptance" — only the invited user themselves may accept.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./auth-controller-accept-membership.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./auth-controller-accept-membership.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./auth-controller-accept-membership.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

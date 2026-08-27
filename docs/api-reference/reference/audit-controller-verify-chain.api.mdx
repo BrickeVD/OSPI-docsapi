@@ -1,0 +1,69 @@
+---
+id: audit-controller-verify-chain
+title: "Verify the audit-log hash chain"
+description: "ADR-053: recomputes and checks every sealed row's hash; reports where the chain first breaks, if it does."
+sidebar_label: "Verify the audit-log hash chain"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmM1SIzcQgF+lS5ewVfIP4E2WyYkYkiJVWxBgyYGiKFnT9miZkWZbPQbHNc+T98iTpVoz/ASndsMlJ58sy1L/fmqpvVY5RkuuZhe8ytTh0flg/H4/A0IbqrphjGB8DrZAexcBl0griGhKzIHC/XcRChOLH4GwDsQR7gskBC4QbGGch7mjyDAjNHdRg5uDY8gDxqHSKtRIRvSe5KK5yR1Pg2cKZYl0u0Ry89VUpCitakOmQkaKKru+0Yow1sFHjCpbq73xWD7+6cmV7Hc2KQDC2JScgfNsLGsIlGzsrKNwv2F3Z/FQtVpN/lW6KV3eyZ4bV2L+JJPwS4ORYelCaVL4YNZE5zFGoKZE8dwGz+hZxJq6LnsrR5+jyF6raAusjIx4VaPKVJh9RssSBpKgsev8RqJA315mQ44vVkUm5xdKK3wwVV3K1E+HR7fnx799Or64VPqVpxdsZiVCZWzhPA4ITZ4mknIQ2SlKFcZoFt/QsxE1mAeC4FGCVwWSjGCZd3HvAylwfE1mvjvZm01yO9ibj/cGkw/fjwez9/sHg4P5ZL73w3yyO5592HBqGoiwSw8XLvbO3DsuICItkQbR5QhlWIgtvTGOMFfZdRfPZ49fWnqjFTtOdh2LyCNk48ojDhtCuty9Xn/eY93taBN9u5v0fXQxOr/QUJlyHqjq8cOHWsSDJczRszNl3NK2pe1NtO1v0nbYcCE4WcMC2qxhqDoAnwpewq5GSvPBw04gcByl7oaGLEK0oUYN6XrZ23+3xXKL5ZuwnGxiefl82cpj5JE0eV2ADwz44GJ31btuYumik6Rx6C56I++MLYlbEt9E4sFXSQQb/Lx0Vp7CYn6CUCplZMMIOzhcDMFA3nSYITTefWkQlqZscFsWtzD+dxhbrSLahhyvVHa9VjM0hCTtUStbzUJaJWWkrRJZFXIRpNFaYMLAcKEyNTK1Gy13R2nZQHwapQZo1LVfSnSIz33b9ajwQijsCHpU26Mp5vZTuh/8HKgyrDL16++XkswQa3cLh2cncIeioc9fwVynUDg/DymvvfenF2cncFYalqeu7NtIWVqxc1qjhws2PjeUwxmFvLEMJ+kp/NgJvgMrKNW9tCF8vDrrHifyfJFNckxgGnxkx03C8a8/J/tZL4dXGk5pYbz7I8mLGuR5pHt1SDANOUYNyaR+3JsSNVwZcsbLaGoYF4Gc/H7ITG4mvbaGaWlifDJXw1GwTYVpS+qQpURIPjrHx8Pd4bgvGsZK0ZAA1iFyZVK58CZlJDXDq3TtPWU6de5du/s6oOvnKvS//iPQk8D4wKO6FMNarRoqxaIO2Gtlaich2FVaPUMrIegd6cG90aoIkWXHej0zET9R2bYy/aVBWnU4LyUdM4Hs+qbVqkCTpxO0VkJmpg6txVpOSyrPKtusyO3Lk/XL8WWySgx9KkuvDkOS3v9k/OqF7PW6W3EZ7tC3rdK9ESzfVXvTtu3f1uUP8Q==
+sidebar_class_name: "get api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Verify the audit-log hash chain"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/audit-logs/chain/verify"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-053: recomputes and checks every sealed row's hash; reports where the chain first breaks, if it does.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./audit-controller-verify-chain.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./audit-controller-verify-chain.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./audit-controller-verify-chain.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

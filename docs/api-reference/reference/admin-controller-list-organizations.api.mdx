@@ -1,0 +1,69 @@
+---
+id: admin-controller-list-organizations
+title: "List every organization on the platform"
+description: "ADR-074 — platform-operator-only, read-only. Includes member/product counts. This is NOT tenant impersonation — no way to act as another organization exists here."
+sidebar_label: "List every organization on the platform"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmF1uGzcQgK8y4FMCUL9Wm0Rviu0ULprasZ30wRCC0e6sxGSX3JCzjhVhgR6id+g9epSepBju2pKs1In7VkBvFEXO78dZclYqpZB4U7JxVo3V5Oi80382gr9//wPKHDlzvui4kjyy8x1n86UGT5jGYRdObJJXKQUoqJiR75XepVXCkLjKcujC5cIEMAF+Pb0EJouWwRQl+eAsisaoxzr4jEtgB5gwYAC0jhfkwfk5WvOlWUk3JnCABXnqKq0am4yzJ6mYnRbGHjrL3uU5+fe5CXy6sTsorUr0WBCTD2p8tVIWC1JjVeKclFaePlXGU6rGGeaBtDISjU8V+aXSKiQLKlCNV6ow1hRVocYDrVLKsMo5jnlZijRbSRhUXestBRfmy39VUuBNO+73N1QO+w/pDM7zy+U3NW6n/pWhPJUsyG6YbZvU6grsjZ3v6Doy/hHu3TmhMCRK35OtFVnx96r9V4xU07qeioJQOhsoiJRhv98I2/ThDOfGIlO6xU7oqlqr0dc2vMPcpA1gGZqcUg3OAy8IxBsKDNfG5cgUAGFWBWMpBPBVHiFMnGWyLGKxLHOTREm9D0Fkr3bD52YfKGFh0Qu/bBpXyHvnv70scSnt5kIrusGizGXq5eTo/fnxm7fHF5c76b1gnOUEBSYLY6kjhzhOROUgsmOUCgpBjsSDenaiBpnz4CxJ8ArnCTKBqYl7G0g5pw/JTAej4WyUJp1h1h92Rs9/7HdmPxy86LzIRtnwWTYa9GfPd5w6dN5Tkx6WUtM489nwAgL5a/KdYFKC3M3FlnqT0asmnmuPNy2dasWGo13HIvKIGE1+xG5HSJO7++vPW1KbHXWkb7BL32sTgrFzDQXmUmlb/OimFPGQeErJssE87Gnb0/Yo2g52aZtUvBCcEimQGmYVQ9EAeFfwInYl+TjvLDxxHgwH8BRc5ROCkLiSNMRrwvDg6R7LPZaPwnK0i+Xl+mNL6Zq01FEA67i5+MW6aJqJaxOMJI1d5DZBufLtSdyT+CgSXzxIIiTOZrlJODTmRwilUgZGJnhC3XkXENKqwYygsuZTRXCNeUX7sriH8fthrLUKlFTe8DI+TGeEnrwaX03lzcM4D/ExJC9ckVUQL5y8eecUMUBeqLHqYWl614NeXNZz956+jb8iZ7pWdiEENvTcqmyxFFPbKd0OXjlfoDzZfv7tUhLpQmnew+TsBD7Scv2GWzCXMQzGZi7mtPX89OLsBM7ahoLs20lXXPHktCQLF4w2RZ/CWdtOOInX4Kw9Q08hEYxu2xNdeP3urLmYyNVFNskRgUNnAxuuIop//Tk6GLdyeKlhqzmgQa5GulVHHg5dSkFDNKkdt6YEDe/QG7QyOkSmufNG/p8wezOrWMaHOYZwZ66GI5dUBcUtkyo1LOVB8tE43u8Ouv22YGAiBUMCWLrABcZS0T60fzGBga7JL7cbI87Gz+BtOO4HdrWuRP+f7k6LE9MN98ocjZViUflc3GmIv1JYGonjQOn2cGi1zf1Uq4ULLGtXqxkGeuvzupbppichhy01QSrdumchON91hWI1V2OlpN/xwNK2v/Pw8n/NylcaL1/1v9F319v5HuPWzZn16qn88EaWxyKj1YIwjRVn1W6bJAmVvLFr5wtWb1ain47lk4KV5OWujN8rIFF6+xfaTftXq2bFpftItq7Vre0sv1U9rev6H3J3FhA=
+sidebar_class_name: "get api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List every organization on the platform"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/admin/organizations"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-074 — platform-operator-only, read-only. Includes member/product counts. This is NOT tenant impersonation — no way to act as another organization exists here.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./admin-controller-list-organizations.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./admin-controller-list-organizations.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./admin-controller-list-organizations.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

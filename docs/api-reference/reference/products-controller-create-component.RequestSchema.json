@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"componentProductId":{"type":"string"},"percentage":{"type":"number","description":"Share of the parent product's composition, 0 < percentage <= 100."}},"required":["componentProductId","percentage"],"title":"CreateProductComponentDto"}}}}}

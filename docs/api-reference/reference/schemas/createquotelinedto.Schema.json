@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"productId":{"type":"string"},"variantId":{"type":"string"},"quantity":{"type":"number","description":"Decimal (ADR-024, Deel 17 §29) — e.g. 4.5 kg."},"unitPrice":{"type":"number"},"currency":{"type":"string","example":"EUR"}},"required":["productId","quantity","unitPrice","currency"],"title":"CreateQuoteLineDto"},"schemaType":"response"}

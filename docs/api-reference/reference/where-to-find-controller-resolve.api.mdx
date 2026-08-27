@@ -1,0 +1,69 @@
+---
+id: where-to-find-controller-resolve
+title: "Find where to buy a product"
+description: "ADR-036, Deel 16 §64 — resolves an OSPI code to a ranked list of sellers/availability. Publicly reachable; an authenticated caller additionally sees PARTNER_ONLY inventory detail they've been granted."
+sidebar_label: "Find where to buy a product"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWF1uGzcQvsqAL3WA1Z+tuon6pNpO4baJXdtJUBiGwV3OSqy55IacVawKC/QQvUPukaP0JMVw17YU2Yld9KnQk1bc4cf5+WaWMwuhMGRel6SdFSMx3j/p9Hd2E9hHNDDYhU8fd4fw959/gcfgzAwDSAtHp8eHkDmFQA4keGmvUIHRgcDlENAY9KEnZ1IbmWqjad6F4yo1OjNz8CizqUwNfs9QsqIpWtKZJFSQSd4KUinNCklj5hAQAxyPT85eH5xcHr3+5TfQdoaWnJ+DQpLaAE1x/s0MIUW0MPHSEqquSIQr0UsGOlRiJN5N0eOZe6mt2nOWvOOzLlu7RCJK6WWBhD6I0flCWFmgGAk2UyTC4/tKe1RiRL7CRGj2VilpKhIRsikWUowWguYl7wnktZ2Iuk5uYYykFZRcmnAD875CP78Px1ZFin4Vx07+Exwvla7Cz8VXwVb5cWTNHAqUVttJXhkgN0GaoocPmqZgJPWMnXQfqUOps6uqfLo5qXMGpV3BUmj0rJH/12gXvDeUzgYMLLDd7/PPqgdOVsn+gUnVIdfJtVWcJJWh0BV1Iob37X4rjVaRkpBLbVAl4DzzF1hrDAQz7YwkzjNIq6AthgC+MshOzZwltMSwsiwNJ412tvd7YOzFumku/R0z5l3pORVIN3ah985/XSwyf43UicBrWZSGl34Y71+eHPz65uD0bI0pp8Q5DoXMptpix6NUcSEeHotH9FKBIcjJV85Z8xrkzoOzyM4rnEfINRrV+L11JKf8lzDVYLidDlXW2c77253h891+J/1250XnRT7Mt7/Lh4N++nzNqD3nPTbhoakOrTGR+wH9DH0naIVg3IR1qZe5eH5TSW4sXtb0IhGkKep1wJD7sa7tk1sDaWL3ufxJS9tmRx3ZN1hn3ysdgraTBAppcueLln54XTI8ZB4V12JpwoZtG7Y9iW0762wbL3/aE0grgqIh4G3Bi7Qr0cd1Z2HLedAU4mWj8hlCyFyJCcRryfbOsw0tN7R8Ei2H67Q8u/vYorpjmnIYwDoCvNaBYl3UzcJMB81BIxd529xRN0zcMPFJTHzxRSZC5mxudEahUT+SkCtlIEkIW9iddEGCqhqaIVRWv68QZtJUuCmLGzI+nox1IgJmldc0j31uitKjF6PzC26ASE64/RUrfQ1jFkhTx230BCMduPUdiZ4sdW826K2I9xZsTs3NVjScAS/uTj1lKjY0ujm75Wdsx5qlpH146XwhSYzET+/OOKIulPoSxseHcIXczrVBnBKV0R/a5i4Gt3VBHFUcG0l83+V96y0tS2wdlWjhlKRV0is49k5VGcFhvA/nbTI9g4z5VLZoXXj19ri5ofAdhjdxrsCes4E0VZGTnz4Od0YtDs0TOPITafUfES8kwHekpD0OPew5hSFp5ivtc6tKSOCt9FpaftqThBPnNb8fE3mdVsTPe0aGcKtuAvsuqwqMW8aV0sR1guPRGN7vDrr9tnLIjCsHO7B0gQoZa0bbWvPApOlz+ROYVnOQUDZafe7MxV0Z+p+NklqeEV5TrzRSWy4nlTdsc5ML50KWmh08EMln6ZOIUUzwi0RMXSCWXSxSGfCNN3XNy810gtNR6cAW3U0vmOc386NY7sVICJ58PCQZi9mXJR8M2qPnO/f6o1FgabT0GH1vp0CPEV4a89yJX/Afr1n+fhc+aO7WSVs+n8FDNrWL0q6ceaNPDGt9USdiilLFMrpoX42zDMvloK19luvlsvrjAX8nmcPLs6nVYhjR71VosWgkztwV2rq+1Y/4PytY1/8AbeyAlA==
+sidebar_class_name: "get api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Find where to buy a product"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/where-to-find/{code}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-036, Deel 16 §64 — resolves an OSPI code to a ranked list of sellers/availability. Publicly reachable; an authenticated caller additionally sees PARTNER_ONLY inventory detail they've been granted.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./where-to-find-controller-resolve.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./where-to-find-controller-resolve.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./where-to-find-controller-resolve.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

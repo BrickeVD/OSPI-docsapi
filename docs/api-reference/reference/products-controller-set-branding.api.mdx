@@ -1,0 +1,69 @@
+---
+id: products-controller-set-branding
+title: "Assign (or clear) a product's branding profile"
+description: "ADR-069 — pass a BrandingProfile id from the caller's own organization, or null to clear."
+sidebar_label: "Assign (or clear) a product's branding profile"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmF1uGzcQgK8y4EtsYPVjW03jfVNkF3WBwKrtuA+GEVDLWYnJLrkhZ/3TxQI9RO/Qe/QoPUkxXMqSLTVpgPZNT1rxZzg/H4ccNkKhz5yuSFsjUjE+uegNXx/DX7/9DpX0HiS8ddIobeZTZ3NdIGgFubMl0AIhk0WB7pUHe2/Aurk0+lfJohKwDkxdFEAWsgKl64tE2Apd6D5TIhVTZ1WdkZ9YQ86yoA8eabmcSEQlnSyR0HmR3jTCyBJFKrQSiXD4udYOlUjJ1ZgIzcpXkhYiET5bYClF2gh6rHiGJ8cC2/a2m4ie3lr1yCNeysmsITTEXbKqCp0FdQcfPXun2RRtZx8xI9bVsXGk0XPv7LnP2NzNKeweOStwufbzSJwbBJt/2cuv/Jbo+G2+b9t1n91sUfA2EaSJtRGXSDE2S+knZEXbdkJ8ZY3vzDwcDvnnueLLOSC913NToiGoKyUJVV+0iRhtm3QtC62CTZBLXaAKRrDxMWBwp20hCZnIWe21Qe/B1QUyV/9R1NA5674+LLMKN+lKBD7IsgoOfDs++XBx+vP708sr8TKul8Qxh1JmC22w51Cq0BAWB5YdvFSi93L+lXU2vAa5dWCZHAeldQi5xkL5IDE68hmLW2Sqg9HhbKSy3mE+POyN3rwe9mbfHR33jvNRfvh9PjoYzt5sGDWxzmEXHlpoH42517QAj+4OXc9rhVDYud9kMfhzZfG6pmtQnrLIEySpi47G50K62L0cfxFpXfE7Gh5s0vdOe6/NPIFSFrl1ZcQPHyoWD5lDhYa0LPyOth1t30Tb0SZt45oWjFPGKTGBWU1QdgA+JbyAXYUutFsDe9aBJg8Ova1dhuAzW2EC4bg+PNrfYbnD8puwHG1iebU6bFGtSFMWPRhLgA/aU8iLumu4015z0Miu3VJ2JO5I/CYSj79IImTW5IXOyHfqBwg5U3qShLCH/XkfJKi6wwyhNvpzjXAnixp3aXEH47+HsU2Ex6x2mh5DuTlD6dCJ9OaW60aSc65COdyhaGVxJdLCqq7wzBahYKWFSMVAVnpwdzBYjh00WrWD2aqw7exmeberRS+ZxFg+xqUjnqxybErixw/WlZJEKn765YoDan2lP8B4egaf8FEkyxguiKrgDsb9YlX6ni5Dur1U5Rna5DbQEH12fjk9g2khiS/IvNJGoMOIvfMKDVySNEo6BbGOhLNwgc7j7tuHjAGsorQ+vLuedlcavvTwJN5cMLHGk6Y6QPznH6OjNMqhxwTO1+pgnwBfqpK4HDqYWIU+gaBS/F4+NyRwLZ2Whr8mknBuneb+MZHTs5r4e1Jw8bpUN4ETm9VcyIaFlCZOLBzBzvBh/6A/jKlGZhQdWFlPpQxJJr5cjENBHC5zoSzfBwmRkVceloHgJo7ES/82q1T2Pz/TRHgIH2hQFVIbThG1K1iHDvEbISvNPjjoMmC3JRKRhseZJ9JvE7Gwnnh808ykx/euaFtu/lyje+z4v+NohGeQm0Yo7flbiTSXhX/5KLLugr2LuMP34Z9Ujo3S8I4IJ4JIhUgEb5HwjtTetolYoFRhnzexY9Kt0bvi6auJG6dHmyxnjLMMK/ri2PV0MR1fTX5kP8VHqDIcGsLJe05w8r7T0gajQz4IbY0opJnXIfGLTihjJmsOyFPWfpEngllb/dA03Ygr+wlN2z65hfg/e6Zt/wbDBenh
+sidebar_class_name: "patch api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Assign (or clear) a product's branding profile"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"patch"}
+  path={"/api/v1/products/{id}/branding"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-069 — pass a BrandingProfile id from the caller's own organization, or null to clear.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./products-controller-set-branding.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./products-controller-set-branding.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./products-controller-set-branding.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

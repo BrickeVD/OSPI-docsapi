@@ -1,0 +1,69 @@
+---
+id: unspsc-controller-import-catalog
+title: "Import a real UNSPSC catalog"
+description: "ADR-062 — transforms the UNSPSC Segment/Family/Class/Commodity tree directly into native, global Category rows (unspscCode as a plain linking field), upserted by unspscCode so re-import is idempotent."
+sidebar_label: "Import a real UNSPSC catalog"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWF2O2zYQvsqATxtA/lmvmyZ623oTYAuk68S76cNiEVDU2GZCkQpn5KxrCOgheofeo0fpSYqhtD+Ji6R5LfwkmiLn55tvRjPeqRLJRFuzDV7l6vTszWD8dAJ///4HcNSeliFWBLxGuPplMV/MYIGrCj2PXurKuu1o5jTRaBaqKpSWt8AREUob0bDbgvUcwGu2G8xg5UKhHcw04yrELcTwieCo8VSTmYUSQRNoqJ22Hpz1H6xfwdKiK59k0NSEkbGEYguPblCAiANb1SEyWAJbYlUHRs9DlalQY9Ti2HmpcnXVX/Mcg3MY33XXZpq1CyuVqVpHXSFjJJVf32QqItXBE5LKd2oyPpbH52idd4qpqSodtzlQhw2NlgKORRoZgUeePUAWCUxEzViOmrqUZwYmBqKBww06KJvaWaMZwYQSaajaTE3H433db7WzZfIOlto6kRNiClTEjw0Sw8YGpxkF1KIh65EIYuNQoDHBC0oiVtedRhv86D2J7J0is8ZKy4q3NapcheI9GhaQoqAqfshbjDHEbx8TVx6dIo7WC+J4q6vaydZPp2fv3rx4ffVicamyLzxdsC4cQqXN2nocRNRl2kjKE0wJpQqJ9OobevZQg2WIEDwKeFWI2DGuw70HUtjzNZnl8XRSTEszmCzHk8H02dPxoPjh5Png+XK6nPy4nB6Pi2d7Ts1CjNiFh9eWemc+WV4DYdxgHJAtEVxYiS29MTZiqfLrDs8Hjx9bepMptpzseiEiz5C1dWcc9oR0sfvy/Jue9N2NNrHvX5j/yhJZv8qg0k5KRE8/vK1FvFC8RM9WOzqw7cC272LbyT7bThteC51MVy+LhqHqCHhf8BLtaoxpP3g4ChEsE0Sk0ESDQCbUmEH6wE1OnhxoeaDld9Fyuk/Ly4ePLZYPTCsDEvjAgLeWONVF221sLFkJGofEW6OlDzkw8cDE72Li868yEUzwS2cNU2d+IqFUSmLpKo9wuBqCftRnNt5+bBA22jV4KIsHMv53MraZIjRNtLxV+fVOFagjRhmeWrmqVzJIqW5cE2EV8jrIKFYHSkTQvFa5GunajjbHo+7gqBvLlMgWX/th7E7RQtjXMedOXU9JMbPfyvrFyxArzSpXP/96KUEMVNt3cDo/hw+4Vdld3NbMdYLA+mVI8ey9vljMz2HuNEuLK/f2QpVOHF3U6GHB2pc6ljCPoWwMw3lqgZd9/jwBIxSqe2lDePV23jUl0rbIJUkPmAVPbLlJNPzrz+lJ3svhbQYXcaW9/S3JowykLcp6dRhBJmLKIJnUr3tTKIO3OlrtZdXP31benzJHWzQs6zTJ35ubwVkwTZpmRVFp00Qt8egcHw+Ph+O+WGgjxUIAlMBWOpUJr1NE+hFZQ0Tt7v5DMPcz92do7h5Kz//rj4ieZ4y3PEpipYI00YnLXRJcK11bAfhYZXcZk6k+FW4ytZaMya/Vbldowqvo2la2PzYYt12CbCTAhdD2+qbN1Bp1mXJxp4TruTo1BmtJq1ToVb5f29vHKTq/SNVWN2LdfYX7Ir+S+P6V9ttHwne77sRl+IC+bVXWW8HyW7U3bdv+A8OjX04=
+sidebar_class_name: "post api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Import a real UNSPSC catalog"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/unspsc/import"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-062 — transforms the UNSPSC Segment/Family/Class/Commodity tree directly into native, global Category rows (unspscCode as a plain linking field), upserted by unspscCode so re-import is idempotent.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./unspsc-controller-import-catalog.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./unspsc-controller-import-catalog.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./unspsc-controller-import-catalog.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

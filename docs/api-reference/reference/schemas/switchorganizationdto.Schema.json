@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"refreshToken":{"type":"string"},"organizationId":{"type":"string"}},"required":["refreshToken","organizationId"],"title":"SwitchOrganizationDto"},"schemaType":"response"}

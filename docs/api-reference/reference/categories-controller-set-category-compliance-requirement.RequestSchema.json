@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"dppRequired":{"type":"boolean"},"deadline":{"type":"string","description":"ISO 8601 regulatory deadline."}},"required":["dppRequired"],"title":"SetCategoryComplianceRequirementDto"}}}}}

@@ -1,0 +1,69 @@
+---
+id: auth-controller-disable-mfa
+title: "Disable MFA"
+description: "ADR-050 — requires re-entering the password so a hijacked access token alone cannot turn off the account's second factor."
+sidebar_label: "Disable MFA"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmFFuGzcQhq8y4EsTgLJlW20TvSm2A7iAYdd20gfDCEbkrMRkl9yQs7ZVYYEeonfoPXqUnqQY7ipSoiBpgAB90dMSXHI488/HWXKXylIy0dXsgldjNTm5Ggx/HMI/f/wJkd43LlKCSAPyTNH5GfCcoMaUHkK0kAIgzN1bNO/IAhpDKQGHd+QBy+AJDHofGLiJHkJR5NloTGg8/5AgkQneQoGGQ9xTWoWaIoonZ1Z8aXh+HDzHUJYU31iXcFrSeYFKqxojVsQUkxrf3mklvlLiF8Eu1HipetetGnNsSCsTPJNneYV1XTqTV9l/myTopUpmThVKixc1qbEK07dkWNaJ4hM7SvJ2FfjGyMQii9Jf1PFj+XoB1jK6tNLaAgfoA4XzlxP9nSVuW72hze06oDut2HEpEZ180PmEg2rbbk6qg0+dCofDA3l8HPD5y8nKcbunWq1Gw+H2qNdYOpu1hwJdSVZDiNnlPoFw70KJTAkQpk1yXsKNTUmCx3fKIsUY4teHmWDpc4mmR6zqrNSLycmbq9NfX51e32wBcM05hxWaufM0iIQ2d+TFQWxnlSpKCWdfWWdLNShCBEl+iFCFSFA4Km3KFnshzz4L6dqmPRgdTkfWDA6L4eFg9Oyn4WD649HzwfNiVBz+XIwOhtNnW0EdhxipSw/PXeqDeXA8h0TxnuIgOUtQhlnaZi3ruY5409MN+k7F5AkxurLD72MjXe4+HX/V47kGdvRZRl1Kzs80VFgWIVY9fvRY561nIlny7LBMO9p2tH0TbUfbtMnnS3AyyALatGGoOgA/FLyMXU0x9wcPT0IEx/I1SKGJhiCZUJOG/DU5PHq6w3KH5TdhOdrG8mb9sSW7Js0GSiAHCXp0iXNddF3HvUtOksYhc2tQTmM7EnckfhOJz79IIpjgi9IZTp37GUKplImRCZ7Q3mwPEGzTYUbQePe+IbjHsqFdWdzB+N9hbLVKZJroeKHGt0s1JYwU5RbZylScyY1SYcNzMVURz4NcRuuQMgbIczVW+1i7/fuDfRm2XxW43199lBiXYPtr6Wqla8GvQ2e1Xs+k+Nl36b7xMsQKWY3VL7/dSBZDqt0bmFyewTtaKL1K3Jy5zhoI41fr++/pKo+b99VVmlutnC9Czn+v0sX15RlclshyJJZltlKbRzy5qMnDNaO3GC1cxmAbw3CWj8xFv9+eghHk6t7aHpy/vuwOMXLMkUmyneA4+MSOm4zt33+Njsa9HV5ouIgz9O73bC9pkGOU7pejCMfBUtKQXerbvStJw2uMDr20jpFpFqKT9xPm6KYNS/u4xJQ+uKvhJJimojxl0ljHUkokfV3gw72DvWFfXNBIcRG9BYUKc1nxWG1cmeXG/ql4y3Vl+p9/rvTYMD3yfl2i8wJDE8sOFMH6VmHtRIADpbsdoFWVf7es8L7Tai4bYXyrlsspJnoVy7aV7vcNxUUH/b1kQUbLntJqTmjzBlsq4VcqRRZkcCMOyfCyEce2ynarVzMmxlDNXxy7uVcvL3LRnfY/g6pcrFXEByks+KDGKv9ryoDlv0XSt1Ql+lmTC67qbEqyswzravnJVs1R9a/QLzY8XC67ETeSsLZVug8lJ1C1d23b/gsSnbOE
+sidebar_class_name: "post api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Disable MFA"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/auth/mfa/disable"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+ADR-050 — requires re-entering the password so a hijacked access token alone cannot turn off the account's second factor.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./auth-controller-disable-mfa.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./auth-controller-disable-mfa.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./auth-controller-disable-mfa.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

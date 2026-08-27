@@ -1,0 +1,69 @@
+---
+id: partner-controller-get-export
+title: "Get an export's status/download URL"
+description: "Poll for status, or fetch downloadUrl again later — only the requesting organization may read it."
+sidebar_label: "Get an export's status/download URL"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmF1u3DYQx68y4EsdgPthe9smetvabuCiQVx/pA+GEXDF0YoJRSrkyPFWENBD9A69R4/SkxRDyeuNN00aFMjTPq2WEocz//lpxGErNMY8mJqMdyITZ95aKHyASIqaKMEHKJDyErR/76xX+ipYUEtlHFhFGODv3/8A7+wKqEQI+K7BSMYtwYelcuY3xYahUisIqDQYGgspfI0h3TjVvKYK5DAceUfBW4vh9RLp5K72gYQUtQqqQsIQRXbdCqcqFJnYtH6qhRS8sgmoRUahQSkMR1MrKoUUMS+xUiJrBa1qnh0pGLcUXSfXBjGt9z9M3fDEWHsXMfL9g+mUfz6Ut49qEBeU0xK8yzFps5JgKK51hqvzn8eik2L2MUOvlDW617ZQxqJOmdpIAdwazwmKoGDRROMwRgiNRdY/947QEZtVdW1NnixN3kS23W4H6RdvME/JCJw6Mn2IGIIPn38s9xq3FZMC71RVWx76YX78+vzkl6uTi0shH0V6QWphESqVl8bhiJVKA2lxYNtJpQpjVMvPrLOlWkLdO2TxKh8QCoNWx2RxEJIR/ZRNvT87WMx0Pjoopgej2dPvpqPFt4fPRs+KWXHwfTHbny6ebgV15EPAPj1UmjgE895QCRHDLYZRNBrB+iX70m0yed3r+RDxpqc3UpCh5NcJmzxGUsYek98y0ufu8fPnA8H9jC7Rt79N3wsTo3FLCZWyhQ/VgB/e1Wwe8oAaHRll4462HW1fRNvhNm3zhkrGKVfEoC0agqoHcF3wEnY1hjTuHez5kIppwOibkCPE3NcoYX58PpoeHD7ZYbnD8ouwnG1jefnwsUX9QJr2GMF5ArwzkVJdNP3ArYmGk0Y+cZsr3uvsSNyR+EUkPvskiZB7V1iTU+zdTxBypeQtJ8IejpdjUKCbHjOExpl3DcKtsg3uyuIOxv8OYydFxLwJhlapM1ugChhEdn3DvRCpJTds3L5xc8fWKqTSc8O3xL6xo1JkYqJqM7ndnwwPTjY7uzhpP2z0ukkdvG5yipO+YZu0941bx91Z0ofXvXlw7oKJ7Wm7d3HAmEMbhuRw8aMPlSKRiZ9+veTE+1ib1zA/O4W3uBLyPtclUZ1kM67wiYFBqZcXZ6dwZhXxtpjnbaU3PbH3skYHF6ScVkHDWR8UnKZtczG8c08gZ+zqwdoYXrw66zcyvNXhSfxKwZF3kQw1Cd2//pwdZoMdWkl4uammBN5KyWE5DHDkNUYJyaXhenAlSnilglGOr44U4dIHw/fnRMEsGuLrI6tiXLsr4djnTYVpyrzRfavP+egDn473x9OhwKicCwwLWPtIlUqlZejEnyOBctDn9Zs4NMuTzb74sajtQ9X6SicYAweEdzSprTKOq0ITLPvSg30tVG1YgP3+ECO9BfKDg4sopMi2TjLuCU+VZDgEydbHEzdSlD4S22/bhYp4FWzX8fC7BsOqR/+WU7dgIK9boU3kay2yQtmIn5Bu73woAk/g30IcBpXjlyF9NEQmhBT8dmydyvDxyldcfa1Rd9NJUaLSqRy1w+15nmNNGxO3Pm/dZpF6fsLfG9VwLtc1/lG1SNY/6lTb9k9c+rfoum7tI/F/drDr/gHCuLRS
+sidebar_class_name: "get api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get an export's status/download URL"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/v1/partner/organizations/{organizationId}/products/export/{exportId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Poll for status, or fetch downloadUrl again later — only the requesting organization may read it.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./partner-controller-get-export.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./partner-controller-get-export.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./partner-controller-get-export.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

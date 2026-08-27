@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"refreshToken":{"type":"string"},"entityId":{"type":"string","description":"Target Entity within your CURRENT organization. Omit to clear the active entity and return to plain organization-level access."}},"required":["refreshToken"],"title":"SwitchEntityDto"}}}}}

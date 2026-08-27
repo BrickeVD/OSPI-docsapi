@@ -1,0 +1,69 @@
+---
+id: organizations-controller-verify-domain
+title: "Verify a domain"
+description: "Re-checks the DNS TXT record live and marks the request VERIFIED if found."
+sidebar_label: "Verify a domain"
+hide_title: true
+hide_table_of_contents: true
+api: eJztmN1u2zYUgF/lgFcpQP8k8bZWd16cAhnQJUvSbEAQBDR5ZLOVSJU8cpMJep69x55sOJSS2HGXrsOwK1+Zpsjz++mIh40wGHWwFVnvRCbOcaCXqD9GoCXC7OcLuPztEgJqHwwUdoWgnIFShX5FwE81RoKr4/OTtyfHM7A55L52Ziik8BUGxYJPjMjEaVgoZ39PE/HIOwq+KDDcrjDY/H7mS2WdkKJSQZVIGKLIrhvhVIkiE9YIKViZDWhERqFGKSxbXClaCimiXmKpRNYIuq94R6Rg3UK0rXwUkjRZ/WDSvxV4wxtj5V3EyM8Pxvv8sxnIzh9YVwkBY13QULRSTMbj7T1XqrCmW5orW6CR4MNGmFfWF4owgoJ5Ha3DGCHUBXK0tXeEjlisqqqiVzr6EFl2s+2Pn39ATRzxwIki23mDIfjw9WXaG9wOjhR4p8qq4Kkfp7Pb8+Nf3h9fXAr5zNMLUvMCoVR6aR0OAiqTJpJyYNkpSiXGqBZf0bMVNch9AO+Qg1f6gJBbLExMEvtAMpAvyTT7k4P5xOjBQT4+GExefz8ezL87fDN4k0/ygx/yyf54/nrLqSMfAnbpoaWNvTOfLS0hYlhhGERrEAq/YFvadfyuu3g+ebxu6Y0UZCnZdcwiZ0jKFjPyW0K63D1ff97D2u1oE31fIPadjdG6hYRSFbkPZY8f3lUsHnRAg46sKuKOth1t30Tb4TZt05qWjJNWxKDNa4KyA/Cx4CXsKgxp3jvY8wEsRS6jvg4aIWpfoYTp7HwwPjh8tcNyh+U3YTnZxvLy6WOL5ok04zGC8wR4ZyOlumi7iZWNlpNGPnGrFZ9pdiTuSPwmEt+8SCJo7/LCaoqd+QlCrpSRFCHs4XAxBAWm7jBDqJ39VCOsVFHjrizuYPznMLZSRNR1sHSf2q85qoBBZNc33PaQWnBXJvx6K8cyS6Sl5yav8jHxwD1UJkaqsqPV/mhj/aixph2Z1B8N1vujOGo2O7R21PWG3I2lILHymycLLxjbDrkHO3uW2b9+SvaDtz6UikQmfvr1krPvY2VvYXp2Ah+RNfQJXxJVKXbW5T6B0Ifr9OLsBM4KRXw25n1bOU4r9k4rdHBByhkVDJwFb2pNcJLOzg+uvQLN7FW9tCG8uzrrTjN83uFN/F7BkXeRLNWJ3z//mBxmvRy6l7DRTkvg85Ts1WGAI28wSkgm9ePelCjhSgWrHI+OFOHCB8vPp0TBzmvi8VGhYnw0V8LM67rEtGVaG0tcUzgfnePj4f5w3FcZpbnKcAAZhVKl+tL331cpm1ypHpr9jQA2T2Xqv72H6FNLeEejqmDNrRR1KFhlR+q1UJVln/b52mKDbimydPnwJWD54dalQs/sjRRLfhmya9E0cxXxfSjalqc/1RjuO5JXnIk583XdCGMjj43IclVEfCE6e+f9i/0K/s69flI5Zjt9CEQmhBQMe7pO4XuR/1HjszC1N60US1QmFZemXzTVGita2771sWrXi83Zafp8qJpT+Fiyn733SfwXbWuabsWl/4iubR9NJf7PFrbtXxwvjYI=
+sidebar_class_name: "post api-method"
+info_path: api-reference/reference/ospi-platform-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Verify a domain"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/v1/organizations/{id}/domain-verifications/{verificationId}/verify"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Re-checks the DNS TXT record live and marks the request VERIFIED if found.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./organizations-controller-verify-domain.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./organizations-controller-verify-domain.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./organizations-controller-verify-domain.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      
