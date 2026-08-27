@@ -74,15 +74,17 @@ The **Endpoints** pages under `/api-reference` are not hand-written — they're 
 [`docusaurus-plugin-openapi-docs`](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs) from
 [`openapi/ospi-platform.json`](./openapi/ospi-platform.json), a real OpenAPI 3 document exported from the
 actual [`ospi-platform`](https://github.com/BrickeVD/ospi-platform) NestJS backend's own `SwaggerModule`
-(the same document it serves at `/api/docs-json`), not written by hand. To refresh it after the backend's
-API surface changes:
+(the same document it serves at `/api/docs-json`), not written by hand — filtered by
+[`scripts/filter-openapi.js`](./scripts/filter-openapi.js) before it reaches this site (see below). To
+refresh it after the backend's API surface changes:
 
 ```sh
 # In a clone of ospi-platform, with Postgres + Redis reachable per its own README:
 npx ts-node -T scripts/generate-openapi.ts    # writes openapi.json (see that script; not committed there)
 
 # Back in this repo:
-cp path/to/ospi-platform/openapi.json openapi/ospi-platform.json
+cp path/to/ospi-platform/openapi.json openapi/ospi-platform.raw.json
+node scripts/filter-openapi.js                # writes the filtered openapi/ospi-platform.json
 npm run gen-api-docs                          # regenerates docs/api-reference/reference/**
 npm run build                                 # verify
 ```
@@ -90,6 +92,21 @@ npm run build                                 # verify
 `scripts/generate-openapi.ts` boots the real Nest application (so Postgres/Redis must be reachable) and
 dumps `SwaggerModule.createDocument(...)` to disk instead of calling `app.listen()`. It lives in
 `ospi-platform`, not here — it's a one-off export script for that backend, not a doc-site build step.
+
+### What `scripts/filter-openapi.js` changes, and why
+
+`openapi/ospi-platform.raw.json` is kept as the untouched export — full fidelity to the backend, in case
+a future decision needs it. `openapi/ospi-platform.json` (the one actually consumed by
+`gen-api-docs`) is a derived, public-facing copy:
+
+- **Drops the `admin` and `unspsc` tags entirely** (operations + any schema that becomes unreferenced as
+  a result). Both are real backend routes, but neither is a third-party integration surface: `admin` is
+  platform-operator-only account management, and `unspsc` is an internal catalog-import tool. Excluding
+  them here doesn't change what the backend actually exposes — only what this public API reference
+  documents.
+- **Strips ADR citations** (`(ADR-016)`, `ADR-053: …`, `see ADR-030`, etc.) out of every description and
+  summary. The backend's Swagger decorators cite ADRs for its own engineering audience; this site has no
+  Architecture section for those citations to point to, so they're just noise for API consumers.
 
 ## Contributing
 

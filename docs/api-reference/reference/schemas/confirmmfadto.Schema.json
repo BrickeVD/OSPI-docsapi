@@ -1,1 +1,1 @@
-{"schema":{"type":"object","properties":{"code":{"type":"string","description":"ADR-050 — the 6-digit code currently shown by the authenticator app the enrollment QR/secret was added to."}},"required":["code"],"title":"ConfirmMfaDto"},"schemaType":"response"}
+{"schema":{"type":"object","properties":{"code":{"type":"string","description":"The 6-digit code currently shown by the authenticator app the enrollment QR/secret was added to."}},"required":["code"],"title":"ConfirmMfaDto"},"schemaType":"response"}

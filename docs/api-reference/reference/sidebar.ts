@@ -1424,18 +1424,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "unspsc",
-      items: [
-        {
-          type: "doc",
-          id: "reference/unspsc-controller-import-catalog",
-          label: "Import a real UNSPSC catalog",
-          className: "api-method post",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "security-monitoring",
       items: [
         {
@@ -1509,30 +1497,6 @@ const sidebar: SidebarsConfig = {
           id: "reference/notifications-controller-update",
           label: "Update one category's notification preference",
           className: "api-method patch",
-        },
-      ],
-    },
-    {
-      type: "category",
-      label: "admin",
-      items: [
-        {
-          type: "doc",
-          id: "reference/admin-controller-list-organizations",
-          label: "List every organization on the platform",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "reference/admin-controller-get-organization",
-          label: "Get one organization (platform-operator view)",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "reference/admin-controller-list-users",
-          label: "List every user on the platform",
-          className: "api-method get",
         },
       ],
     },

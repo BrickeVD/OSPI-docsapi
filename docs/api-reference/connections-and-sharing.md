@@ -5,7 +5,7 @@ sidebar_position: 9
 
 # Connections & Sharing
 
-This is the entire access-control model for cross-organization data. A **Connection** is the umbrella relationship between two organizations; a **Sharing Grant** riding on an `ACTIVE` connection scopes exactly what's visible. Read ADR-010 and ADR-022 before connecting two real organizations.
+This is the entire access-control model for cross-organization data. A **Connection** is the umbrella relationship between two organizations; a **Sharing Grant** riding on an `ACTIVE` connection scopes exactly what's visible..
 
 ## Connections
 
@@ -41,7 +41,7 @@ Content-Type: application/json
 }
 ```
 
-`targetType` is `PRODUCT`, `PRODUCT_CATEGORY`, or `ALL_PRODUCTS`. `ruleFilter` (ADR-022) additionally ANDs an attribute-based rule onto that targeting — e.g. "everything tagged `region=EU`". Rules are a flat AND list only; there is no OR/negation or rule grouping yet.
+`targetType` is `PRODUCT`, `PRODUCT_CATEGORY`, or `ALL_PRODUCTS`. `ruleFilter` additionally ANDs an attribute-based rule onto that targeting — e.g. "everything tagged `region=EU`". Rules are a flat AND list only; there is no OR/negation or rule grouping yet.
 
 `SharingService.hasAccess(...)` is the single enforcement point used by every cross-organization read below.
 

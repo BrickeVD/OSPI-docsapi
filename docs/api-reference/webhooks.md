@@ -5,7 +5,7 @@ sidebar_position: 13
 
 # Webhooks
 
-An organization registers its own HTTPS endpoint and event types, and gets HMAC-signed, thin-payload notifications with exponential-backoff retries and dead-lettering after 8 attempts (ADR-026).
+An organization registers its own HTTPS endpoint and event types, and gets HMAC-signed, thin-payload notifications with exponential-backoff retries and dead-lettering after 8 attempts.
 
 ## Endpoints
 

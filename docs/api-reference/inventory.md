@@ -5,7 +5,7 @@ sidebar_position: 8
 
 # Inventory
 
-Owner-scoped locations and stock records (ADR-009).
+Owner-scoped locations and stock records.
 
 ## Endpoints
 

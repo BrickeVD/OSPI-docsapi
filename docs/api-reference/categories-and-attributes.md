@@ -45,7 +45,7 @@ A schema entry is `REQUIRED`, `RECOMMENDED`, `OPTIONAL`, or `FORBIDDEN`, and can
 | `POST` | `/variants/:variantId/attribute-values` | Set an attribute value on a variant | `products:write` |
 | `POST` | `/attribute-values/:id/verify` | Mark a value as verified as-is | `products:write` |
 
-Every `AttributeValue` carries provenance: `source`, `sourceOrganizationId`, `sourceReference`, `confidence`, and a `conflictState` (`UNVERIFIED` / `VERIFIED` / `CONFLICTED`) — ADR-030. A `VERIFIED` (or already-`CONFLICTED`) value rejects a silently differing overwrite with `409` unless the request passes `forceOverride: true`.
+Every `AttributeValue` carries provenance: `source`, `sourceOrganizationId`, `sourceReference`, `confidence`, and a `conflictState` (`UNVERIFIED` / `VERIFIED` / `CONFLICTED`) — the sync path stays strict, not lossy. A `VERIFIED` (or already-`CONFLICTED`) value rejects a silently differing overwrite with `409` unless the request passes `forceOverride: true`.
 
 ## Classification schemes
 
@@ -57,4 +57,4 @@ Every `AttributeValue` carries provenance: `source`, `sourceOrganizationId`, `so
 | `GET` | `/classification-schemes/:schemeId/nodes` | List nodes in a scheme | — |
 | `POST` | `/classification-assignments` | Assign a classification node to a product | `products:write` |
 
-This is a separate tree structure from the Category → Attribute Schema linkage above, and is largely independent of it — attribute requirements are attached to `Category`, not to `ClassificationNode` (see ADR-029 for why).
+This is a separate tree structure from the Category → Attribute Schema linkage above, and is largely independent of it — attribute requirements are attached to `Category`, not to `ClassificationNode`.

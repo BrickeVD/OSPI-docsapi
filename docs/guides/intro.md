@@ -18,7 +18,7 @@ This documentation covers the reference implementation — [`ospi-platform`](htt
 - **Share data across organizations.** Request a connection, grant scoped access to exactly the products and data categories you choose.
 - **Search and resolve.** Full-text product search, and a public "scan a code, get the product" resolver.
 - **Trade.** List offers, place orders, split fulfilment per seller.
-- **Publish a Digital Product Passport scaffold.** (Not yet a compliance implementation — see ADR-006.)
+- **Publish a Digital Product Passport scaffold.** (Not yet a compliance implementation.)
 
 ## Where to go next
 

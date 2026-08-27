@@ -19,7 +19,7 @@
     },
     "/api/v1/audit-logs": {
       "get": {
-        "description": "Own-organization audit trail by default; a platform operator may pass ?organizationId= to view any organization's trail (ADR-044).",
+        "description": "Own-organization audit trail by default; a platform operator may pass ?organizationId= to view any organization's trail.",
         "operationId": "AuditController_list",
         "parameters": [
           {
@@ -152,7 +152,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -195,7 +195,7 @@
     },
     "/api/v1/audit-logs/chain/seal": {
       "post": {
-        "description": "ADR-053, platform-operator-only: walks every already-committed immutable row in order and links them with a sha256 hash chain. The chain spans every organization's rows, so sealing it is a whole-system integrity action.",
+        "description": "Platform-operator-only: walks every already-committed immutable row in order and links them with a sha256 hash chain. The chain spans every organization's rows, so sealing it is a whole-system integrity action.",
         "operationId": "AuditController_sealChain",
         "parameters": [],
         "responses": {
@@ -223,7 +223,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -266,7 +266,7 @@
     },
     "/api/v1/audit-logs/chain/verify": {
       "get": {
-        "description": "ADR-053: recomputes and checks every sealed row's hash; reports where the chain first breaks, if it does.",
+        "description": "Recomputes and checks every sealed row's hash; reports where the chain first breaks, if it does.",
         "operationId": "AuditController_verifyChain",
         "parameters": [],
         "responses": {
@@ -294,7 +294,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -337,7 +337,7 @@
     },
     "/api/v1/auth/register": {
       "post": {
-        "description": "Creates the organization and its first user (org owner). Rate limited (ADR-016) — unauthenticated account creation is a classic abuse target.",
+        "description": "Creates the organization and its first user (org owner). Rate limited — unauthenticated account creation is a classic abuse target.",
         "operationId": "AuthController_register",
         "parameters": [],
         "requestBody": {
@@ -365,7 +365,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -403,7 +403,7 @@
     },
     "/api/v1/auth/login": {
       "post": {
-        "description": "Rate limited (ADR-016) — the canonical brute-force target; also gated by account lockout after repeated failures (ADR-049) and MFA if enabled (ADR-050).",
+        "description": "Rate limited — the canonical brute-force target; also gated by account lockout after repeated failures and MFA if enabled.",
         "operationId": "AuthController_login",
         "parameters": [],
         "requestBody": {
@@ -431,7 +431,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -469,7 +469,7 @@
     },
     "/api/v1/auth/refresh": {
       "post": {
-        "description": "Rate limited (ADR-016) — refresh tokens are high-entropy, but cheap insurance regardless.",
+        "description": "Rate limited — refresh tokens are high-entropy, but cheap insurance regardless.",
         "operationId": "AuthController_refresh",
         "parameters": [],
         "requestBody": {
@@ -497,7 +497,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -563,7 +563,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -601,7 +601,7 @@
     },
     "/api/v1/auth/switch-organization": {
       "post": {
-        "description": "ADR-040, Deel 25 §16-17 \"Identity switching\" — re-scopes the SAME session to a different organization the caller has an ACTIVE membership in. Authenticates via the refresh token in the body, not an Authorization header.",
+        "description": "Deel 25 §16-17 \"Identity switching\" — re-scopes the SAME session to a different organization the caller has an ACTIVE membership in. Authenticates via the refresh token in the body, not an Authorization header.",
         "operationId": "AuthController_switchOrganization",
         "parameters": [],
         "requestBody": {
@@ -629,7 +629,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -695,7 +695,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -775,7 +775,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -818,7 +818,7 @@
     },
     "/api/v1/auth/switch-entity": {
       "post": {
-        "description": "ADR-041 — re-scopes the SAME session to a different Entity within the token's CURRENT organization. Omit entityId to clear the active entity and return to plain organization-level access.",
+        "description": "Re-scopes the SAME session to a different Entity within the token's CURRENT organization. Omit entityId to clear the active entity and return to plain organization-level access.",
         "operationId": "AuthController_switchEntity",
         "parameters": [],
         "requestBody": {
@@ -846,7 +846,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -884,7 +884,7 @@
     },
     "/api/v1/auth/entity-memberships": {
       "get": {
-        "description": "ADR-041 — every Entity the caller belongs to, any status, mirroring GET /auth/memberships one level down.",
+        "description": "Every Entity the caller belongs to, any status, mirroring GET /auth/memberships one level down.",
         "operationId": "AuthController_listEntityMemberships",
         "parameters": [],
         "responses": {
@@ -912,7 +912,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -955,7 +955,7 @@
     },
     "/api/v1/auth/entity-memberships/{id}/accept": {
       "post": {
-        "description": "ADR-041 — only the invited user themselves may accept, mirroring POST /auth/memberships/:id/accept.",
+        "description": "Only the invited user themselves may accept, mirroring POST /auth/memberships/:id/accept.",
         "operationId": "AuthController_acceptEntityMembership",
         "parameters": [
           {
@@ -992,7 +992,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1063,7 +1063,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1134,7 +1134,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1214,7 +1214,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1295,7 +1295,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1338,7 +1338,7 @@
     },
     "/api/v1/auth/mfa/enroll": {
       "post": {
-        "description": "ADR-050 — starts (or restarts, after disabling) TOTP enrollment; returns a secret + otpauth URL for an authenticator app. Rate limited so an authenticated caller cannot churn secrets freely.",
+        "description": "Starts (or restarts, after disabling) TOTP enrollment; returns a secret + otpauth URL for an authenticator app. Rate limited so an authenticated caller cannot churn secrets freely.",
         "operationId": "AuthController_enrollMfa",
         "parameters": [],
         "responses": {
@@ -1366,7 +1366,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1409,7 +1409,7 @@
     },
     "/api/v1/auth/mfa/confirm": {
       "post": {
-        "description": "ADR-050 — confirms enrollment with a real authenticator code; returns 10 plaintext backup codes exactly once.",
+        "description": "Confirms enrollment with a real authenticator code; returns 10 plaintext backup codes exactly once.",
         "operationId": "AuthController_confirmMfa",
         "parameters": [],
         "requestBody": {
@@ -1447,7 +1447,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1490,7 +1490,7 @@
     },
     "/api/v1/auth/mfa/disable": {
       "post": {
-        "description": "ADR-050 — requires re-entering the password so a hijacked access token alone cannot turn off the account's second factor.",
+        "description": "Requires re-entering the password so a hijacked access token alone cannot turn off the account's second factor.",
         "operationId": "AuthController_disableMfa",
         "parameters": [],
         "requestBody": {
@@ -1528,7 +1528,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1571,7 +1571,7 @@
     },
     "/api/v1/auth/mfa/backup-codes/regenerate": {
       "post": {
-        "description": "ADR-052 — invalidates every existing backup code and mints 10 fresh ones; same password-re-entry defense as mfa/disable.",
+        "description": "Invalidates every existing backup code and mints 10 fresh ones; same password-re-entry defense as mfa/disable.",
         "operationId": "AuthController_regenerateMfaBackupCodes",
         "parameters": [],
         "requestBody": {
@@ -1609,7 +1609,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1652,7 +1652,7 @@
     },
     "/api/v1/auth/mfa/status": {
       "get": {
-        "description": "ADR-050 — whether MFA is enabled and how many backup codes remain, for a settings-page UI.",
+        "description": "Whether MFA is enabled and how many backup codes remain, for a settings-page UI.",
         "operationId": "AuthController_mfaStatus",
         "parameters": [],
         "responses": {
@@ -1680,7 +1680,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1751,7 +1751,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1794,7 +1794,7 @@
     },
     "/api/v1/roles": {
       "post": {
-        "description": "A named set of permissions, scoped to the caller's organization (ADR-018/023).",
+        "description": "A named set of permissions, scoped to the caller's organization (/023).",
         "operationId": "RolesController_create",
         "parameters": [],
         "requestBody": {
@@ -1832,7 +1832,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1900,7 +1900,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -1979,7 +1979,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2066,7 +2066,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2153,7 +2153,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2223,7 +2223,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2312,7 +2312,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2355,7 +2355,7 @@
     },
     "/api/v1/organizations/{id}/commission-rate": {
       "patch": {
-        "description": "ADR-065. Platform-operator only — an org can never set its own rate. Pass `commissionRatePercent: null` to clear the override and revert to the platform default.",
+        "description": ". Platform-operator only — an org can never set its own rate. Pass `commissionRatePercent: null` to clear the override and revert to the platform default.",
         "operationId": "OrganizationsController_setCommissionRate",
         "parameters": [
           {
@@ -2402,7 +2402,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2472,7 +2472,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2550,7 +2550,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2620,7 +2620,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2699,7 +2699,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2778,7 +2778,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2857,7 +2857,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2900,7 +2900,7 @@
     },
     "/api/v1/organizations/me/users/{membershipId}/unlock": {
       "post": {
-        "description": "ADR-051 — clears account lockout (ADR-049) for a legitimate member who got locked out and doesn't want to wait 15 minutes.",
+        "description": "Clears account lockout for a legitimate member who got locked out and doesn't want to wait 15 minutes.",
         "operationId": "OrganizationsController_unlockMember",
         "parameters": [
           {
@@ -2937,7 +2937,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -2980,7 +2980,7 @@
     },
     "/api/v1/organizations/{id}/domain-verifications": {
       "post": {
-        "description": "ADR-038 — starts real DNS TXT-record proof-of-ownership for a domain, used as the trust anchor for public discoverability and SSO JIT-provisioning.",
+        "description": "Starts real DNS TXT-record proof-of-ownership for a domain, used as the trust anchor for public discoverability and SSO JIT-provisioning.",
         "operationId": "OrganizationsController_requestDomainVerification",
         "parameters": [
           {
@@ -3027,7 +3027,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3104,7 +3104,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3192,7 +3192,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3260,7 +3260,7 @@
     },
     "/api/v1/organizations/me/entities": {
       "get": {
-        "description": "ADR-041 — subsidiaries/branches within the caller's organization.",
+        "description": "Subsidiaries/branches within the caller's organization.",
         "operationId": "EntitiesController_list",
         "parameters": [],
         "responses": {
@@ -3288,7 +3288,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3329,7 +3329,7 @@
         ]
       },
       "post": {
-        "description": "ADR-041 — a subsidiary/branch under the caller's organization, with its own users/locations/order-billing.",
+        "description": "A subsidiary/branch under the caller's organization, with its own users/locations/order-billing.",
         "operationId": "EntitiesController_create",
         "parameters": [],
         "requestBody": {
@@ -3367,7 +3367,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3456,7 +3456,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3535,7 +3535,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3622,7 +3622,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3709,7 +3709,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3796,7 +3796,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3883,7 +3883,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -3964,7 +3964,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4032,7 +4032,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4075,7 +4075,7 @@
     },
     "/api/v1/producers/{producerId}/codes": {
       "post": {
-        "description": "The [AAAA] segment of an OSPI Code, unique per producer (ADR-004/008).",
+        "description": "The [AAAA] segment of an OSPI Code, unique per producer (/008).",
         "operationId": "IdentityController_issueProducerCode",
         "parameters": [
           {
@@ -4122,7 +4122,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4165,7 +4165,7 @@
     },
     "/api/v1/ospi-identities": {
       "post": {
-        "description": "Builds and checksums a full OSPI Code from its segments (ADR-004/008). Idempotent (ADR-025) — safe to retry with the same Idempotency-Key.",
+        "description": "Builds and checksums a full OSPI Code from its segments (/008). Idempotent — safe to retry with the same Idempotency-Key.",
         "operationId": "IdentityController_issueOspiIdentity",
         "parameters": [],
         "requestBody": {
@@ -4203,7 +4203,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4274,7 +4274,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4349,7 +4349,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4392,7 +4392,7 @@
     },
     "/api/v1/ospi-identities/{id}/retire": {
       "post": {
-        "description": "Permanent, never reused (ADR-024, Deel 4 §40-41).",
+        "description": "Permanent, never reused (, Deel 4 §40-41).",
         "operationId": "IdentityController_retire",
         "parameters": [
           {
@@ -4429,7 +4429,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4472,7 +4472,7 @@
     },
     "/api/v1/ospi-identities/{id}/suspend": {
       "post": {
-        "description": "Temporary — history is preserved (ADR-024, Deel 4 §39).",
+        "description": "Temporary — history is preserved (, Deel 4 §39).",
         "operationId": "IdentityController_suspend",
         "parameters": [
           {
@@ -4509,7 +4509,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4589,7 +4589,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4632,7 +4632,7 @@
     },
     "/api/v1/serialized-units/{code}": {
       "get": {
-        "description": "ADR-075 — stays reachable without login, same trust model as GET /resolve/:code and GET /dpp/:accessToken: the code itself is the access boundary. Shows identity, registered owner (if any), and public-safe event history.",
+        "description": "Stays reachable without login, same trust model as GET /resolve/:code and GET /dpp/:accessToken: the code itself is the access boundary. Shows identity, registered owner (if any), and public-safe event history.",
         "operationId": "IdentityController_getPublicUnitView",
         "parameters": [
           {
@@ -4659,7 +4659,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4697,7 +4697,7 @@
     },
     "/api/v1/serialized-units/{code}/owner": {
       "post": {
-        "description": "ADR-075 — DPP consumer ownership registration: contact info only, no consumer account. Re-registering an already-owned unit overwrites the previous owner and logs a CUSTODY_TRANSFER event (a resale/transfer).",
+        "description": "DPP consumer ownership registration: contact info only, no consumer account. Re-registering an already-owned unit overwrites the previous owner and logs a CUSTODY_TRANSFER event (a resale/transfer).",
         "operationId": "IdentityController_registerUnitOwner",
         "parameters": [
           {
@@ -4734,7 +4734,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4772,7 +4772,7 @@
     },
     "/api/v1/serialized-units/{code}/scan": {
       "post": {
-        "description": "ADR-076 — any authenticated platform user may scan the unit's own OSPI code to open a time-boxed maintenance session (default 30 minutes, slides forward on each event logged). No owner-side approval step. Once the session lapses, logging maintenance requires scanning in again. Returns the productId/unitId to call the normal POST .../serialized-units/:unitId/events with. NOTE (direct product-owner scoping): OSPI supplies these endpoints only — the actual code scanning (camera/barcode-reader UI) is built into each professional's own field-service software, not by this platform. A dedicated client SDK wrapping this scan → event-log flow is a real, not-yet-built follow-up (see BACKLOG.md) — integrators currently call the raw REST endpoints directly.",
+        "description": "Any authenticated platform user may scan the unit's own OSPI code to open a time-boxed maintenance session (default 30 minutes, slides forward on each event logged). No owner-side approval step. Once the session lapses, logging maintenance requires scanning in again. Returns the productId/unitId to call the normal POST.../serialized-units/:unitId/events with. NOTE (direct product-owner scoping): OSPI supplies these endpoints only — the actual code scanning (camera/barcode-reader UI) is built into each professional's own field-service software, not by this platform. A dedicated client SDK wrapping this scan → event-log flow is a real, not-yet-built follow-up (see BACKLOG.md) — integrators currently call the raw REST endpoints directly.",
         "operationId": "IdentityController_scanForMaintenance",
         "parameters": [
           {
@@ -4809,7 +4809,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4852,7 +4852,7 @@
     },
     "/api/v1/products": {
       "post": {
-        "description": "Idempotent (ADR-025).",
+        "description": "Idempotent.",
         "operationId": "ProductsController_create",
         "parameters": [],
         "requestBody": {
@@ -4890,7 +4890,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -4931,7 +4931,7 @@
         ]
       },
       "get": {
-        "description": "?locale=fr-BE (ADR-032) resolves each row's name/description through the fallback chain, same as findOne.",
+        "description": "?locale=fr-BE resolves each row's name/description through the fallback chain, same as findOne.",
         "operationId": "ProductsController_list",
         "parameters": [
           {
@@ -4981,7 +4981,7 @@
             "name": "locale",
             "required": false,
             "in": "query",
-            "description": "BCP-47 locale (ADR-032) — resolves each row's name/description through the same fallback chain as GET /products/:id.",
+            "description": "BCP-47 locale — resolves each row's name/description through the same fallback chain as GET /products/:id.",
             "schema": {
               "type": "string"
             }
@@ -5012,7 +5012,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5055,7 +5055,7 @@
     },
     "/api/v1/products/bulk": {
       "post": {
-        "description": "Synchronous bulk create, max 500/call (ADR-019) — see BulkCreateProductDto for why. Idempotent (ADR-025).",
+        "description": "Synchronous bulk create, max 500/call — see BulkCreateProductDto for why. Idempotent.",
         "operationId": "ProductsController_createBulk",
         "parameters": [],
         "requestBody": {
@@ -5093,7 +5093,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5136,7 +5136,7 @@
     },
     "/api/v1/products/{id}": {
       "get": {
-        "description": "?locale=fr-BE (ADR-032) resolves name/description through the fallback chain instead of the base values. ?unitSystem=METRIC|IMPERIAL_US|IMPERIAL_UK (ADR-060) overrides the resolved display unit for MEASUREMENT attribute values.",
+        "description": "?locale=fr-BE resolves name/description through the fallback chain instead of the base values. ?unitSystem=METRIC|IMPERIAL_US|IMPERIAL_UK overrides the resolved display unit for MEASUREMENT attribute values.",
         "operationId": "ProductsController_findOne",
         "parameters": [
           {
@@ -5189,7 +5189,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5276,7 +5276,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5319,7 +5319,7 @@
     },
     "/api/v1/products/{id}/validate": {
       "post": {
-        "description": "ADR-031, Deel 7 §68 — check publish-readiness (required attributes, completeness) without publishing.",
+        "description": "Deel 7 §68 — check publish-readiness (required attributes, completeness) without publishing.",
         "operationId": "ProductsController_validate",
         "parameters": [
           {
@@ -5356,7 +5356,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5399,7 +5399,7 @@
     },
     "/api/v1/products/{id}/publish": {
       "post": {
-        "description": "ADR-024, Deel 10 §65 — moves the product to publicationState PUBLIC.",
+        "description": "Deel 10 §65 — moves the product to publicationState PUBLIC.",
         "operationId": "ProductsController_publish",
         "parameters": [
           {
@@ -5436,7 +5436,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5515,7 +5515,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5594,7 +5594,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5674,7 +5674,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5763,7 +5763,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5840,7 +5840,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -5883,7 +5883,7 @@
     },
     "/api/v1/products/{id}/serialized-units": {
       "post": {
-        "description": "Registers a single physical unit/batch's real serial number (ADR-015) — separate from pricing/catalog, which never depend on this.",
+        "description": "Registers a single physical unit/batch's real serial number — separate from pricing/catalog, which never depend on this.",
         "operationId": "ProductsController_registerSerializedUnit",
         "parameters": [
           {
@@ -5930,7 +5930,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6007,7 +6007,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6050,7 +6050,7 @@
     },
     "/api/v1/products/{id}/serialized-units/bulk": {
       "post": {
-        "description": "Synchronous bulk registration, max 1000/call (ADR-019) — see BulkRegisterSerializedUnitDto for why. Idempotent (ADR-025).",
+        "description": "Synchronous bulk registration, max 1000/call — see BulkRegisterSerializedUnitDto for why. Idempotent.",
         "operationId": "ProductsController_registerSerializedUnitsBulk",
         "parameters": [
           {
@@ -6097,7 +6097,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6140,7 +6140,7 @@
     },
     "/api/v1/products/{id}/serialized-units/{unitId}/events": {
       "post": {
-        "description": "ADR-070 — append-only history: repairs, notes, custody/location moves, and status transitions (RECALLED/DECOMMISSIONED — the only way a unit leaves REGISTERED). ADR-076: a professional currently scanned in via POST /serialized-units/:code/scan may also call this, but only for NOTE/REPAIR events. NOTE: OSPI receives this data — the scan-and-log UI itself lives in each professional's own software; a client SDK for this flow is a planned follow-up, not yet built.",
+        "description": "Append-only history: repairs, notes, custody/location moves, and status transitions (RECALLED/DECOMMISSIONED — the only way a unit leaves REGISTERED).: a professional currently scanned in via POST /serialized-units/:code/scan may also call this, but only for NOTE/REPAIR events. NOTE: OSPI receives this data — the scan-and-log UI itself lives in each professional's own software; a client SDK for this flow is a planned follow-up, not yet built.",
         "operationId": "ProductsController_addSerializedUnitEvent",
         "parameters": [
           {
@@ -6195,7 +6195,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6280,7 +6280,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6323,7 +6323,7 @@
     },
     "/api/v1/products/{id}/translations/{locale}": {
       "put": {
-        "description": "ADR-032 — upsert a per-locale name/description override.",
+        "description": "Upsert a per-locale name/description override.",
         "operationId": "ProductsController_setTranslation",
         "parameters": [
           {
@@ -6378,7 +6378,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6463,7 +6463,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6542,7 +6542,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6585,7 +6585,7 @@
     },
     "/api/v1/products/{id}/relationships": {
       "post": {
-        "description": "ADR-033 — id is always the relationship's source (directional), e.g. ACCESSORY_FOR, SUPERSEDES, REPLACEMENT_FOR. Cross-organization by design.",
+        "description": "Id is always the relationship's source (directional), e.g. ACCESSORY_FOR, SUPERSEDES, REPLACEMENT_FOR. Cross-organization by design.",
         "operationId": "ProductsController_createRelationship",
         "parameters": [
           {
@@ -6632,7 +6632,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6709,7 +6709,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6796,7 +6796,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6839,7 +6839,7 @@
     },
     "/api/v1/products/{id}/components": {
       "post": {
-        "description": "ADR-059 — id is always the BOM entry's parent product (directional). A percentage-weighted component, possibly owned by a different organization, feeding DPP aggregation.",
+        "description": "Id is always the BOM entry's parent product (directional). A percentage-weighted component, possibly owned by a different organization, feeding DPP aggregation.",
         "operationId": "ProductsController_createComponent",
         "parameters": [
           {
@@ -6886,7 +6886,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -6963,7 +6963,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7050,7 +7050,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7093,7 +7093,7 @@
     },
     "/api/v1/products/{id}/versions": {
       "post": {
-        "description": "ADR-068 — freezes the product's current attributes/documents/subcomponents. An effectiveDate in the future makes it SCHEDULED (auto-promoted to CURRENT when the date arrives); omitted or past makes it CURRENT immediately, archiving whichever version was CURRENT before.",
+        "description": "Freezes the product's current attributes/documents/subcomponents. An effectiveDate in the future makes it SCHEDULED (auto-promoted to CURRENT when the date arrives); omitted or past makes it CURRENT immediately, archiving whichever version was CURRENT before.",
         "operationId": "ProductsController_createVersion",
         "parameters": [
           {
@@ -7140,7 +7140,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7218,7 +7218,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7306,7 +7306,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7349,7 +7349,7 @@
     },
     "/api/v1/products/{id}/branding": {
       "patch": {
-        "description": "ADR-069 — pass a BrandingProfile id from the caller's own organization, or null to clear.",
+        "description": "Pass a BrandingProfile id from the caller's own organization, or null to clear.",
         "operationId": "ProductsController_setBranding",
         "parameters": [
           {
@@ -7396,7 +7396,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7439,7 +7439,7 @@
     },
     "/api/v1/products/{id}/compliance": {
       "post": {
-        "description": "ADR-070 — self-reported, not platform-verified (upsert keyed on category + field name).",
+        "description": "Self-reported, not platform-verified (upsert keyed on category + field name).",
         "operationId": "ProductsController_upsertComplianceField",
         "parameters": [
           {
@@ -7486,7 +7486,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7563,7 +7563,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7650,7 +7650,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7693,7 +7693,7 @@
     },
     "/api/v1/products/{id}/successors": {
       "get": {
-        "description": "ADR-059 — reuses SUPERSEDES/REPLACEMENT_FOR relationship types (ADR-033), surfacing the replacement's live status.",
+        "description": "Reuses SUPERSEDES/REPLACEMENT_FOR relationship types, surfacing the replacement's live status.",
         "operationId": "ProductsController_listSuccessors",
         "parameters": [
           {
@@ -7730,7 +7730,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7773,7 +7773,7 @@
     },
     "/api/v1/categories": {
       "post": {
-        "description": "Org-scoped categories are APPROVED immediately; a proposed global/shared category starts PENDING (ADR-020).",
+        "description": "Org-scoped categories are APPROVED immediately; a proposed global/shared category starts PENDING.",
         "operationId": "CategoriesController_create",
         "parameters": [],
         "requestBody": {
@@ -7811,7 +7811,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7880,7 +7880,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -7923,7 +7923,7 @@
     },
     "/api/v1/categories/pending": {
       "get": {
-        "description": "categories:govern (ADR-020) + platform-operator-only — every proposal awaiting review, across all orgs.",
+        "description": "Categories:govern + platform-operator-only — every proposal awaiting review, across all orgs.",
         "operationId": "CategoriesController_listPending",
         "parameters": [],
         "responses": {
@@ -7951,7 +7951,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8031,7 +8031,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8121,7 +8121,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8164,7 +8164,7 @@
     },
     "/api/v1/categories/{categoryId}/compliance-requirement": {
       "post": {
-        "description": "ADR-070 — categories:govern + platform-operator, same gate as category approve/reject: a regulatory deadline is registry-level policy, not a per-org setting.",
+        "description": "Categories:govern + platform-operator, same gate as category approve/reject: a regulatory deadline is registry-level policy, not a per-org setting.",
         "operationId": "CategoriesController_setCategoryComplianceRequirement",
         "parameters": [
           {
@@ -8211,7 +8211,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8289,7 +8289,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8370,7 +8370,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8439,7 +8439,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8528,7 +8528,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8617,7 +8617,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8660,7 +8660,7 @@
     },
     "/api/v1/attribute-values/{id}/verify": {
       "post": {
-        "description": "ADR-030 — confirms an UNVERIFIED/CONFLICTED value is correct as-is.",
+        "description": "Confirms an UNVERIFIED/CONFLICTED value is correct as-is.",
         "operationId": "ClassificationController_verifyAttributeValue",
         "parameters": [
           {
@@ -8697,7 +8697,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8740,7 +8740,7 @@
     },
     "/api/v1/classification-schemes": {
       "post": {
-        "description": "A named, freeform taxonomy (distinct from the Category registry, ADR-029) — anyone may define one.",
+        "description": "A named, freeform taxonomy (distinct from the Category registry) — anyone may define one.",
         "operationId": "ClassificationController_createScheme",
         "parameters": [],
         "requestBody": {
@@ -8778,7 +8778,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8846,7 +8846,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -8935,7 +8935,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9012,7 +9012,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9092,7 +9092,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9135,7 +9135,7 @@
     },
     "/api/v1/categories/{categoryId}/attribute-schema": {
       "post": {
-        "description": "ADR-029 — a category's required/recommended/optional/forbidden attributes.",
+        "description": "A category's required/recommended/optional/forbidden attributes.",
         "operationId": "ClassificationController_setCategoryAttributeSchema",
         "parameters": [
           {
@@ -9182,7 +9182,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9269,7 +9269,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9349,7 +9349,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9439,7 +9439,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9516,7 +9516,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9587,7 +9587,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9666,7 +9666,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9756,7 +9756,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9799,7 +9799,7 @@
     },
     "/api/v1/attribute-proposals/{id}/decide": {
       "post": {
-        "description": "The platform operator's final decision — same gate as ADR-020's category approve/reject, one level down. Independent of the vote tally, which is advisory only.",
+        "description": "The platform operator's final decision — same gate as 's category approve/reject, one level down. Independent of the vote tally, which is advisory only.",
         "operationId": "ClassificationController_decideAttributeSchemaProposal",
         "parameters": [
           {
@@ -9846,7 +9846,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9889,7 +9889,7 @@
     },
     "/api/v1/unit-categories": {
       "post": {
-        "description": "ADR-060 — a kind of quantity (LENGTH, MASS, ...) that units belong to.",
+        "description": "A kind of quantity (LENGTH, MASS,...) that units belong to.",
         "operationId": "UnitsController_createCategory",
         "parameters": [],
         "requestBody": {
@@ -9927,7 +9927,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -9983,7 +9983,7 @@
     },
     "/api/v1/unit-categories/{categoryId}/units": {
       "post": {
-        "description": "ADR-060 — a real, convertible unit (code/symbol/conversion factor) within a unit category.",
+        "description": "A real, convertible unit (code/symbol/conversion factor) within a unit category.",
         "operationId": "UnitsController_createUnit",
         "parameters": [
           {
@@ -10030,7 +10030,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10136,7 +10136,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10222,7 +10222,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10265,7 +10265,7 @@
     },
     "/api/v1/documents/upload": {
       "post": {
-        "description": "Actually stores the file (ADR-017, base64-in-JSON, sized for small attachments) — see UploadDocumentDto for format/size limits. Computes and dedupes on checksum (ADR-034).",
+        "description": "Actually stores the file (, base64-in-JSON, sized for small attachments) — see UploadDocumentDto for format/size limits. Computes and dedupes on checksum.",
         "operationId": "DocumentsController_upload",
         "parameters": [],
         "requestBody": {
@@ -10303,7 +10303,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10382,7 +10382,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10423,7 +10423,7 @@
         ]
       },
       "patch": {
-        "description": "ADR-034 — documentType/lifecycleStatus/validity/certificate metadata; never re-uploads the file.",
+        "description": "DocumentType/lifecycleStatus/validity/certificate metadata; never re-uploads the file.",
         "operationId": "DocumentsController_updateMetadata",
         "parameters": [
           {
@@ -10470,7 +10470,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10549,7 +10549,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10630,7 +10630,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10698,7 +10698,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10777,7 +10777,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10867,7 +10867,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -10945,7 +10945,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11026,7 +11026,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11095,7 +11095,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11175,7 +11175,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11255,7 +11255,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11335,7 +11335,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11414,7 +11414,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11457,7 +11457,7 @@
     },
     "/api/v1/sharing-grants": {
       "post": {
-        "description": "ADR-010/022 — grants another organization scoped read access (e.g. PRODUCT_DATA, INVENTORY, DPP) to the caller's own data.",
+        "description": "/022 — grants another organization scoped read access (e.g. PRODUCT_DATA, INVENTORY, DPP) to the caller's own data.",
         "operationId": "SharingController_create",
         "parameters": [],
         "requestBody": {
@@ -11495,7 +11495,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11564,7 +11564,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11643,7 +11643,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11686,7 +11686,7 @@
     },
     "/api/v1/partner/organizations/{organizationId}/products": {
       "get": {
-        "description": "ADR-037, Deel 14 §43-44: cursor pagination (?cursor=&limit=) + ?updatedSince=&category=&status= filtering. Access gated by SharingService, not ownership.",
+        "description": "Deel 14 §43-44: cursor pagination (?cursor=&limit=) + ?updatedSince=&category=&status= filtering. Access gated by SharingService, not ownership.",
         "operationId": "PartnerController_listProducts",
         "parameters": [
           {
@@ -11777,7 +11777,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11820,7 +11820,7 @@
     },
     "/api/v1/partner/organizations/{organizationId}/products/export": {
       "post": {
-        "description": "ADR-037, Deel 14 §45-47 — generated synchronously (no background job queue in this build).",
+        "description": "Deel 14 §45-47 — generated synchronously (no background job queue in this build).",
         "operationId": "PartnerController_createExport",
         "parameters": [
           {
@@ -11867,7 +11867,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -11955,7 +11955,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12042,7 +12042,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12129,7 +12129,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12216,7 +12216,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12259,7 +12259,7 @@
     },
     "/api/v1/search/products": {
       "get": {
-        "description": "Works with or without auth (ADR-041 amendment) — an anonymous caller sees only genuinely PUBLIC + PUBLISHED products, never own/network-scoped results. Rate limited.",
+        "description": "Works with or without auth ( amendment) — an anonymous caller sees only genuinely PUBLIC + PUBLISHED products, never own/network-scoped results. Rate limited.",
         "operationId": "SearchController_searchProducts",
         "parameters": [
           {
@@ -12340,7 +12340,7 @@
             "name": "scope",
             "required": false,
             "in": "query",
-            "description": "own (default): only the caller's own organization's products. network: also includes products from organizations that granted the caller an active PRODUCT_DATA sharing grant scoped ALL_PRODUCTS or PRODUCT_CATEGORY (ADR-012 follow-up). Individual PRODUCT-targeted grants are NOT included here — see SearchService.searchProducts.",
+            "description": "Own (default): only the caller's own organization's products. network: also includes products from organizations that granted the caller an active PRODUCT_DATA sharing grant scoped ALL_PRODUCTS or PRODUCT_CATEGORY ( follow-up). Individual PRODUCT-targeted grants are NOT included here — see SearchService.searchProducts.",
             "schema": {
               "default": "own",
               "type": "string",
@@ -12354,7 +12354,7 @@
             "name": "locale",
             "required": false,
             "in": "query",
-            "description": "BCP-47 locale (ADR-032) — resolves each result's name/description through the same fallback chain as GET /products/:id.",
+            "description": "BCP-47 locale — resolves each result's name/description through the same fallback chain as GET /products/:id.",
             "schema": {
               "type": "string"
             }
@@ -12385,7 +12385,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12464,7 +12464,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12507,7 +12507,7 @@
     },
     "/api/v1/search/resolve/{code}": {
       "get": {
-        "description": "Structural + existence resolution — stays reachable without login (Deel 4 §26-27). ADR-014: basic identity is treated like public registry data; document visibility is the real access-control boundary, gated separately.",
+        "description": "Structural + existence resolution — stays reachable without login (Deel 4 §26-27).: basic identity is treated like public registry data; document visibility is the real access-control boundary, gated separately.",
         "operationId": "SearchController_resolve",
         "parameters": [
           {
@@ -12544,7 +12544,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12587,7 +12587,7 @@
     },
     "/api/v1/where-to-find/{code}": {
       "get": {
-        "description": "ADR-036, Deel 16 §64 — resolves an OSPI code to a ranked list of sellers/availability. Publicly reachable; an authenticated caller additionally sees PARTNER_ONLY inventory detail they've been granted.",
+        "description": "Deel 16 §64 — resolves an OSPI code to a ranked list of sellers/availability. Publicly reachable; an authenticated caller additionally sees PARTNER_ONLY inventory detail they've been granted.",
         "operationId": "WhereToFindController_resolve",
         "parameters": [
           {
@@ -12665,7 +12665,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12708,7 +12708,7 @@
     },
     "/api/v1/offers": {
       "post": {
-        "description": "Price, currency, MOQ (ADR-021) — a seller listing their product for order.",
+        "description": "Price, currency, MOQ — a seller listing their product for order.",
         "operationId": "OffersController_create",
         "parameters": [],
         "requestBody": {
@@ -12746,7 +12746,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12814,7 +12814,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12894,7 +12894,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -12973,7 +12973,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13016,7 +13016,7 @@
     },
     "/api/v1/offers/{id}/buyer-minimums": {
       "post": {
-        "description": "ADR-021 — seller-only override of the offer's default MOQ for one specific buyer organization.",
+        "description": "Seller-only override of the offer's default MOQ for one specific buyer organization.",
         "operationId": "OffersController_setBuyerMinimum",
         "parameters": [
           {
@@ -13063,7 +13063,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13140,7 +13140,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13227,7 +13227,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13270,7 +13270,7 @@
     },
     "/api/v1/orders": {
       "post": {
-        "description": "A buyer-side cart, not yet a commitment — lines are added before submitting. Idempotent (ADR-025).",
+        "description": "A buyer-side cart, not yet a commitment — lines are added before submitting. Idempotent.",
         "operationId": "OrdersController_createDraft",
         "parameters": [],
         "requestBody": {
@@ -13308,7 +13308,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13376,7 +13376,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13455,7 +13455,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13544,7 +13544,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13631,7 +13631,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13674,7 +13674,7 @@
     },
     "/api/v1/orders/{id}/submit": {
       "post": {
-        "description": "The real \"creates a commitment\" moment — splits the order into per-seller OrderGroups. Idempotent (ADR-025).",
+        "description": "The real \"creates a commitment\" moment — splits the order into per-seller OrderGroups. Idempotent.",
         "operationId": "OrdersController_submit",
         "parameters": [
           {
@@ -13711,7 +13711,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13799,7 +13799,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13887,7 +13887,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -13985,7 +13985,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14028,7 +14028,7 @@
     },
     "/api/v1/quotes": {
       "post": {
-        "description": "Seller-initiated (ADR-035, Deel 17 §74) — starts DRAFT with real line pricing already attached. Idempotent (ADR-025).",
+        "description": "Seller-initiated (, Deel 17 §74) — starts DRAFT with real line pricing already attached. Idempotent.",
         "operationId": "QuotesController_create",
         "parameters": [],
         "requestBody": {
@@ -14066,7 +14066,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14134,7 +14134,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14213,7 +14213,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14293,7 +14293,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14373,7 +14373,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14453,7 +14453,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14496,7 +14496,7 @@
     },
     "/api/v1/quotes/{id}/convert": {
       "post": {
-        "description": "Materializes an ACCEPTED quote into a real Order — the actual \"creates a commitment\" moment. Idempotent (ADR-025).",
+        "description": "Materializes an ACCEPTED quote into a real Order — the actual \"creates a commitment\" moment. Idempotent.",
         "operationId": "QuotesController_convert",
         "parameters": [
           {
@@ -14533,7 +14533,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14614,7 +14614,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14682,7 +14682,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14763,7 +14763,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14806,7 +14806,7 @@
     },
     "/api/v1/dpp-records/{id}/validate": {
       "post": {
-        "description": "Checks the record's composed attributes (including aggregated component values, ADR-059) against its profile's requirements without publishing.",
+        "description": "Checks the record's composed attributes (including aggregated component values) against its profile's requirements without publishing.",
         "operationId": "DppController_validate",
         "parameters": [
           {
@@ -14843,7 +14843,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -14923,7 +14923,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15003,7 +15003,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15046,7 +15046,7 @@
     },
     "/api/v1/dpp-records/{id}/rotate-token": {
       "post": {
-        "description": "Invalidates the current QR-code/public link and issues a new one (ADR-013) — use this if a link may have leaked, instead of deleting the record.",
+        "description": "Invalidates the current QR-code/public link and issues a new one — use this if a link may have leaked, instead of deleting the record.",
         "operationId": "DppController_rotateToken",
         "parameters": [
           {
@@ -15083,7 +15083,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15163,7 +15163,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15206,7 +15206,7 @@
     },
     "/api/v1/dpp/{accessToken}": {
       "get": {
-        "description": "Public passport view, keyed by the high-entropy access token (ADR-013) — never by the database id. Only ever returns PUBLISHED records.",
+        "description": "Public passport view, keyed by the high-entropy access token — never by the database id. Only ever returns PUBLISHED records.",
         "operationId": "DppController_getPublic",
         "parameters": [
           {
@@ -15233,7 +15233,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15309,7 +15309,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15377,7 +15377,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15456,7 +15456,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15535,7 +15535,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15615,7 +15615,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15705,7 +15705,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15783,7 +15783,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15854,7 +15854,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -15934,7 +15934,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16014,7 +16014,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16103,7 +16103,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16183,7 +16183,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16226,7 +16226,7 @@
     },
     "/api/v1/organizations/{id}/sso-config": {
       "post": {
-        "description": "ADR-057/058 — OIDC or SAML settings for an organization. Requires a VERIFIED domain to actually enable login.",
+        "description": "/058 — OIDC or SAML settings for an organization. Requires a VERIFIED domain to actually enable login.",
         "operationId": "SsoConfigController_upsert",
         "parameters": [
           {
@@ -16273,7 +16273,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16350,7 +16350,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16427,7 +16427,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16470,7 +16470,7 @@
     },
     "/api/v1/auth/sso/{organizationId}/login": {
       "get": {
-        "description": "ADR-057/058 — redirects to the organization's configured IdP (OIDC authorization URL or SAML AuthnRequest).",
+        "description": "/058 — redirects to the organization's configured IdP (OIDC authorization URL or SAML AuthnRequest).",
         "operationId": "SsoAuthController_login",
         "parameters": [
           {
@@ -16497,7 +16497,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16535,7 +16535,7 @@
     },
     "/api/v1/auth/sso/{organizationId}/callback": {
       "get": {
-        "description": "ADR-057 — the redirect-with-code binding the IdP sends the browser back to. Verifies the ID token signature/audience/nonce, then JIT-provisions/links the account via the org's VERIFIED domain.",
+        "description": "The redirect-with-code binding the IdP sends the browser back to. Verifies the ID token signature/audience/nonce, then JIT-provisions/links the account via the org's VERIFIED domain.",
         "operationId": "SsoAuthController_oidcCallback",
         "parameters": [
           {
@@ -16562,7 +16562,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16598,7 +16598,7 @@
         ]
       },
       "post": {
-        "description": "ADR-058 — SAML's HTTP-POST binding (the IdP auto-submits a form here). Verifies the signed assertion, InResponseTo, and replay defenses, then JIT-provisions/links the account via the org's VERIFIED domain.",
+        "description": "SAML's HTTP-POST binding (the IdP auto-submits a form here). Verifies the signed assertion, InResponseTo, and replay defenses, then JIT-provisions/links the account via the org's VERIFIED domain.",
         "operationId": "SsoAuthController_samlCallback",
         "parameters": [
           {
@@ -16625,7 +16625,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16663,7 +16663,7 @@
     },
     "/api/v1/etim/import": {
       "post": {
-        "description": "ADR-062 — transforms ETIM Groups/Classes/Features directly into native Category/AttributeDefinition rows (etimCode as a plain linking field), upserted by etimCode so re-import on a newer release is idempotent.",
+        "description": "Transforms ETIM Groups/Classes/Features directly into native Category/AttributeDefinition rows (etimCode as a plain linking field), upserted by etimCode so re-import on a newer release is idempotent.",
         "operationId": "EtimController_importRelease",
         "parameters": [],
         "responses": {
@@ -16691,7 +16691,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16732,80 +16732,9 @@
         ]
       }
     },
-    "/api/v1/unspsc/import": {
-      "post": {
-        "description": "ADR-062 — transforms the UNSPSC Segment/Family/Class/Commodity tree directly into native, global Category rows (unspscCode as a plain linking field), upserted by unspscCode so re-import is idempotent.",
-        "operationId": "UnspscController_importCatalog",
-        "parameters": [],
-        "responses": {
-          "201": {
-            "description": "Import summary: segments/families/classes/commodities created/updated, cross-level duplicate codes."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Import a real UNSPSC catalog",
-        "tags": [
-          "unspsc"
-        ]
-      }
-    },
     "/api/v1/security-alerts": {
       "get": {
-        "description": "ADR-066: results of the periodic in-app anomaly scan (failed-login bursts, unusual cross-org access) over the audit trail. Platform-operator only -- these span every organization by design.",
+        "description": "Results of the periodic in-app anomaly scan (failed-login bursts, unusual cross-org access) over the audit trail. Platform-operator only -- these span every organization by design.",
         "operationId": "SecurityMonitoringController_list",
         "parameters": [
           {
@@ -16889,7 +16818,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -16969,7 +16898,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -17037,7 +16966,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -17116,7 +17045,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -17203,7 +17132,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -17281,7 +17210,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -17324,7 +17253,7 @@
     },
     "/api/v1/data-quality/report": {
       "get": {
-        "description": "ADR-072 — live-computed, categorized (SCHEMA/BUSINESS_RULE/CONFLICT/DUPLICATE) issue list across every product in the caller's own organization, plus per-category counts.",
+        "description": "Live-computed, categorized (SCHEMA/BUSINESS_RULE/CONFLICT/DUPLICATE) issue list across every product in the caller's own organization, plus per-category counts.",
         "operationId": "DataQualityController_getReport",
         "parameters": [],
         "responses": {
@@ -17352,7 +17281,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -17395,7 +17324,7 @@
     },
     "/api/v1/notification-preferences": {
       "get": {
-        "description": "ADR-073 — the 5 fixed categories x email/push channels, merging any persisted overrides with documented defaults.",
+        "description": "The 5 fixed categories x email/push channels, merging any persisted overrides with documented defaults.",
         "operationId": "NotificationsController_list",
         "parameters": [],
         "responses": {
@@ -17423,7 +17352,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -17513,7 +17442,7 @@
             }
           },
           "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
             "content": {
               "application/json": {
                 "schema": {
@@ -17551,324 +17480,6 @@
         "summary": "Update one category's notification preference",
         "tags": [
           "notifications"
-        ]
-      }
-    },
-    "/api/v1/admin/organizations": {
-      "get": {
-        "description": "ADR-074 — platform-operator-only, read-only. Includes member/product counts. This is NOT tenant impersonation — no way to act as another organization exists here.",
-        "operationId": "AdminController_listOrganizations",
-        "parameters": [
-          {
-            "name": "page",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "minimum": 1,
-              "default": 1,
-              "type": "number"
-            }
-          },
-          {
-            "name": "pageSize",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "minimum": 1,
-              "maximum": 100,
-              "default": 20,
-              "type": "number"
-            }
-          },
-          {
-            "name": "sortBy",
-            "required": false,
-            "in": "query",
-            "description": "Field to sort by",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "sortDir",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "default": "asc",
-              "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Paginated organizations."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "List every organization on the platform",
-        "tags": [
-          "admin"
-        ]
-      }
-    },
-    "/api/v1/admin/organizations/{id}": {
-      "get": {
-        "operationId": "AdminController_getOrganization",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Organization detail."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Get one organization (platform-operator view)",
-        "tags": [
-          "admin"
-        ]
-      }
-    },
-    "/api/v1/admin/users": {
-      "get": {
-        "description": "ADR-074 — platform-operator-only, read-only. Each user lists every organization they hold a membership in. Optional `?organizationId=` filters to one organization's members.",
-        "operationId": "AdminController_listUsers",
-        "parameters": [
-          {
-            "name": "page",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "minimum": 1,
-              "default": 1,
-              "type": "number"
-            }
-          },
-          {
-            "name": "pageSize",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "minimum": 1,
-              "maximum": 100,
-              "default": 20,
-              "type": "number"
-            }
-          },
-          {
-            "name": "sortBy",
-            "required": false,
-            "in": "query",
-            "description": "Field to sort by",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "sortDir",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "default": "asc",
-              "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ]
-            }
-          },
-          {
-            "name": "organizationId",
-            "required": false,
-            "in": "query",
-            "description": "Filter to members of one organization.",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Paginated users."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope, ADR-023).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "List every user on the platform",
-        "tags": [
-          "admin"
         ]
       }
     }
@@ -17938,7 +17549,7 @@
           "password": {
             "type": "string",
             "minLength": 8,
-            "description": "ADR-056: at least 8 characters, plus one lowercase, one uppercase, one digit, and one symbol."
+            "description": "At least 8 characters, plus one lowercase, one uppercase, one digit, and one symbol."
           },
           "firstName": {
             "type": "string"
@@ -17964,15 +17575,15 @@
           },
           "organizationId": {
             "type": "string",
-            "description": "ADR-040 — which organization to log into, if you belong to more than one. Defaults to your oldest active membership."
+            "description": "Which organization to log into, if you belong to more than one. Defaults to your oldest active membership."
           },
           "entityId": {
             "type": "string",
-            "description": "ADR-041 — which Entity (subsidiary) within the resolved organization to log into. Defaults to your oldest active EntityMembership there, or omitted entirely if you have none (plain organization-level access, unchanged)."
+            "description": "Which Entity (subsidiary) within the resolved organization to log into. Defaults to your oldest active EntityMembership there, or omitted entirely if you have none (plain organization-level access, unchanged)."
           },
           "totpCode": {
             "type": "string",
-            "description": "ADR-050 — required if the account has MFA enabled: either a 6-digit TOTP code from an authenticator app, or one single-use backup code (format XXXXX-XXXXX). Omitted/missing on an MFA-enabled account returns 401 MFA_REQUIRED rather than issuing tokens."
+            "description": "Required if the account has MFA enabled: either a 6-digit TOTP code from an authenticator app, or one single-use backup code (format XXXXX-XXXXX). Omitted/missing on an MFA-enabled account returns 401 MFA_REQUIRED rather than issuing tokens."
           }
         },
         "required": [
@@ -18072,7 +17683,7 @@
         "properties": {
           "code": {
             "type": "string",
-            "description": "ADR-050 — the 6-digit code currently shown by the authenticator app the enrollment QR/secret was added to."
+            "description": "The 6-digit code currently shown by the authenticator app the enrollment QR/secret was added to."
           }
         },
         "required": [
@@ -18084,7 +17695,7 @@
         "properties": {
           "password": {
             "type": "string",
-            "description": "ADR-050 — re-entering the account password is required to disable MFA, so a hijacked access token alone cannot turn off the account's second factor."
+            "description": "Re-entering the account password is required to disable MFA, so a hijacked access token alone cannot turn off the account's second factor."
           }
         },
         "required": [
@@ -18133,7 +17744,7 @@
               "CATEGORY",
               "LOCATION"
             ],
-            "description": "Scopes this role to a single Category or Location (ADR-023) instead of the whole organization. Requires resourceId. Only meaningfully enforced for the one permission each type covers (CATEGORY -> products:write, LOCATION -> inventory:write) — see src/auth/scope.util.ts."
+            "description": "Scopes this role to a single Category or Location instead of the whole organization. Requires resourceId. Only meaningfully enforced for the one permission each type covers (CATEGORY -> products:write, LOCATION -> inventory:write) — see src/auth/scope.util.ts."
           },
           "resourceId": {
             "type": "string",
@@ -18174,11 +17785,11 @@
           },
           "whereToFindEnabled": {
             "type": "boolean",
-            "description": "ADR-036, Deel 16 §44-45 — opt in before this org's Offers can appear in \"Where to Find\" results."
+            "description": "Deel 16 §44-45 — opt in before this org's Offers can appear in \"Where to Find\" results."
           },
           "discoverable": {
             "type": "boolean",
-            "description": "ADR-038, Deel 15 §26 — set false to stay hidden from partner-search (direct invitations still work)."
+            "description": "Deel 15 §26 — set false to stay hidden from partner-search (direct invitations still work)."
           },
           "website": {
             "type": "string"
@@ -18214,7 +17825,7 @@
               "IMPERIAL_US",
               "IMPERIAL_UK"
             ],
-            "description": "ADR-060 — the stored baseline for MEASUREMENT display conversion, overridable per Entity or per-request (?unitSystem=)."
+            "description": "The stored baseline for MEASUREMENT display conversion, overridable per Entity or per-request (?unitSystem=)."
           }
         }
       },
@@ -18283,11 +17894,11 @@
           },
           "billingAddress": {
             "type": "object",
-            "description": "Free-form billing address (ADR-041) — matches the existing convention Order.shippingAddress already uses."
+            "description": "Free-form billing address — matches the existing convention Order.shippingAddress already uses."
           },
           "shippingAddress": {
             "type": "object",
-            "description": "Free-form shipping address (ADR-041)."
+            "description": "Free-form shipping address."
           },
           "defaultUnitSystem": {
             "type": "string",
@@ -18296,7 +17907,7 @@
               "IMPERIAL_US",
               "IMPERIAL_UK"
             ],
-            "description": "ADR-060 — overrides the organization's defaultUnitSystem for this legal entity. Omit to inherit the org default."
+            "description": "Overrides the organization's defaultUnitSystem for this legal entity. Omit to inherit the org default."
           }
         },
         "required": [
@@ -18331,7 +17942,7 @@
               "IMPERIAL_US",
               "IMPERIAL_UK"
             ],
-            "description": "ADR-060 — overrides the organization's defaultUnitSystem for this legal entity."
+            "description": "Overrides the organization's defaultUnitSystem for this legal entity."
           },
           "billingAddress": {
             "type": "object"
@@ -18396,7 +18007,7 @@
           },
           "reserved": {
             "type": "boolean",
-            "description": "Reserve this identity (ADR-024, Deel 4 §37) instead of registering it outright — useful for ERP sync/bulk imports/manufacturing workflows that need to hold a code before the product is fully created. Attaching it to a Product/Variant later still works directly — it does not need a separate \"un-reserve\" step first — and moves it straight to ACTIVE."
+            "description": "Reserve this identity (, Deel 4 §37) instead of registering it outright — useful for ERP sync/bulk imports/manufacturing workflows that need to hold a code before the product is fully created. Attaching it to a Product/Variant later still works directly — it does not need a separate \"un-reserve\" step first — and moves it straight to ACTIVE."
           },
           "reservedUntil": {
             "type": "string",
@@ -18449,7 +18060,7 @@
           },
           "gtin": {
             "type": "string",
-            "description": "GTIN-8/12/13/14 (ADR-005) — checksum-validated, not confirmed against GS1's registry."
+            "description": "GTIN-8/12/13/14 — checksum-validated, not confirmed against GS1's registry."
           },
           "identity": {
             "description": "Segments used to mint the OSPI identity for this product (Deel 4). Not required if you already issued an identity via POST /ospi-identities and pass ospiIdentityId instead.",
@@ -18513,15 +18124,15 @@
               "PUBLIC",
               "SCHEDULED"
             ],
-            "description": "Audience dimension, independent of `status` (ADR-024, Deel 7 §68-69). Not yet wired into any cross-org visibility check — see ADR-024 consequences."
+            "description": "Audience dimension, independent of `status` (, Deel 7 §68-69). Not yet wired into any cross-org visibility check — consequences."
           },
           "gtin": {
             "type": "string",
-            "description": "GTIN-8/12/13/14 (ADR-005) — checksum-validated, not confirmed against GS1's registry."
+            "description": "GTIN-8/12/13/14 — checksum-validated, not confirmed against GS1's registry."
           },
           "expectedVersion": {
             "type": "number",
-            "description": "Optimistic concurrency (ADR-024, Deel 22 §110-111). Optional — omit for the previous last-write-wins behavior; supply the version you last read to get a real 409 VERSION_CONFLICT if someone else updated the product first."
+            "description": "Optimistic concurrency (, Deel 22 §110-111). Optional — omit for the previous last-write-wins behavior; supply the version you last read to get a real 409 VERSION_CONFLICT if someone else updated the product first."
           }
         }
       },
@@ -18535,7 +18146,7 @@
             "type": "string"
           },
           "identity": {
-            "description": "Segments to mint a distinct OSPI identity (own full code) for this variant. Every variant now requires its own identity (product owner decision, ADR-015 amendment, 2026-08-17) — provide either this or ospiIdentityId, exactly one, not neither.",
+            "description": "Segments to mint a distinct OSPI identity (own full code) for this variant. Every variant now requires its own identity (product owner decision, amendment, 2026-08-17) — provide either this or ospiIdentityId, exactly one, not neither.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/IssueOspiIdentityDto"
@@ -18782,7 +18393,7 @@
           },
           "scope": {
             "type": "string",
-            "description": "'organization' (default): private to your org, usable immediately, no review. 'global': a PROPOSAL for the shared cross-org registry (ADR-020) — created PENDING, only usable once a `categories:govern` holder approves it via POST /categories/:id/approve.",
+            "description": "'organization' (default): private to your org, usable immediately, no review. 'global': a PROPOSAL for the shared cross-org registry — created PENDING, only usable once a `categories:govern` holder approves it via POST /categories/:id/approve.",
             "enum": [
               "organization",
               "global"
@@ -18852,15 +18463,15 @@
           },
           "unitCode": {
             "type": "string",
-            "description": "Default entry unit code, used when dataType = MEASUREMENT. Must resolve to a real Unit (ADR-060) within unitCategoryId."
+            "description": "Default entry unit code, used when dataType = MEASUREMENT. Must resolve to a real Unit within unitCategoryId."
           },
           "unitCategoryId": {
             "type": "string",
-            "description": "Which UnitCategory (ADR-060) this MEASUREMENT attribute is a quantity of (e.g. LENGTH, MASS) — required when dataType = MEASUREMENT."
+            "description": "Which UnitCategory this MEASUREMENT attribute is a quantity of (e.g. LENGTH, MASS) — required when dataType = MEASUREMENT."
           },
           "aggregatable": {
             "type": "boolean",
-            "description": "ADR-059 — opt in to DPP composition aggregation (a component's value is scaled by its BOM percentage and summed into the parent product's composed DPP). Allowed for dataType = DECIMAL, or MEASUREMENT with unitCategoryId set (ADR-060 — component values are converted to the category's canonical unit before summing, so mismatched units never get silently added together)."
+            "description": "Opt in to DPP composition aggregation (a component's value is scaled by its BOM percentage and summed into the parent product's composed DPP). Allowed for dataType = DECIMAL, or MEASUREMENT with unitCategoryId set ( — component values are converted to the category's canonical unit before summing, so mismatched units never get silently added together)."
           }
         },
         "required": [
@@ -19308,7 +18919,7 @@
         "properties": {
           "entityId": {
             "type": "string",
-            "description": "ADR-041 — the Entity (subsidiary) this Location belongs to. Must belong to the caller's own organization."
+            "description": "The Entity (subsidiary) this Location belongs to. Must belong to the caller's own organization."
           },
           "name": {
             "type": "string"
@@ -19526,7 +19137,7 @@
             "type": "string"
           },
           "ruleFilter": {
-            "description": "Rule-based/dynamic scoping (ADR-022), e.g. [{ attributeCode: \"region\", operator: \"eq\", value: \"EU\" }]. ANDed with each other and with targetType — a product must also match every rule to be in scope. Omit for no extra filtering.",
+            "description": "Rule-based/dynamic scoping, e.g. [{ attributeCode: \"region\", operator: \"eq\", value: \"EU\" }]. ANDed with each other and with targetType — a product must also match every rule to be in scope. Omit for no extra filtering.",
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SharingRuleDto"
@@ -19580,7 +19191,7 @@
           },
           "variantId": {
             "type": "string",
-            "description": "Prices a specific variant instead of the base product (ADR-015) — e.g. different sizes/colors with different prices. Never a serial/batch: pricing is always at product/variant (SKU) level, never per physical unit."
+            "description": "Prices a specific variant instead of the base product — e.g. different sizes/colors with different prices. Never a serial/batch: pricing is always at product/variant (SKU) level, never per physical unit."
           },
           "price": {
             "type": "number"
@@ -19592,7 +19203,7 @@
           "minimumQuantity": {
             "type": "number",
             "default": 1,
-            "description": "Decimal, not just whole units (ADR-024, Deel 17 §29) — e.g. 4.5 kg."
+            "description": "Decimal, not just whole units (, Deel 17 §29) — e.g. 4.5 kg."
           },
           "salesUnit": {
             "type": "string",
@@ -19642,7 +19253,7 @@
           },
           "minimumQuantity": {
             "type": "number",
-            "description": "Overrides Offer.minimumQuantity for this buyer only. Decimal (ADR-024, Deel 17 §29)."
+            "description": "Overrides Offer.minimumQuantity for this buyer only. Decimal (, Deel 17 §29)."
           }
         },
         "required": [
@@ -19658,11 +19269,11 @@
           },
           "billToEntityId": {
             "type": "string",
-            "description": "ADR-041 — bill this order to a specific Entity (subsidiary) of your organization. Defaults to your active Entity, if any; omit entirely for plain organization-level orders."
+            "description": "Bill this order to a specific Entity (subsidiary) of your organization. Defaults to your active Entity, if any; omit entirely for plain organization-level orders."
           },
           "shipToEntityId": {
             "type": "string",
-            "description": "ADR-041 — ship this order to a specific Entity (subsidiary) of your organization. Defaults to your active Entity, if any."
+            "description": "Ship this order to a specific Entity (subsidiary) of your organization. Defaults to your active Entity, if any."
           },
           "notes": {
             "type": "string"
@@ -19677,7 +19288,7 @@
           },
           "quantity": {
             "type": "number",
-            "description": "Decimal, not just whole units (ADR-024, Deel 17 §29) — e.g. 4.5 kg, 10.75 m."
+            "description": "Decimal, not just whole units (, Deel 17 §29) — e.g. 4.5 kg, 10.75 m."
           }
         },
         "required": [
@@ -19714,7 +19325,7 @@
           },
           "quantity": {
             "type": "number",
-            "description": "Decimal (ADR-024, Deel 17 §29) — e.g. 4.5 kg."
+            "description": "Decimal (, Deel 17 §29) — e.g. 4.5 kg."
           },
           "unitPrice": {
             "type": "number"
