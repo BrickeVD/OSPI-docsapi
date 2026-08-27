@@ -5,7 +5,7 @@ sidebar_position: 8
 
 # Inventory
 
-Owner-scoped locations and stock records ([ADR-009](/architecture/adr/adr-009-inventory-record-shape)).
+Owner-scoped locations and stock records (ADR-009).
 
 ## Endpoints
 

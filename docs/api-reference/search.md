@@ -20,7 +20,7 @@ GET /api/v1/search/products?q=stainless+bottle&scope=network
 Authorization: Bearer <token>
 ```
 
-`GET /search/products` runs directly against PostgreSQL full-text search — there is no dedicated search engine behind it ([ADR-012](/architecture/adr/adr-012-search-postgres-fts)). Default `scope` is the caller's own organization. `?scope=network` additionally includes products from organizations that granted the caller an active `PRODUCT_DATA` sharing grant scoped `ALL_PRODUCTS` or `PRODUCT_CATEGORY` — individual `PRODUCT`-targeted grants are deliberately excluded from this general listing (folding those in would be an unbounded per-candidate-grant cost without a real search index); they're still reachable via the [Partner endpoints](/api-reference/connections-and-sharing#partner-facing-reads).
+`GET /search/products` runs directly against PostgreSQL full-text search — there is no dedicated search engine behind it (ADR-012). Default `scope` is the caller's own organization. `?scope=network` additionally includes products from organizations that granted the caller an active `PRODUCT_DATA` sharing grant scoped `ALL_PRODUCTS` or `PRODUCT_CATEGORY` — individual `PRODUCT`-targeted grants are deliberately excluded from this general listing (folding those in would be an unbounded per-candidate-grant cost without a real search index); they're still reachable via the [Partner endpoints](/api-reference/connections-and-sharing#partner-facing-reads).
 
 ## Resolver
 

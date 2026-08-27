@@ -24,13 +24,6 @@ const sections = [
     to: '/api-reference',
     cta: 'Browse the API',
   },
-  {
-    title: 'Architecture',
-    description:
-      'The 34 Architecture Decision Records behind the platform, and the domain model they implement.',
-    to: '/architecture',
-    cta: 'See the decisions',
-  },
 ];
 
 // Every caption below is real: the OSPI code is computed by the actual
@@ -168,7 +161,7 @@ export default function Homepage() {
           <CapabilityCard {...capabilities[2]} />
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-3">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2">
           {sections.map((s) => (
             <Link
               key={s.to}

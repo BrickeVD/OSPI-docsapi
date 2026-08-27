@@ -5,7 +5,7 @@ sidebar_position: 4
 
 # Producers & OSPI Codes
 
-An organization registers as a **Producer**, is issued a **Producer Code** (the `AAAA` segment), and then mints **OSPI Identities** — the global, checksum-verified product/variant identifier. See [ADR-004](/architecture/adr/adr-004-ospi-code-checksum) and [ADR-008](/architecture/adr/adr-008-ospi-code-segment-widths) for how the identifier format and checksum are actually implemented.
+An organization registers as a **Producer**, is issued a **Producer Code** (the `AAAA` segment), and then mints **OSPI Identities** — the global, checksum-verified product/variant identifier. See ADR-004 and ADR-008 for how the identifier format and checksum are actually implemented.
 
 ## Endpoints
 
@@ -69,7 +69,7 @@ Content-Type: application/json
 | `version` | `V` | 1–9, default 1 |
 | — | `FFF` | Computed checksum, never supplied — see ADR-004 |
 
-Pass `reserved: true` (optionally with `reservedUntil`) to **reserve** an identity — the code exists and is held, without a product attached yet — for ERP sync, bulk import, or manufacturing workflows that need a code before the product record is fully assembled ([ADR-024](/architecture/adr/adr-024-product-identity-lifecycle-and-decimal-quantity)). Attaching it to a product later moves it straight to `ACTIVE`, no separate un-reserve step needed.
+Pass `reserved: true` (optionally with `reservedUntil`) to **reserve** an identity — the code exists and is held, without a product attached yet — for ERP sync, bulk import, or manufacturing workflows that need a code before the product record is fully assembled (ADR-024). Attaching it to a product later moves it straight to `ACTIVE`, no separate un-reserve step needed.
 
 In practice you usually don't call this endpoint directly — `POST /products` accepts the same fields under an `identity` block and mints the identity in the same call. Use this endpoint directly when you need to reserve a code before the product exists, or when issuing identities in bulk ahead of catalog creation.
 

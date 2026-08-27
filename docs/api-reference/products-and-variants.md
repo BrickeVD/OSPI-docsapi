@@ -53,13 +53,13 @@ Content-Type: application/json
 }
 ```
 
-`identity` mints a new OSPI Identity for the product in the same call — see [Producers & OSPI Codes](/api-reference/producers-and-ospi-codes). Pass `ospiIdentityId` instead to attach an identity you already reserved. `gtin` (GTIN-8/12/13/14) is checksum-validated but not confirmed against GS1's registry ([ADR-005](/architecture/adr/adr-005-gs1-relationship)).
+`identity` mints a new OSPI Identity for the product in the same call — see [Producers & OSPI Codes](/api-reference/producers-and-ospi-codes). Pass `ospiIdentityId` instead to attach an identity you already reserved. `gtin` (GTIN-8/12/13/14) is checksum-validated but not confirmed against GS1's registry (ADR-005).
 
 Statuses: `DRAFT → ACTIVE → PUBLISHED`, with `RECALLED`/`DISCONTINUED`/`ARCHIVED` as terminal-ish states, plus an independent `publicationState` audience field (`PRIVATE`/`PARTNER_ONLY`/`PUBLIC`/`SCHEDULED`).
 
 ## Variants
 
-Every variant carries its **own** OSPI identity — `POST /products/:id/variants` always requires an `identity` block or `ospiIdentityId`, the same shape as product creation ([ADR-015](/architecture/adr/adr-015-pricing-vs-serialization)). Pricing (`Offer`) resolves against this SKU-level identity, not against individual serialized units.
+Every variant carries its **own** OSPI identity — `POST /products/:id/variants` always requires an `identity` block or `ospiIdentityId`, the same shape as product creation (ADR-015). Pricing (`Offer`) resolves against this SKU-level identity, not against individual serialized units.
 
 ## Serialized units
 

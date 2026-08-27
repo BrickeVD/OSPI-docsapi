@@ -27,7 +27,7 @@
 
 ## About The Project
 
-This is the documentation site for **OSPI (Open Standard Product Identification)** — an open standard and API platform for product identity, master data, and cross-organization product data exchange. It documents the real, running reference implementation at [`ospi-platform`](https://github.com/BrickeVD/ospi-platform): guides, a full REST API reference, and the architecture decisions behind how the platform is built.
+This is the documentation site for **OSPI (Open Standard Product Identification)** — an open standard and API platform for product identity, master data, and cross-organization product data exchange. It documents the real, running reference implementation at [`ospi-platform`](https://github.com/BrickeVD/ospi-platform): guides and a full REST API reference.
 
 All content is sourced from the actual `ospi-platform` codebase (controllers, DTOs, ADRs, domain docs) — not invented. Where the platform has an open question or a "not built yet," the docs say so.
 
@@ -57,13 +57,14 @@ npm start
 
 ## Content structure
 
-The site is three separate Docusaurus doc instances, defined in [`docusaurus.config.js`](./docusaurus.config.js):
+The site is two separate Docusaurus doc instances, defined in [`docusaurus.config.js`](./docusaurus.config.js):
 
 | Instance | Path | Route | Content |
 | --- | --- | --- | --- |
 | `guides` | `docs/guides` | `/guides` | Introduction, quickstart, authentication, core concepts, errors, idempotency/rate limits, webhooks, roles |
 | `api-reference` | `docs/api-reference` | `/api-reference` | Hand-written domain guides (**Guides**) + a live, generated per-endpoint reference with request/response schemas and a "Try It" console (**Endpoints**) |
-| `architecture` | `docs/architecture` | `/architecture` | Domain model + all 34 Architecture Decision Records, ported from `ospi-platform/docs/adr` |
+
+There is deliberately no Architecture Decision Records section — ADRs live in `ospi-platform/docs/adr` if you need the internal design rationale, but this site stays focused on how to use the API.
 
 Branding (`src/css/custom.css`, `static/logo/`) uses a placeholder pink wordmark — the real OSPI logo and full brand guidelines were not available at the time this site was built; swap `static/logo/light.svg` and `static/logo/dark.svg` once they are.
 

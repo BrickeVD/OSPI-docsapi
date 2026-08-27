@@ -28,11 +28,6 @@ const docs = [
     docItemComponent: '@theme/ApiItem',
     sidebarPath: require.resolve('./sidebars-api-reference.ts'),
   },
-  {
-    id: 'architecture',
-    path: 'docs/architecture',
-    routeBasePath: '/architecture',
-  },
 ];
 
 /** @type {import('@docusaurus/plugin-content-docs').Options} */
@@ -177,10 +172,6 @@ const config = {
             to: '/api-reference',
           },
           {
-            label: 'Architecture',
-            to: '/architecture',
-          },
-          {
             label: 'GitHub',
             href: 'https://github.com/BrickeVD/ospi-platform',
             position: 'right',
@@ -206,10 +197,6 @@ const config = {
               {
                 label: 'API Reference',
                 to: '/api-reference',
-              },
-              {
-                label: 'Architecture Decisions',
-                to: '/architecture',
               },
             ],
           },

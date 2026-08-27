@@ -5,7 +5,7 @@ sidebar_position: 11
 
 # Ordering & Commerce
 
-An **Offer** is a seller's commercial listing for a product — sellable even without owning it, given an active `ORDERING` sharing grant from the owner. An **Order** splits per seller into one **OrderGroup** each, containing **OrderLines** ([ADR-011](/architecture/adr/adr-011-ordering-mvp-simplifications)).
+An **Offer** is a seller's commercial listing for a product — sellable even without owning it, given an active `ORDERING` sharing grant from the owner. An **Order** splits per seller into one **OrderGroup** each, containing **OrderLines** (ADR-011).
 
 There is no payment integration, no automatic stock reservation, and no credit-limit/contract-term validation — accepting an order is still a manual seller decision. Offers and Orders are nonetheless real commercial records; get commercial/legal sign-off before connecting real trading partners.
 
@@ -21,7 +21,7 @@ There is no payment integration, no automatic stock reservation, and no credit-l
 | `GET` | `/offers/:id/buyer-minimums` | List per-buyer minimum overrides | `offers:write` |
 | `DELETE` | `/offers/:id/buyer-minimums/:buyerOrganizationId` | Remove an override | `offers:write` |
 
-A per-buyer minimum ([ADR-021](/architecture/adr/adr-021-per-buyer-offer-minimum)) replaces the offer's default `minimumQuantity` for that one buyer; `addLine` checks the override before falling back to the default.
+A per-buyer minimum (ADR-021) replaces the offer's default `minimumQuantity` for that one buyer; `addLine` checks the override before falling back to the default.
 
 ## Orders
 
@@ -37,7 +37,7 @@ A per-buyer minimum ([ADR-021](/architecture/adr/adr-021-per-buyer-offer-minimum
 | `POST` | `/orders/:id/groups/:groupId/reject` | Seller rejects their group | `orders:write` |
 | `PUT` | `/orders/:id/groups/:groupId/status` | Move a group through `PROCESSING → FULFILLED → COMPLETE` | `orders:write` |
 
-`OrderLine.quantity` and both `minimumQuantity` fields are `Decimal`, not integers — quantities like `4.5 kg` are representable ([ADR-024](/architecture/adr/adr-024-product-identity-lifecycle-and-decimal-quantity)).
+`OrderLine.quantity` and both `minimumQuantity` fields are `Decimal`, not integers — quantities like `4.5 kg` are representable (ADR-024).
 
 ## Walkthrough
 

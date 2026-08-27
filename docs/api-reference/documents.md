@@ -5,7 +5,7 @@ sidebar_position: 7
 
 # Documents
 
-Document metadata — datasheets, certificates, manuals, images — attached to products, with real file storage behind a swappable abstraction ([ADR-017](/architecture/adr/adr-017-document-storage-abstraction)).
+Document metadata — datasheets, certificates, manuals, images — attached to products, with real file storage behind a swappable abstraction (ADR-017).
 
 ## Endpoints
 
@@ -38,7 +38,7 @@ Content is currently accepted as base64-in-JSON (no `multipart`/`multer` depende
 
 ## Metadata fields
 
-`documentType`, `lifecycleStatus`, `validFrom`/`validUntil`, `checksum` (SHA-256), `sortOrder`, and `certificateMetadata` ([ADR-034](/architecture/adr/adr-034-document-metadata)).
+`documentType`, `lifecycleStatus`, `validFrom`/`validUntil`, `checksum` (SHA-256), `sortOrder`, and `certificateMetadata` (ADR-034).
 
 ## Visibility
 
