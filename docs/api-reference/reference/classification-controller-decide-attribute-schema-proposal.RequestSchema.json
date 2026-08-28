@@ -1,1 +1,0 @@
-{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"decision":{"type":"string","enum":["APPROVE","REJECT"]},"rejectionReason":{"type":"string","description":"Required when decision = REJECT."}},"required":["decision"],"title":"DecideAttributeSchemaProposalDto"}}}}}

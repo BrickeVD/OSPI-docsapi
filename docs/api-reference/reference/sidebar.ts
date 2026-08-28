@@ -28,18 +28,6 @@ const sidebar: SidebarsConfig = {
           label: "List audit-log entries",
           className: "api-method get",
         },
-        {
-          type: "doc",
-          id: "reference/audit-controller-seal-chain",
-          label: "Seal the audit-log hash chain",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "reference/audit-controller-verify-chain",
-          label: "Verify the audit-log hash chain",
-          className: "api-method get",
-        },
       ],
     },
     {
@@ -218,12 +206,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "reference/organizations-controller-update",
           label: "Update an organization",
-          className: "api-method patch",
-        },
-        {
-          type: "doc",
-          id: "reference/organizations-controller-set-commission-rate",
-          label: "Set (or clear) an organization's platform commission rate override",
           className: "api-method patch",
         },
         {
@@ -429,6 +411,18 @@ const sidebar: SidebarsConfig = {
           id: "reference/identity-controller-scan-for-maintenance",
           label: "Scan in to log maintenance on a serialized unit",
           className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "reference/identity-controller-request-producer-code-exception",
+          label: "Request an exception to the Producer-code standard lock",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "reference/identity-controller-list-my-producer-code-exceptions",
+          label: "List this organization's own Producer-code exception requests",
+          className: "api-method get",
         },
       ],
     },
@@ -660,30 +654,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "reference/categories-controller-list-pending",
-          label: "List pending global-category proposals",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "reference/categories-controller-approve",
-          label: "Approve a global-category proposal",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "reference/categories-controller-reject",
-          label: "Reject a global-category proposal",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
-          id: "reference/categories-controller-set-category-compliance-requirement",
-          label: "Set a category's DPP compliance requirement",
-          className: "api-method post",
-        },
-        {
-          type: "doc",
           id: "reference/categories-controller-get-category-compliance-status",
           label: "Get a category's compliance requirement and the caller's own rollup",
           className: "api-method get",
@@ -726,8 +696,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "reference/classification-controller-create-scheme",
-          label: "Create a classification scheme",
+          id: "reference/classification-controller-propose-scheme",
+          label: "Propose a classification scheme",
           className: "api-method post",
         },
         {
@@ -738,8 +708,8 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "reference/classification-controller-add-node",
-          label: "Add a node to a classification scheme",
+          id: "reference/classification-controller-propose-node",
+          label: "Propose a node in a classification scheme",
           className: "api-method post",
         },
         {
@@ -802,12 +772,6 @@ const sidebar: SidebarsConfig = {
           label: "Vote on an attribute-schema proposal",
           className: "api-method post",
         },
-        {
-          type: "doc",
-          id: "reference/classification-controller-decide-attribute-schema-proposal",
-          label: "Decide an attribute-schema proposal",
-          className: "api-method post",
-        },
       ],
     },
     {
@@ -817,7 +781,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "reference/units-controller-create-category",
-          label: "Create a unit category",
+          label: "Propose a unit category",
           className: "api-method post",
         },
         {
@@ -829,7 +793,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "reference/units-controller-create-unit",
-          label: "Create a unit",
+          label: "Propose a unit",
           className: "api-method post",
         },
         {
@@ -1424,18 +1388,6 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "security-monitoring",
-      items: [
-        {
-          type: "doc",
-          id: "reference/security-monitoring-controller-list",
-          label: "List security alerts",
-          className: "api-method get",
-        },
-      ],
-    },
-    {
-      type: "category",
       label: "branding",
       items: [
         {
@@ -1584,12 +1536,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "reference/schemas/setcommissionratedto",
-          label: "SetCommissionRateDto",
-          className: "schema",
-        },
-        {
-          type: "doc",
           id: "reference/schemas/inviteuserdto",
           label: "InviteUserDto",
           className: "schema",
@@ -1640,6 +1586,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "reference/schemas/registerownerdto",
           label: "RegisterOwnerDto",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "reference/schemas/requestproducercodeexceptiondto",
+          label: "RequestProducerCodeExceptionDto",
           className: "schema",
         },
         {
@@ -1728,18 +1680,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "reference/schemas/rejectcategorydto",
-          label: "RejectCategoryDto",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "reference/schemas/setcategorycompliancerequirementdto",
-          label: "SetCategoryComplianceRequirementDto",
-          className: "schema",
-        },
-        {
-          type: "doc",
           id: "reference/schemas/createattributedefinitiondto",
           label: "CreateAttributeDefinitionDto",
           className: "schema",
@@ -1784,12 +1724,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "reference/schemas/voteonattributeschemaproposaldto",
           label: "VoteOnAttributeSchemaProposalDto",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "reference/schemas/decideattributeschemaproposaldto",
-          label: "DecideAttributeSchemaProposalDto",
           className: "schema",
         },
         {

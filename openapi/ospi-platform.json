@@ -193,148 +193,6 @@
         ]
       }
     },
-    "/api/v1/audit-logs/chain/seal": {
-      "post": {
-        "description": "Platform-operator-only: walks every already-committed immutable row in order and links them with a sha256 hash chain. The chain spans every organization's rows, so sealing it is a whole-system integrity action.",
-        "operationId": "AuditController_sealChain",
-        "parameters": [],
-        "responses": {
-          "201": {
-            "description": "Chain sealed; returns how many rows were newly chained."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Seal the audit-log hash chain",
-        "tags": [
-          "audit"
-        ]
-      }
-    },
-    "/api/v1/audit-logs/chain/verify": {
-      "get": {
-        "description": "Recomputes and checks every sealed row's hash; reports where the chain first breaks, if it does.",
-        "operationId": "AuditController_verifyChain",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "Verification result: intact, or the first row where the chain breaks."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Verify the audit-log hash chain",
-        "tags": [
-          "audit"
-        ]
-      }
-    },
     "/api/v1/auth/register": {
       "post": {
         "description": "Creates the organization and its first user (org owner). Rate limited — unauthenticated account creation is a classic abuse target.",
@@ -601,7 +459,7 @@
     },
     "/api/v1/auth/switch-organization": {
       "post": {
-        "description": "Deel 25 §16-17 \"Identity switching\" — re-scopes the SAME session to a different organization the caller has an ACTIVE membership in. Authenticates via the refresh token in the body, not an Authorization header.",
+        "description": "\"Identity switching\" (Deel 25 §16-17) — re-scopes the SAME session to a different organization the caller has an ACTIVE membership in. Authenticates via the refresh token in the body, not an Authorization header.",
         "operationId": "AuthController_switchOrganization",
         "parameters": [],
         "requestBody": {
@@ -1794,7 +1652,7 @@
     },
     "/api/v1/roles": {
       "post": {
-        "description": "A named set of permissions, scoped to the caller's organization (/023).",
+        "description": "A named set of permissions, scoped to the caller's organization.",
         "operationId": "RolesController_create",
         "parameters": [],
         "requestBody": {
@@ -2348,96 +2206,6 @@
           }
         ],
         "summary": "Update an organization",
-        "tags": [
-          "organizations"
-        ]
-      }
-    },
-    "/api/v1/organizations/{id}/commission-rate": {
-      "patch": {
-        "description": ". Platform-operator only — an org can never set its own rate. Pass `commissionRatePercent: null` to clear the override and revert to the platform default.",
-        "operationId": "OrganizationsController_setCommissionRate",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetCommissionRateDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Commission rate override updated."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Set (or clear) an organization's platform commission rate override",
         "tags": [
           "organizations"
         ]
@@ -4075,7 +3843,7 @@
     },
     "/api/v1/producers/{producerId}/codes": {
       "post": {
-        "description": "The [AAAA] segment of an OSPI Code, unique per producer (/008).",
+        "description": "The [AAAA] segment of an OSPI Code, unique per producer.",
         "operationId": "IdentityController_issueProducerCode",
         "parameters": [
           {
@@ -4165,7 +3933,7 @@
     },
     "/api/v1/ospi-identities": {
       "post": {
-        "description": "Builds and checksums a full OSPI Code from its segments (/008). Idempotent — safe to retry with the same Idempotency-Key.",
+        "description": "Builds and checksums a full OSPI Code from its segments. Idempotent — safe to retry with the same Idempotency-Key.",
         "operationId": "IdentityController_issueOspiIdentity",
         "parameters": [],
         "requestBody": {
@@ -4392,7 +4160,7 @@
     },
     "/api/v1/ospi-identities/{id}/retire": {
       "post": {
-        "description": "Permanent, never reused (, Deel 4 §40-41).",
+        "description": "Permanent, never reused (Deel 4 §40-41).",
         "operationId": "IdentityController_retire",
         "parameters": [
           {
@@ -4472,7 +4240,7 @@
     },
     "/api/v1/ospi-identities/{id}/suspend": {
       "post": {
-        "description": "Temporary — history is preserved (, Deel 4 §39).",
+        "description": "Temporary — history is preserved (Deel 4 §39).",
         "operationId": "IdentityController_suspend",
         "parameters": [
           {
@@ -4772,7 +4540,7 @@
     },
     "/api/v1/serialized-units/{code}/scan": {
       "post": {
-        "description": "Any authenticated platform user may scan the unit's own OSPI code to open a time-boxed maintenance session (default 30 minutes, slides forward on each event logged). No owner-side approval step. Once the session lapses, logging maintenance requires scanning in again. Returns the productId/unitId to call the normal POST.../serialized-units/:unitId/events with. NOTE (direct product-owner scoping): OSPI supplies these endpoints only — the actual code scanning (camera/barcode-reader UI) is built into each professional's own field-service software, not by this platform. A dedicated client SDK wrapping this scan → event-log flow is a real, not-yet-built follow-up (see BACKLOG.md) — integrators currently call the raw REST endpoints directly.",
+        "description": "Any authenticated platform user may scan the unit's own OSPI code to open a time-boxed maintenance session (default 30 minutes, slides forward on each event logged). No owner-side approval step. Once the session lapses, logging maintenance requires scanning in again. Returns the productId/unitId to call the normal POST .../serialized-units/:unitId/events with. NOTE (direct product-owner scoping): OSPI supplies these endpoints only — the actual code scanning (camera/barcode-reader UI) is built into each professional's own field-service software, not by this platform. A dedicated client SDK wrapping this scan → event-log flow is a real, not-yet-built follow-up (see BACKLOG.md) — integrators currently call the raw REST endpoints directly.",
         "operationId": "IdentityController_scanForMaintenance",
         "parameters": [
           {
@@ -4845,6 +4613,155 @@
           }
         ],
         "summary": "Scan in to log maintenance on a serialized unit",
+        "tags": [
+          "identity"
+        ]
+      }
+    },
+    "/api/v1/producer-code-exceptions": {
+      "post": {
+        "description": "Only MANUFACTURER organizations may create Producers/OSPI codes by default. Any other organization may request an exception here; it takes effect once a platform operator approves it.",
+        "operationId": "IdentityController_requestProducerCodeException",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestProducerCodeExceptionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Exception request created (PENDING)."
+          },
+          "400": {
+            "description": "Validation failed, or the request violates a business rule.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, malformed, or expired credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource does not exist, or is not visible to the caller.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "Request an exception to the Producer-code standard lock",
+        "tags": [
+          "identity"
+        ]
+      },
+      "get": {
+        "operationId": "IdentityController_listMyProducerCodeExceptions",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "List of exception requests, any status."
+          },
+          "400": {
+            "description": "Validation failed, or the request violates a business rule.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, malformed, or expired credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource does not exist, or is not visible to the caller.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "summary": "List this organization's own Producer-code exception requests",
         "tags": [
           "identity"
         ]
@@ -6140,7 +6057,7 @@
     },
     "/api/v1/products/{id}/serialized-units/{unitId}/events": {
       "post": {
-        "description": "Append-only history: repairs, notes, custody/location moves, and status transitions (RECALLED/DECOMMISSIONED — the only way a unit leaves REGISTERED).: a professional currently scanned in via POST /serialized-units/:code/scan may also call this, but only for NOTE/REPAIR events. NOTE: OSPI receives this data — the scan-and-log UI itself lives in each professional's own software; a client SDK for this flow is a planned follow-up, not yet built.",
+        "description": "Append-only history: repairs, notes, custody/location moves, and status transitions (RECALLED/DECOMMISSIONED — the only way a unit leaves REGISTERED). A professional currently scanned in via POST /serialized-units/:code/scan may also call this, but only for NOTE/REPAIR events. NOTE: OSPI receives this data — the scan-and-log UI itself lives in each professional's own software; a client SDK for this flow is a planned follow-up, not yet built.",
         "operationId": "ProductsController_addSerializedUnitEvent",
         "parameters": [
           {
@@ -6585,7 +6502,7 @@
     },
     "/api/v1/products/{id}/relationships": {
       "post": {
-        "description": "Id is always the relationship's source (directional), e.g. ACCESSORY_FOR, SUPERSEDES, REPLACEMENT_FOR. Cross-organization by design.",
+        "description": "id is always the relationship's source (directional), e.g. ACCESSORY_FOR, SUPERSEDES, REPLACEMENT_FOR. Cross-organization by design.",
         "operationId": "ProductsController_createRelationship",
         "parameters": [
           {
@@ -6839,7 +6756,7 @@
     },
     "/api/v1/products/{id}/components": {
       "post": {
-        "description": "Id is always the BOM entry's parent product (directional). A percentage-weighted component, possibly owned by a different organization, feeding DPP aggregation.",
+        "description": "id is always the BOM entry's parent product (directional). A percentage-weighted component, possibly owned by a different organization, feeding DPP aggregation.",
         "operationId": "ProductsController_createComponent",
         "parameters": [
           {
@@ -7921,336 +7838,7 @@
         ]
       }
     },
-    "/api/v1/categories/pending": {
-      "get": {
-        "description": "Categories:govern + platform-operator-only — every proposal awaiting review, across all orgs.",
-        "operationId": "CategoriesController_listPending",
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "List of PENDING category proposals."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "List pending global-category proposals",
-        "tags": [
-          "categories"
-        ]
-      }
-    },
-    "/api/v1/categories/{id}/approve": {
-      "post": {
-        "description": "categories:govern + platform-operator-only — approve a PENDING global-registry proposal.",
-        "operationId": "CategoriesController_approve",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "201": {
-            "description": "Category APPROVED."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Approve a global-category proposal",
-        "tags": [
-          "categories"
-        ]
-      }
-    },
-    "/api/v1/categories/{id}/reject": {
-      "post": {
-        "description": "categories:govern + platform-operator-only — reject a PENDING global-registry proposal (optional reason).",
-        "operationId": "CategoriesController_reject",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RejectCategoryDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Category REJECTED."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Reject a global-category proposal",
-        "tags": [
-          "categories"
-        ]
-      }
-    },
     "/api/v1/categories/{categoryId}/compliance-requirement": {
-      "post": {
-        "description": "Categories:govern + platform-operator, same gate as category approve/reject: a regulatory deadline is registry-level policy, not a per-org setting.",
-        "operationId": "CategoriesController_setCategoryComplianceRequirement",
-        "parameters": [
-          {
-            "name": "categoryId",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SetCategoryComplianceRequirementDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Requirement set."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Set a category's DPP compliance requirement",
-        "tags": [
-          "categories"
-        ]
-      },
       "get": {
         "description": "The requirement (if set) plus a live count of the caller's own organization's products in this category and how many are compliant.",
         "operationId": "CategoriesController_getCategoryComplianceStatus",
@@ -8740,8 +8328,8 @@
     },
     "/api/v1/classification-schemes": {
       "post": {
-        "description": "A named, freeform taxonomy (distinct from the Category registry) — anyone may define one.",
-        "operationId": "ClassificationController_createScheme",
+        "description": "A named, freeform taxonomy (distinct from the Category registry). Every scheme is shared, so this is always a proposal — created PENDING, usable only once a categories:govern + platform-operator holder approves it.",
+        "operationId": "ClassificationController_proposeScheme",
         "parameters": [],
         "requestBody": {
           "required": true,
@@ -8755,7 +8343,7 @@
         },
         "responses": {
           "201": {
-            "description": "Scheme created."
+            "description": "Scheme proposal created (PENDING)."
           },
           "400": {
             "description": "Validation failed, or the request violates a business rule.",
@@ -8813,12 +8401,13 @@
             "bearer": []
           }
         ],
-        "summary": "Create a classification scheme",
+        "summary": "Propose a classification scheme",
         "tags": [
           "classification"
         ]
       },
       "get": {
+        "description": "Every APPROVED scheme, plus the caller's own PENDING/REJECTED proposals.",
         "operationId": "ClassificationController_listSchemes",
         "parameters": [],
         "responses": {
@@ -8889,7 +8478,8 @@
     },
     "/api/v1/classification-schemes/{schemeId}/nodes": {
       "post": {
-        "operationId": "ClassificationController_addNode",
+        "description": "The scheme must already be APPROVED. Created PENDING, same governance as the scheme itself.",
+        "operationId": "ClassificationController_proposeNode",
         "parameters": [
           {
             "name": "schemeId",
@@ -8912,7 +8502,7 @@
         },
         "responses": {
           "201": {
-            "description": "Node created."
+            "description": "Node proposal created (PENDING)."
           },
           "400": {
             "description": "Validation failed, or the request violates a business rule.",
@@ -8970,12 +8560,13 @@
             "bearer": []
           }
         ],
-        "summary": "Add a node to a classification scheme",
+        "summary": "Propose a node in a classification scheme",
         "tags": [
           "classification"
         ]
       },
       "get": {
+        "description": "Every APPROVED node, plus the caller's own PENDING/REJECTED proposals.",
         "operationId": "ClassificationController_listNodes",
         "parameters": [
           {
@@ -9797,99 +9388,9 @@
         ]
       }
     },
-    "/api/v1/attribute-proposals/{id}/decide": {
-      "post": {
-        "description": "The platform operator's final decision — same gate as 's category approve/reject, one level down. Independent of the vote tally, which is advisory only.",
-        "operationId": "ClassificationController_decideAttributeSchemaProposal",
-        "parameters": [
-          {
-            "name": "id",
-            "required": true,
-            "in": "path",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DecideAttributeSchemaProposalDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Proposal decided; if APPROVEd, the rule is applied immediately."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "Decide an attribute-schema proposal",
-        "tags": [
-          "classification"
-        ]
-      }
-    },
     "/api/v1/unit-categories": {
       "post": {
-        "description": "A kind of quantity (LENGTH, MASS,...) that units belong to.",
+        "description": "A kind of quantity (LENGTH, MASS, ...) that units belong to. Created PENDING — usable only once a categories:govern + platform-operator holder approves it.",
         "operationId": "UnitsController_createCategory",
         "parameters": [],
         "requestBody": {
@@ -9904,7 +9405,7 @@
         },
         "responses": {
           "201": {
-            "description": "Unit category created."
+            "description": "Unit category proposal created (PENDING)."
           },
           "400": {
             "description": "Validation failed, or the request violates a business rule.",
@@ -9962,19 +9463,75 @@
             "bearer": []
           }
         ],
-        "summary": "Create a unit category",
+        "summary": "Propose a unit category",
         "tags": [
           "units"
         ]
       },
       "get": {
+        "description": "Every APPROVED category, plus the caller's own PENDING/REJECTED proposals.",
         "operationId": "UnitsController_listCategories",
         "parameters": [],
         "responses": {
           "200": {
             "description": "List of unit categories."
+          },
+          "400": {
+            "description": "Validation failed, or the request violates a business rule.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, malformed, or expired credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource does not exist, or is not visible to the caller.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "List unit categories",
         "tags": [
           "units"
@@ -9983,7 +9540,7 @@
     },
     "/api/v1/unit-categories/{categoryId}/units": {
       "post": {
-        "description": "A real, convertible unit (code/symbol/conversion factor) within a unit category.",
+        "description": "A real, convertible unit (code/symbol/conversion factor) within an approved unit category. Created PENDING — its conversion factor is never used for real conversions until approved.",
         "operationId": "UnitsController_createUnit",
         "parameters": [
           {
@@ -10007,7 +9564,7 @@
         },
         "responses": {
           "201": {
-            "description": "Unit created."
+            "description": "Unit proposal created (PENDING)."
           },
           "400": {
             "description": "Validation failed, or the request violates a business rule.",
@@ -10065,7 +9622,7 @@
             "bearer": []
           }
         ],
-        "summary": "Create a unit",
+        "summary": "Propose a unit",
         "tags": [
           "units"
         ]
@@ -10073,7 +9630,7 @@
     },
     "/api/v1/units": {
       "get": {
-        "description": "Optionally filter by ?categoryId=.",
+        "description": "Every APPROVED unit, plus the caller's own PENDING/REJECTED proposals. Optionally filter by ?categoryId=.",
         "operationId": "UnitsController_listUnits",
         "parameters": [
           {
@@ -10088,8 +9645,63 @@
         "responses": {
           "200": {
             "description": "List of units."
+          },
+          "400": {
+            "description": "Validation failed, or the request violates a business rule.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing, malformed, or expired credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Authenticated, but missing the required permission (or its resource scope).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource does not exist, or is not visible to the caller.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponseDto"
+                }
+              }
+            }
           }
         },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
         "summary": "List units",
         "tags": [
           "units"
@@ -10265,7 +9877,7 @@
     },
     "/api/v1/documents/upload": {
       "post": {
-        "description": "Actually stores the file (, base64-in-JSON, sized for small attachments) — see UploadDocumentDto for format/size limits. Computes and dedupes on checksum.",
+        "description": "Actually stores the file (base64-in-JSON, sized for small attachments) — see UploadDocumentDto for format/size limits. Computes and dedupes on checksum.",
         "operationId": "DocumentsController_upload",
         "parameters": [],
         "requestBody": {
@@ -10423,7 +10035,7 @@
         ]
       },
       "patch": {
-        "description": "DocumentType/lifecycleStatus/validity/certificate metadata; never re-uploads the file.",
+        "description": "Updates documentType/lifecycleStatus/validity/certificate metadata; never re-uploads the file.",
         "operationId": "DocumentsController_updateMetadata",
         "parameters": [
           {
@@ -11457,7 +11069,7 @@
     },
     "/api/v1/sharing-grants": {
       "post": {
-        "description": "/022 — grants another organization scoped read access (e.g. PRODUCT_DATA, INVENTORY, DPP) to the caller's own data.",
+        "description": "Grants another organization scoped read access (e.g. PRODUCT_DATA, INVENTORY, DPP) to the caller's own data.",
         "operationId": "SharingController_create",
         "parameters": [],
         "requestBody": {
@@ -11686,7 +11298,7 @@
     },
     "/api/v1/partner/organizations/{organizationId}/products": {
       "get": {
-        "description": "Deel 14 §43-44: cursor pagination (?cursor=&limit=) + ?updatedSince=&category=&status= filtering. Access gated by SharingService, not ownership.",
+        "description": "Cursor pagination (?cursor=&limit=) + ?updatedSince=&category=&status= filtering (Deel 14 §43-44). Access gated by SharingService, not ownership.",
         "operationId": "PartnerController_listProducts",
         "parameters": [
           {
@@ -11820,7 +11432,7 @@
     },
     "/api/v1/partner/organizations/{organizationId}/products/export": {
       "post": {
-        "description": "Deel 14 §45-47 — generated synchronously (no background job queue in this build).",
+        "description": "Generated synchronously (no background job queue in this build) (Deel 14 §45-47).",
         "operationId": "PartnerController_createExport",
         "parameters": [
           {
@@ -12259,7 +11871,7 @@
     },
     "/api/v1/search/products": {
       "get": {
-        "description": "Works with or without auth ( amendment) — an anonymous caller sees only genuinely PUBLIC + PUBLISHED products, never own/network-scoped results. Rate limited.",
+        "description": "Works with or without auth — an anonymous caller sees only genuinely PUBLIC + PUBLISHED products, never own/network-scoped results. Rate limited.",
         "operationId": "SearchController_searchProducts",
         "parameters": [
           {
@@ -12340,7 +11952,7 @@
             "name": "scope",
             "required": false,
             "in": "query",
-            "description": "Own (default): only the caller's own organization's products. network: also includes products from organizations that granted the caller an active PRODUCT_DATA sharing grant scoped ALL_PRODUCTS or PRODUCT_CATEGORY ( follow-up). Individual PRODUCT-targeted grants are NOT included here — see SearchService.searchProducts.",
+            "description": "own (default): only the caller's own organization's products. network: also includes products from organizations that granted the caller an active PRODUCT_DATA sharing grant scoped ALL_PRODUCTS or PRODUCT_CATEGORY. Individual PRODUCT-targeted grants are NOT included here — see SearchService.searchProducts.",
             "schema": {
               "default": "own",
               "type": "string",
@@ -12507,7 +12119,7 @@
     },
     "/api/v1/search/resolve/{code}": {
       "get": {
-        "description": "Structural + existence resolution — stays reachable without login (Deel 4 §26-27).: basic identity is treated like public registry data; document visibility is the real access-control boundary, gated separately.",
+        "description": "Structural + existence resolution — stays reachable without login (Deel 4 §26-27). Basic identity is treated like public registry data; document visibility is the real access-control boundary, gated separately.",
         "operationId": "SearchController_resolve",
         "parameters": [
           {
@@ -12587,7 +12199,7 @@
     },
     "/api/v1/where-to-find/{code}": {
       "get": {
-        "description": "Deel 16 §64 — resolves an OSPI code to a ranked list of sellers/availability. Publicly reachable; an authenticated caller additionally sees PARTNER_ONLY inventory detail they've been granted.",
+        "description": "Resolves an OSPI code to a ranked list of sellers/availability (Deel 16 §64). Publicly reachable; an authenticated caller additionally sees PARTNER_ONLY inventory detail they've been granted.",
         "operationId": "WhereToFindController_resolve",
         "parameters": [
           {
@@ -14028,7 +13640,7 @@
     },
     "/api/v1/quotes": {
       "post": {
-        "description": "Seller-initiated (, Deel 17 §74) — starts DRAFT with real line pricing already attached. Idempotent.",
+        "description": "Seller-initiated (Deel 17 §74) — starts DRAFT with real line pricing already attached. Idempotent.",
         "operationId": "QuotesController_create",
         "parameters": [],
         "requestBody": {
@@ -16226,7 +15838,7 @@
     },
     "/api/v1/organizations/{id}/sso-config": {
       "post": {
-        "description": "/058 — OIDC or SAML settings for an organization. Requires a VERIFIED domain to actually enable login.",
+        "description": "OIDC or SAML settings for an organization. Requires a VERIFIED domain to actually enable login.",
         "operationId": "SsoConfigController_upsert",
         "parameters": [
           {
@@ -16470,7 +16082,7 @@
     },
     "/api/v1/auth/sso/{organizationId}/login": {
       "get": {
-        "description": "/058 — redirects to the organization's configured IdP (OIDC authorization URL or SAML AuthnRequest).",
+        "description": "Redirects to the organization's configured IdP (OIDC authorization URL or SAML AuthnRequest).",
         "operationId": "SsoAuthController_login",
         "parameters": [
           {
@@ -16729,133 +16341,6 @@
         "summary": "Import a real ETIM IXF catalog",
         "tags": [
           "etim"
-        ]
-      }
-    },
-    "/api/v1/security-alerts": {
-      "get": {
-        "description": "Results of the periodic in-app anomaly scan (failed-login bursts, unusual cross-org access) over the audit trail. Platform-operator only -- these span every organization by design.",
-        "operationId": "SecurityMonitoringController_list",
-        "parameters": [
-          {
-            "name": "page",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "minimum": 1,
-              "default": 1,
-              "type": "number"
-            }
-          },
-          {
-            "name": "pageSize",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "minimum": 1,
-              "maximum": 100,
-              "default": 20,
-              "type": "number"
-            }
-          },
-          {
-            "name": "sortBy",
-            "required": false,
-            "in": "query",
-            "description": "Field to sort by",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "sortDir",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "default": "asc",
-              "type": "string",
-              "enum": [
-                "asc",
-                "desc"
-              ]
-            }
-          },
-          {
-            "name": "type",
-            "required": false,
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "enum": [
-                "FAILED_LOGIN_BURST",
-                "UNUSUAL_CROSS_ORG_ACCESS"
-              ]
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Paginated security alerts, newest first."
-          },
-          "400": {
-            "description": "Validation failed, or the request violates a business rule.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Missing, malformed, or expired credentials.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Authenticated, but missing the required permission (or its resource scope).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "The requested resource does not exist, or is not visible to the caller.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "The request conflicts with existing state (e.g. a duplicate unique value).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponseDto"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearer": []
-          }
-        ],
-        "summary": "List security alerts",
-        "tags": [
-          "security-monitoring"
         ]
       }
     },
@@ -17486,7 +16971,7 @@
   },
   "info": {
     "title": "OSPI Platform API",
-    "description": "OSPI (Open Standard Product Identification) core platform. MVP scope per Project Constitution §43: Identity, Organizations, Auth, Producer Codes, OSPI Codes, Products, Variants, Categories, Attributes, Classification, Documents, Audit.",
+    "description": "OSPI (Open Standard Product Identification) core platform. MVP scope per Project Constitution §43: Identity, Organizations, Auth, Producer Codes, OSPI Codes, Products, Variants, Categories, Attributes, Classification, Documents, Audit. Platform-operator-only administration lives on a separate document at /api/admin-docs.",
     "version": "0.1.0",
     "contact": {}
   },
@@ -17551,6 +17036,23 @@
             "minLength": 8,
             "description": "At least 8 characters, plus one lowercase, one uppercase, one digit, and one symbol."
           },
+          "ecosystemRoles": {
+            "type": "array",
+            "description": "At least one role describing this organization's place in the supply chain. Determines default capabilities — e.g. only MANUFACTURER may create Producers/OSPI codes by default; other roles can request an exception after registration.",
+            "items": {
+              "type": "string",
+              "enum": [
+                "MANUFACTURER",
+                "DISTRIBUTOR",
+                "RETAILER",
+                "WHOLESALER",
+                "SERVICE_PROVIDER",
+                "LOGISTICS_PROVIDER",
+                "MARKETPLACE",
+                "INTEGRATOR"
+              ]
+            }
+          },
           "firstName": {
             "type": "string"
           },
@@ -17561,7 +17063,8 @@
         "required": [
           "organizationName",
           "email",
-          "password"
+          "password",
+          "ecosystemRoles"
         ]
       },
       "LoginDto": {
@@ -17668,6 +17171,7 @@
                 "branding:manage",
                 "notifications:manage",
                 "platform:read",
+                "producer-codes:govern",
                 "*"
               ]
             }
@@ -17734,7 +17238,8 @@
                 "commission:manage",
                 "branding:manage",
                 "notifications:manage",
-                "platform:read"
+                "platform:read",
+                "producer-codes:govern"
               ]
             }
           },
@@ -17785,11 +17290,11 @@
           },
           "whereToFindEnabled": {
             "type": "boolean",
-            "description": "Deel 16 §44-45 — opt in before this org's Offers can appear in \"Where to Find\" results."
+            "description": "Opt in before this org's Offers can appear in \"Where to Find\" results (Deel 16 §44-45)."
           },
           "discoverable": {
             "type": "boolean",
-            "description": "Deel 15 §26 — set false to stay hidden from partner-search (direct invitations still work)."
+            "description": "Set false to stay hidden from partner-search (direct invitations still work) (Deel 15 §26)."
           },
           "website": {
             "type": "string"
@@ -17828,19 +17333,6 @@
             "description": "The stored baseline for MEASUREMENT display conversion, overridable per Entity or per-request (?unitSystem=)."
           }
         }
-      },
-      "SetCommissionRateDto": {
-        "type": "object",
-        "properties": {
-          "commissionRatePercent": {
-            "type": "object",
-            "nullable": true,
-            "description": "Percent, e.g. 0.5 for 0.5%. Pass null to clear the override and revert to the platform default (PLATFORM_DEFAULT_COMMISSION_RATE_PERCENT)."
-          }
-        },
-        "required": [
-          "commissionRatePercent"
-        ]
       },
       "InviteUserDto": {
         "type": "object",
@@ -18007,7 +17499,7 @@
           },
           "reserved": {
             "type": "boolean",
-            "description": "Reserve this identity (, Deel 4 §37) instead of registering it outright — useful for ERP sync/bulk imports/manufacturing workflows that need to hold a code before the product is fully created. Attaching it to a Product/Variant later still works directly — it does not need a separate \"un-reserve\" step first — and moves it straight to ACTIVE."
+            "description": "Reserve this identity (Deel 4 §37) instead of registering it outright — useful for ERP sync/bulk imports/manufacturing workflows that need to hold a code before the product is fully created. Attaching it to a Product/Variant later still works directly — it does not need a separate \"un-reserve\" step first — and moves it straight to ACTIVE."
           },
           "reservedUntil": {
             "type": "string",
@@ -18044,6 +17536,18 @@
         "required": [
           "name",
           "email"
+        ]
+      },
+      "RequestProducerCodeExceptionDto": {
+        "type": "object",
+        "properties": {
+          "reason": {
+            "type": "string",
+            "description": "Why this organization needs to create Producers/OSPI codes despite its ecosystem role(s)."
+          }
+        },
+        "required": [
+          "reason"
         ]
       },
       "CreateProductDto": {
@@ -18124,7 +17628,7 @@
               "PUBLIC",
               "SCHEDULED"
             ],
-            "description": "Audience dimension, independent of `status` (, Deel 7 §68-69). Not yet wired into any cross-org visibility check — consequences."
+            "description": "Audience dimension, independent of `status` (Deel 7 §68-69). Not yet wired into any cross-org visibility check."
           },
           "gtin": {
             "type": "string",
@@ -18132,7 +17636,7 @@
           },
           "expectedVersion": {
             "type": "number",
-            "description": "Optimistic concurrency (, Deel 22 §110-111). Optional — omit for the previous last-write-wins behavior; supply the version you last read to get a real 409 VERSION_CONFLICT if someone else updated the product first."
+            "description": "Optimistic concurrency (Deel 22 §110-111). Optional — omit for the previous last-write-wins behavior; supply the version you last read to get a real 409 VERSION_CONFLICT if someone else updated the product first."
           }
         }
       },
@@ -18146,7 +17650,7 @@
             "type": "string"
           },
           "identity": {
-            "description": "Segments to mint a distinct OSPI identity (own full code) for this variant. Every variant now requires its own identity (product owner decision, amendment, 2026-08-17) — provide either this or ospiIdentityId, exactly one, not neither.",
+            "description": "Segments to mint a distinct OSPI identity (own full code) for this variant. Every variant now requires its own identity (product owner decision, 2026-08-17) — provide either this or ospiIdentityId, exactly one, not neither.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/IssueOspiIdentityDto"
@@ -18405,29 +17909,6 @@
           "name"
         ]
       },
-      "RejectCategoryDto": {
-        "type": "object",
-        "properties": {
-          "reason": {
-            "type": "string"
-          }
-        }
-      },
-      "SetCategoryComplianceRequirementDto": {
-        "type": "object",
-        "properties": {
-          "dppRequired": {
-            "type": "boolean"
-          },
-          "deadline": {
-            "type": "string",
-            "description": "ISO 8601 regulatory deadline."
-          }
-        },
-        "required": [
-          "dppRequired"
-        ]
-      },
       "CreateAttributeDefinitionDto": {
         "type": "object",
         "properties": {
@@ -18471,7 +17952,7 @@
           },
           "aggregatable": {
             "type": "boolean",
-            "description": "Opt in to DPP composition aggregation (a component's value is scaled by its BOM percentage and summed into the parent product's composed DPP). Allowed for dataType = DECIMAL, or MEASUREMENT with unitCategoryId set ( — component values are converted to the category's canonical unit before summing, so mismatched units never get silently added together)."
+            "description": "Opt in to DPP composition aggregation (a component's value is scaled by its BOM percentage and summed into the parent product's composed DPP). Allowed for dataType = DECIMAL, or MEASUREMENT with unitCategoryId set (component values are converted to the category's canonical unit before summing, so mismatched units never get silently added together)."
           }
         },
         "required": [
@@ -18648,25 +18129,6 @@
           },
           "comment": {
             "type": "string"
-          }
-        },
-        "required": [
-          "decision"
-        ]
-      },
-      "DecideAttributeSchemaProposalDto": {
-        "type": "object",
-        "properties": {
-          "decision": {
-            "type": "string",
-            "enum": [
-              "APPROVE",
-              "REJECT"
-            ]
-          },
-          "rejectionReason": {
-            "type": "string",
-            "description": "Required when decision = REJECT."
           }
         },
         "required": [
@@ -19203,7 +18665,7 @@
           "minimumQuantity": {
             "type": "number",
             "default": 1,
-            "description": "Decimal, not just whole units (, Deel 17 §29) — e.g. 4.5 kg."
+            "description": "Decimal, not just whole units (Deel 17 §29) — e.g. 4.5 kg."
           },
           "salesUnit": {
             "type": "string",
@@ -19253,7 +18715,7 @@
           },
           "minimumQuantity": {
             "type": "number",
-            "description": "Overrides Offer.minimumQuantity for this buyer only. Decimal (, Deel 17 §29)."
+            "description": "Overrides Offer.minimumQuantity for this buyer only. Decimal (Deel 17 §29)."
           }
         },
         "required": [
@@ -19288,7 +18750,7 @@
           },
           "quantity": {
             "type": "number",
-            "description": "Decimal, not just whole units (, Deel 17 §29) — e.g. 4.5 kg, 10.75 m."
+            "description": "Decimal, not just whole units (Deel 17 §29) — e.g. 4.5 kg, 10.75 m."
           }
         },
         "required": [
@@ -19325,7 +18787,7 @@
           },
           "quantity": {
             "type": "number",
-            "description": "Decimal (, Deel 17 §29) — e.g. 4.5 kg."
+            "description": "Decimal (Deel 17 §29) — e.g. 4.5 kg."
           },
           "unitPrice": {
             "type": "number"

@@ -7,6 +7,7 @@ All notable changes to this documentation site are recorded here.
 - Removed the Architecture (ADR) section entirely — this site now covers only how to use the API (Guides + API Reference), not the internal design rationale behind `ospi-platform`.
 - Updated the live API Reference from the latest `ospi-platform` OpenAPI spec: 101 → 178 endpoints, covering 15 new domains (admin, audit, branding, data-proposals, data-quality, entities, etim, notifications, partner-search, quotes, security-monitoring, sso, units, unspsc, where-to-find).
 - Added `scripts/filter-openapi.js`: excludes the `admin` and `unspsc` tags from the public API Reference (real backend routes, but not third-party integration surfaces), and strips leftover ADR citations out of every endpoint's description/summary text. 174 endpoints, 75 schemas remain documented.
+- Refreshed `openapi/ospi-platform.raw.json` from the backend again: the `admin` and `unspsc` tags are now gone upstream too (the filter is a no-op for both, kept in place in case either reappears), and a `security-monitoring` domain that existed briefly has been removed from the backend entirely. 167 endpoints, 72 schemas documented after filtering.
 
 ## [0.1.0] - 2026-08-20
 

@@ -1,1 +1,0 @@
-{"schema":{"type":"object","properties":{"decision":{"type":"string","enum":["APPROVE","REJECT"]},"rejectionReason":{"type":"string","description":"Required when decision = REJECT."}},"required":["decision"],"title":"DecideAttributeSchemaProposalDto"},"schemaType":"response"}

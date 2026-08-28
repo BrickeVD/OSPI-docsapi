@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"reason":{"type":"string","description":"Why this organization needs to create Producers/OSPI codes despite its ecosystem role(s)."}},"required":["reason"],"title":"RequestProducerCodeExceptionDto"}}}}}
